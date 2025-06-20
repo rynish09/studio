@@ -21,6 +21,17 @@ export const Logo = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => 
     >
       The Conte
     </text>
+    <text
+      x="160"
+      y="27"
+      fontFamily="Inter, sans-serif"
+      fontSize="30"
+      fontWeight="900"
+      fill="currentColor"
+      textAnchor="middle"
+    >
+      x
+    </text>
     <path
       d="M148.5 2.5L171.5 30.5M171.5 2.5L148.5 30.5"
       stroke="#FF0000"
