@@ -4,9 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Github, Twitter, Linkedin } from 'lucide-react';
 
 const footerNav = [
-  { href: '/about', label: 'About' },
+  { href: '/services', label: 'Services' },
   { href: '/process', label: 'Process' },
   { href: '/results', label: 'Case Studies' },
+  { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -30,7 +31,7 @@ export default function Footer() {
             </p>
           </div>
           <div className="flex flex-col items-center gap-6">
-            <nav className="flex gap-6 md:gap-8">
+            <nav className="flex flex-wrap justify-center gap-6 md:gap-8">
               {footerNav.map((item) => (
                 <Link
                   key={item.label}
