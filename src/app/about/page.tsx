@@ -1,6 +1,5 @@
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { Button } from '@/components/ui/button';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export default function AboutPage() {
@@ -21,25 +20,15 @@ export default function AboutPage() {
       </AnimatedWrapper>
 
       <AnimatedWrapper delay={200}>
-        <section className="mt-24 grid md:grid-cols-2 gap-12 items-center">
+        <section className="mt-24 max-w-4xl mx-auto">
             <div className="space-y-6">
-                <h3 className="text-3xl font-bold font-headline text-white">Our Guiding Philosophy</h3>
+                <h3 className="text-3xl font-bold font-headline text-white text-center">Our Guiding Philosophy</h3>
                 <p className="text-white/80" style={{ lineHeight: 1.7 }}>
                 At The ConteX, we believe true influence is an outcome of generosity and expertise, systematically delivered. We distill complexity into clarity, codify success into repeatable systems, and execute with an obsessive focus on craft.
                 </p>
                 <p className="text-white/80" style={{ lineHeight: 1.7 }}>
                 Our mission is to make your perspective the definitive voice in your domain, forging a loyal audience and a brand that commands respect.
                 </p>
-            </div>
-            <div className="relative h-80 rounded-lg overflow-hidden bg-card p-4">
-                <Image
-                    src="https://placehold.co/600x400.png"
-                    alt="Strategic discussion"
-                    data-ai-hint="luxury office discussion"
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-md"
-                />
             </div>
         </section>
       </AnimatedWrapper>
