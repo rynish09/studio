@@ -67,9 +67,9 @@ export default function ProcessPage() {
 
       <AnimatedWrapper delay={600}>
         <section className="mt-24 text-center">
-          <h2 className="text-3xl font-bold font-headline text-white">See the Playbook in Action</h2>
+          <h2 className="text-3xl font-bold font-headline text-white">Explore Our Work</h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
-            The system is proven. The evidence is clear. Explore the results we've engineered for world-class creators.
+            The system is proven. The evidence is clear. Explore the results we've engineered for visionary brands.
           </p>
           <Button asChild size="lg" className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-10 py-7 rounded-md">
             <Link href="/results">View Case Studies</Link>

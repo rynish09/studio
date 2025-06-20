@@ -1,6 +1,5 @@
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { Button } from '@/components/ui/button';
-import { CheckCircle } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -10,13 +9,13 @@ export default function AboutPage() {
       <AnimatedWrapper>
         <section className="text-center">
           <h1 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 font-headline">
-            Strategy Over Noise.
+            Signal in the Noise.
           </h1>
           <h2 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 font-headline mt-2">
-            Depth Over Virality.
+            Substance over Spectacle.
           </h2>
           <p className="mt-6 max-w-3xl mx-auto text-lg text-white/80" style={{ lineHeight: 1.6 }}>
-            We're not just another content agency. We are a team of strategic partners obsessed with building sustainable growth engines for discerning founders and creators. We believe in creating content that doesn't just capture attention, but builds authority, trust, and enterprise-level revenue.
+            We are a strategic content firm dedicated to building defensible brand narratives for leaders and innovators. We don't chase algorithms; we cultivate authority, trust, and lasting enterprise value.
           </p>
         </section>
       </AnimatedWrapper>
@@ -24,19 +23,19 @@ export default function AboutPage() {
       <AnimatedWrapper delay={200}>
         <section className="mt-24 grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-                <h3 className="text-3xl font-bold font-headline text-white">The Principle Behind the Playbook</h3>
+                <h3 className="text-3xl font-bold font-headline text-white">Our Guiding Philosophy</h3>
                 <p className="text-white/80" style={{ lineHeight: 1.7 }}>
-                At The ConteX, we operate on a simple but powerful principle: true influence isn't built on fleeting trends, but on a deep understanding of your audience and a relentless focus on value. We dissect what works, codify it into a repeatable system, and execute with precision.
+                At The ConteX, we believe true influence is an outcome of generosity and expertise, systematically delivered. We distill complexity into clarity, codify success into repeatable systems, and execute with an obsessive focus on craft.
                 </p>
                 <p className="text-white/80" style={{ lineHeight: 1.7 }}>
-                Our goal is to make your expertise the undeniable authority in your niche, creating a loyal following that converts and a brand that endures.
+                Our mission is to make your perspective the definitive voice in your domain, forging a loyal audience and a brand that commands respect.
                 </p>
             </div>
             <div className="relative h-80 rounded-lg overflow-hidden bg-card p-4">
                 <Image
                     src="https://placehold.co/600x400.png"
-                    alt="Strategic meeting"
-                    data-ai-hint="strategy meeting"
+                    alt="Strategic discussion"
+                    data-ai-hint="luxury office discussion"
                     layout="fill"
                     objectFit="cover"
                     className="rounded-md"
@@ -47,7 +46,7 @@ export default function AboutPage() {
       
       <AnimatedWrapper delay={300}>
         <section className="mt-24">
-            <div className="bg-card border border-border rounded-lg p-8 md:p-12 relative overflow-hidden">
+            <div className="bg-card border-border rounded-lg p-8 md:p-12 relative overflow-hidden">
                 <div className="absolute top-0 right-0 -m-4 w-32 h-32 text-accent/10">
                     <svg fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10.414 2.586a2 2 0 00-2.828 0L6 4.172V10h5.828l-1.414-1.414a2 2 0 010-2.828zM12 10a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
@@ -55,13 +54,13 @@ export default function AboutPage() {
                     </svg>
                 </div>
                 <div className="relative">
-                    <h3 className="text-3xl font-bold font-headline text-white">The ConteX Guarantee</h3>
+                    <h3 className="text-3xl font-bold font-headline text-white">Our Partnership Promise</h3>
                     <blockquote className="mt-6 border-l-4 border-accent pl-6">
                         <p className="text-xl md:text-2xl italic text-white" style={{ lineHeight: 1.6 }}>
-                        "Pay 70% upfront for our 90-day plan. You only pay the final 30% if you believe we've delivered tangible growth. We bet on our systems, so you can bet on your success."
+                        "We operate on a performance basis. We align our success with yours, ensuring a partnership built on tangible results and mutual trust. Your growth is our benchmark."
                         </p>
                     </blockquote>
-                    <p className="mt-4 text-sm text-muted-foreground">This applies to our 90-day DFY and DWY plans.</p>
+                    <p className="mt-4 text-sm text-muted-foreground">This principle underpins all our client engagements.</p>
                 </div>
             </div>
         </section>
@@ -69,12 +68,12 @@ export default function AboutPage() {
 
       <AnimatedWrapper delay={400}>
         <section className="mt-24 text-center">
-            <h3 className="text-3xl font-bold font-headline text-white">Ready to Elevate Your Content?</h3>
+            <h3 className="text-3xl font-bold font-headline text-white">Begin Your Legacy Content Journey</h3>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
-                Let's discuss how our playbook can become your growth engine.
+                Let's explore how our strategic framework can become your most powerful asset.
             </p>
             <Button asChild size="lg" className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-10 py-7 rounded-md">
-                <Link href="/contact">Book Your Strategy Session</Link>
+                <Link href="/contact">Book A Consultation</Link>
             </Button>
         </section>
       </AnimatedWrapper>

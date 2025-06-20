@@ -5,8 +5,8 @@ import { Github, Twitter, Linkedin } from 'lucide-react';
 
 const footerNav = [
   { href: '/about', label: 'About' },
-  { href: '/services', label: 'Services' },
   { href: '/process', label: 'Process' },
+  { href: '/results', label: 'Case Studies' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -26,7 +26,7 @@ export default function Footer() {
               <Logo className="h-10 w-auto" />
             </Link>
             <p className="text-sm text-muted-foreground">
-              Strategy Over Noise. Depth Over Virality.
+              Signal in the Noise. Substance over Spectacle.
             </p>
             <div className="flex space-x-2">
               {socialLinks.map((social) => (
