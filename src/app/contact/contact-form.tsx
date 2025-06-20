@@ -45,8 +45,8 @@ export function ContactForm() {
     console.log(values);
 
     toast({
-      title: 'Subscription Successful!',
-      description: "Thanks for joining! We'll send the Growth OS to your inbox shortly.",
+      title: 'Access Granted!',
+      description: "Your Growth OS is on its way. Check your inbox.",
     });
     form.reset();
   }

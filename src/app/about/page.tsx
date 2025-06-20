@@ -21,12 +21,12 @@ export default function AboutPage() {
 
       <AnimatedWrapper delay={200}>
         <section className="mt-24 max-w-4xl mx-auto">
-            <div className="space-y-6">
-                <h3 className="text-3xl font-bold font-headline text-white text-center">Our Guiding Philosophy</h3>
-                <p className="text-white/80" style={{ lineHeight: 1.7 }}>
+            <div className="space-y-6 text-center">
+                <h3 className="text-3xl font-bold font-headline text-white">Our Guiding Philosophy</h3>
+                <p className="text-white/80 text-lg" style={{ lineHeight: 1.7 }}>
                 At The ConteX, we believe true influence is an outcome of generosity and expertise, systematically delivered. We distill complexity into clarity, codify success into repeatable systems, and execute with an obsessive focus on craft.
                 </p>
-                <p className="text-white/80" style={{ lineHeight: 1.7 }}>
+                <p className="text-white/80 text-lg" style={{ lineHeight: 1.7 }}>
                 Our mission is to make your perspective the definitive voice in your domain, forging a loyal audience and a brand that commands respect.
                 </p>
             </div>
@@ -35,13 +35,10 @@ export default function AboutPage() {
       
       <AnimatedWrapper delay={300}>
         <section className="mt-24">
-            <div className="bg-card border-border rounded-lg p-8 md:p-12 relative overflow-hidden">
-                <div className="absolute top-0 right-0 -m-4 w-32 h-32 text-accent/10">
-                    <svg fill="currentColor" viewBox="0 0 100 100"><path d="M26,75.5c0,9.6-6.4,14-14,14c-11.2,0-12-11.2-12-14c0-11.2,12-32.2,21-42.5l7,5.2C29,54.5,26,65.9,26,75.5z M74,75.5c0,9.6-6.4,14-14,14c-11.2,0-12-11.2-12-14c0-11.2,12-32.2,21-42.5l7,5.2C77,54.5,74,65.9,74,75.5z"></path></svg>
-                </div>
-                <div className="relative">
+            <div className="bg-card border-border rounded-lg p-8 md:p-12">
+                <div className="relative text-center">
                     <h3 className="text-3xl font-bold font-headline text-white">Our Core Principle</h3>
-                    <blockquote className="mt-6 border-l-4 border-accent pl-6">
+                    <blockquote className="mt-6 max-w-4xl mx-auto">
                         <p className="text-xl md:text-2xl italic text-white" style={{ lineHeight: 1.6 }}>
                         "The most valuable asset in the new economy is attention. We believe the most effective way to earn it is by generously sharing expertise and creating content so valuable, it would be a crime to charge for it."
                         </p>

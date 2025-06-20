@@ -23,13 +23,13 @@ export default function ResultsPage() {
         {caseStudies.map((study, index) => (
           <AnimatedWrapper key={study.slug} delay={index * 100}>
             <Link href={`/results/${study.slug}`} className="block group h-full">
-              <Card className="bg-card border-border h-full overflow-hidden transition-all duration-300 group-hover:border-accent group-hover:-translate-y-2 flex flex-col">
+              <Card className="bg-card border-border h-full overflow-hidden transition-all duration-300 group-hover:border-accent group-hover:scale-[1.03] flex flex-col">
                 <CardHeader>
-                  <Badge variant="secondary" className="w-fit mb-2">{study.niche}</Badge>
+                  <Badge variant="secondary" className="w-fit mb-4">{study.niche}</Badge>
                   <CardTitle className="text-2xl font-bold text-white">{study.name}</CardTitle>
                 </CardHeader>
-                <CardContent className="flex flex-col flex-grow">
-                  <p className="text-white/70 mb-4 flex-grow">{study.synopsis}</p>
+                <CardContent className="flex flex-col flex-grow p-6">
+                  <p className="text-white/70 mb-6 flex-grow">{study.synopsis}</p>
                   <div className="flex items-center text-accent font-semibold mt-auto">
                     <span>View Breakdown</span>
                     <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />

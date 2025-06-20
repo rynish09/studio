@@ -99,7 +99,7 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-sm border-b border-border/50">
       <div className="container mx-auto flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <Logo className="h-8 w-auto" />
+          <Logo className="text-2xl"/>
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">{renderNavLinks()}</nav>
@@ -118,21 +118,21 @@ export default function Header() {
                 <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="bg-card border-l-border w-full">
+            <SheetContent side="right" className="bg-card border-l-border w-full p-0">
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between p-4 border-b border-border">
                     <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
-                        <Logo className="h-8 w-auto" />
+                        <Logo className="text-2xl"/>
                     </Link>
                     <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
                         <X className="h-6 w-6 text-white" />
                         <span className="sr-only">Close menu</span>
                     </Button>
                 </div>
-                <nav className="flex-grow p-4 space-y-4">
+                <nav className="flex-grow p-6 space-y-4">
                   {renderNavLinks(true)}
                 </nav>
-                <div className="p-4 border-t border-border">
+                <div className="p-6 border-t border-border">
                   <Button asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold">
                     <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>Book a Call</Link>
                   </Button>
