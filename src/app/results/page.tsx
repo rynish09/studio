@@ -12,10 +12,10 @@ export default function ResultsPage() {
       <AnimatedWrapper>
         <section className="text-center">
           <h1 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 font-headline">
-            Our Clients' Stories
+            Deconstructing Greatness
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg text-white/80" style={{ lineHeight: 1.6 }}>
-            We don't just build content strategies; we build legacies. Explore how we've helped brands transform their presence and performance through organic growth.
+            Success leaves clues. We deconstruct the content playbooks of industry titans who turned organic content into empires. Learn from the best.
           </p>
         </section>
       </AnimatedWrapper>

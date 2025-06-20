@@ -35,7 +35,7 @@ export default function ProcessPage() {
             The Playbook
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg text-white/80" style={{ lineHeight: 1.6 }}>
-            Our proprietary 4-step framework is the engine behind every client success story. It's a system designed for clarity, repeatability, and relentless growth.
+            Our proprietary 4-step framework is designed to build legendary brands. It's a system for clarity, repeatability, and relentless growth.
           </p>
         </section>
       </AnimatedWrapper>
