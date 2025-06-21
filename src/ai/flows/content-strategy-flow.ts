@@ -7,7 +7,7 @@
  * - ContentStrategyOutput - The return type for the generateContentStrategy function.
  */
 
-import {ai} from '../genkit';
+import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
 export const ContentStrategyInputSchema = z.object({
