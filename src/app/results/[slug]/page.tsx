@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
 import { getCaseStudyBySlug } from '@/lib/case-studies';
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { Badge } from '@/components/ui/badge';
@@ -40,22 +39,9 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
           </p>
         </div>
       </AnimatedWrapper>
-      
-      <AnimatedWrapper delay={200}>
-        <div className="relative aspect-video max-w-5xl mx-auto mt-16 rounded-lg overflow-hidden shadow-2xl shadow-black/25">
-          <Image
-            src={study.image}
-            alt={study.name}
-            data-ai-hint={study.imageHint}
-            layout="fill"
-            objectFit="cover"
-            className="transition-transform duration-500 hover:scale-105"
-          />
-        </div>
-      </AnimatedWrapper>
 
-      <AnimatedWrapper delay={300}>
-        <section className="mt-24 max-w-4xl mx-auto">
+      <AnimatedWrapper delay={200}>
+        <section className="mt-16 max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold font-headline text-white text-center">The Growth Playbook</h2>
           <div className="mt-16 grid grid-cols-1 gap-8">
             {study.strategy.map((step, index) => (
@@ -77,7 +63,7 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
         </section>
       </AnimatedWrapper>
       
-      <AnimatedWrapper delay={400}>
+      <AnimatedWrapper delay={300}>
         <section className="mt-24 text-center">
             <h3 className="text-3xl font-bold font-headline text-white">Ready for your own success story?</h3>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
