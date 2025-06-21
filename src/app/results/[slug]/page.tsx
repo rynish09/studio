@@ -1,3 +1,4 @@
+
 import { notFound } from 'next/navigation';
 import { getCaseStudyBySlug, caseStudies } from '@/lib/case-studies';
 import AnimatedWrapper from '@/components/ui/animated-wrapper';

@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -109,7 +110,7 @@ export default function HeadlineRewriterPage() {
             <CardContent>
               <div className="space-y-3">
                 {result ? (
-                  result.rewrittenHeadlines.map((h: string, index: number) => (
+                  result.rewrittenHeadlines.map((h, index) => (
                     <div key={index} className="p-3 bg-background rounded-md text-white">
                       {h}
                     </div>

@@ -1,3 +1,4 @@
+
 'use server';
 /**
  * @fileOverview An AI agent for rewriting headlines.
@@ -43,7 +44,7 @@ const headlineRewriterFlow = ai.defineFlow(
     inputSchema: HeadlineRewriterInputSchema,
     outputSchema: HeadlineRewriterOutputSchema,
   },
-  async (input: HeadlineRewriterInput) => {
+  async (input) => {
     const {output} = await prompt(input);
     return output!;
   }

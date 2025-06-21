@@ -1,3 +1,4 @@
+
 'use server';
 /**
  * @fileOverview A content strategy generation AI agent.
@@ -47,7 +48,7 @@ const contentStrategyFlow = ai.defineFlow(
     inputSchema: ContentStrategyInputSchema,
     outputSchema: ContentStrategyOutputSchema,
   },
-  async (input: ContentStrategyInput) => {
+  async (input) => {
     const {output} = await prompt(input);
     return output!;
   }
