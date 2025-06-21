@@ -8,14 +8,30 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Terminal } from 'lucide-react';
+import { Loader, Wand2 } from 'lucide-react';
+import { generateContentStrategy, type ContentStrategyOutput } from '@/ai/flows/content-strategy-flow';
 
 export default function ContentStrategyPage() {
-  const [result, setResult] = useState<string | null>(null);
+  const [niche, setNiche] = useState('');
+  const [audience, setAudience] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [result, setResult] = useState<ContentStrategyOutput | null>(null);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // AI logic will be implemented here. For now, we show a message.
+    setLoading(true);
+    setError(null);
+    setResult(null);
+
+    try {
+      const response = await generateContentStrategy({ niche, audience });
+      setResult(response);
+    } catch (e: any) {
+      setError(e.message || 'An unexpected error occurred.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -41,23 +57,44 @@ export default function ContentStrategyPage() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <Label htmlFor="niche" className="text-white">Your Niche</Label>
-                  <Input id="niche" placeholder="e.g., SaaS for startups, Fitness coaching" className="mt-2 bg-background text-white" />
+                  <Input 
+                    id="niche" 
+                    placeholder="e.g., SaaS for startups, Fitness coaching" 
+                    className="mt-2 bg-background text-white" 
+                    value={niche}
+                    onChange={(e) => setNiche(e.target.value)}
+                  />
                 </div>
                 <div>
                   <Label htmlFor="audience" className="text-white">Target Audience</Label>
-                  <Textarea id="audience" placeholder="e.g., Early-stage founders, busy professionals over 30" className="mt-2 bg-background text-white" />
+                  <Textarea 
+                    id="audience" 
+                    placeholder="e.g., Early-stage founders, busy professionals over 30" 
+                    className="mt-2 bg-background text-white" 
+                    value={audience}
+                    onChange={(e) => setAudience(e.target.value)}
+                  />
                 </div>
                 
-                 <Alert className="bg-secondary">
-                  <Terminal className="h-4 w-4" />
-                  <AlertTitle className="text-accent">Feature Coming Soon!</AlertTitle>
-                  <AlertDescription className="text-white/80">
-                    The AI backend for this tool is being finalized. Stay tuned for updates.
-                  </AlertDescription>
-                </Alert>
+                {error && (
+                  <Alert variant="destructive">
+                    <AlertTitle>Error</AlertTitle>
+                    <AlertDescription>{error}</AlertDescription>
+                  </Alert>
+                )}
                 
-                <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold" disabled>
-                  Generate Strategy
+                <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold" disabled={loading || !niche || !audience}>
+                  {loading ? (
+                    <>
+                      <Loader className="mr-2 h-4 w-4 animate-spin" />
+                      Generating...
+                    </>
+                  ) : (
+                    <>
+                     <Wand2 className="mr-2 h-4 w-4" />
+                     Generate Strategy
+                    </>
+                  )}
                 </Button>
               </form>
             </CardContent>
@@ -71,9 +108,30 @@ export default function ContentStrategyPage() {
               <CardDescription>Your AI-powered content plan will appear here.</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="p-4 bg-background rounded-md text-white/70 min-h-[200px] whitespace-pre-wrap">
-                {result ? result : 'Awaiting input...'}
-              </div>
+              {result ? (
+                <div className="space-y-6 text-white">
+                  <div>
+                    <h3 className="font-bold text-accent text-lg">Topic Pillars</h3>
+                    <ul className="list-disc list-inside mt-2 space-y-1 text-white/80">
+                      {result.topicPillars.map((pillar, i) => <li key={i}>{pillar}</li>)}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-accent text-lg">Sample Headlines</h3>
+                    <ul className="list-disc list-inside mt-2 space-y-1 text-white/80">
+                      {result.sampleHeadlines.map((headline, i) => <li key={i}>{headline}</li>)}
+                    </ul>
+                  </div>
+                   <div>
+                    <h3 className="font-bold text-accent text-lg">Posting Schedule</h3>
+                    <p className="mt-2 text-white/80">{result.postingSchedule}</p>
+                  </div>
+                </div>
+              ) : (
+                <div className="p-4 bg-background rounded-md text-white/70 min-h-[200px] flex items-center justify-center">
+                  Awaiting input...
+                </div>
+              )}
             </CardContent>
           </Card>
         </AnimatedWrapper>
