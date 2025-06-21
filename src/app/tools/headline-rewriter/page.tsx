@@ -7,14 +7,30 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Terminal } from 'lucide-react';
+import { Loader, Wand2 } from 'lucide-react';
+import { rewriteHeadlines, type HeadlineRewriterOutput } from '@/ai/flows/headline-rewriter-flow';
 
 export default function HeadlineRewriterPage() {
-  const [results, setResults] = useState<string[]>([]);
+  const [headline, setHeadline] = useState('');
+  const [niche, setNiche] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [result, setResult] = useState<HeadlineRewriterOutput | null>(null);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // AI logic will be implemented here. For now, we show a message.
+    setLoading(true);
+    setError(null);
+    setResult(null);
+
+    try {
+      const response = await rewriteHeadlines({ headline, niche });
+      setResult(response);
+    } catch (e: any) {
+      setError(e.message || 'An unexpected error occurred.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -40,21 +56,44 @@ export default function HeadlineRewriterPage() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <Label htmlFor="headline" className="text-white">Winning Headline</Label>
-                  <Input id="headline" placeholder="e.g., 5 Mistakes That Are Costing You Sales" className="mt-2 bg-background text-white" />
+                  <Input 
+                    id="headline" 
+                    placeholder="e.g., 5 Mistakes That Are Costing You Sales" 
+                    className="mt-2 bg-background text-white" 
+                    value={headline}
+                    onChange={(e) => setHeadline(e.target.value)}
+                  />
                 </div>
                 <div>
                   <Label htmlFor="niche" className="text-white">Your Niche</Label>
-                  <Input id="niche" placeholder="e.g., E-commerce, Personal Finance" className="mt-2 bg-background text-white" />
+                  <Input 
+                    id="niche" 
+                    placeholder="e.g., E-commerce, Personal Finance" 
+                    className="mt-2 bg-background text-white"
+                    value={niche}
+                    onChange={(e) => setNiche(e.target.value)}
+                  />
                 </div>
-                <Alert className="bg-secondary">
-                  <Terminal className="h-4 w-4" />
-                  <AlertTitle className="text-accent">Feature Coming Soon!</AlertTitle>
-                  <AlertDescription className="text-white/80">
-                    The AI backend for this tool is being finalized. Stay tuned for updates.
-                  </AlertDescription>
-                </Alert>
-                <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold" disabled>
-                  Rewrite Headlines
+                
+                {error && (
+                  <Alert variant="destructive">
+                    <AlertTitle>Error</AlertTitle>
+                    <AlertDescription>{error}</AlertDescription>
+                  </Alert>
+                )}
+                
+                <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold" disabled={loading || !headline || !niche}>
+                  {loading ? (
+                    <>
+                      <Loader className="mr-2 h-4 w-4 animate-spin" />
+                      Rewriting...
+                    </>
+                  ) : (
+                    <>
+                     <Wand2 className="mr-2 h-4 w-4" />
+                     Rewrite Headlines
+                    </>
+                  )}
                 </Button>
               </form>
             </CardContent>
@@ -69,10 +108,10 @@ export default function HeadlineRewriterPage() {
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
-                {results.length > 0 ? (
-                  results.map((headline, index) => (
+                {result ? (
+                  result.rewrittenHeadlines.map((h, index) => (
                     <div key={index} className="p-3 bg-background rounded-md text-white">
-                      {headline}
+                      {h}
                     </div>
                   ))
                 ) : (
