@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { getCaseStudyBySlug } from '@/lib/case-studies';
+import { getCaseStudyBySlug, caseStudies } from '@/lib/case-studies';
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export async function generateStaticParams() {
-    const { caseStudies } = await import('@/lib/case-studies');
     return caseStudies.map((cs) => ({
       slug: cs.slug,
     }));

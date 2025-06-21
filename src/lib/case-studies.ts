@@ -3,8 +3,6 @@ export interface CaseStudy {
   name: string;
   niche: string;
   synopsis: string;
-  image: string;
-  imageHint: string;
   strategy: {
     title: string;
     description: string;
@@ -17,8 +15,6 @@ export const caseStudies: CaseStudy[] = [
     name: 'Alex Hormozi',
     niche: 'Business Scaling & Acquisition',
     synopsis: 'Grew a portfolio to $100M+ and now gives away his business playbooks for free to build a massive audience and brand equity.',
-    image: 'https://placehold.co/800x600.png',
-    imageHint: 'man confident speaker',
     strategy: [
       {
         title: 'Step 1: The "Value Bomb" Content Model',
@@ -43,8 +39,6 @@ export const caseStudies: CaseStudy[] = [
     name: 'Iman Gadzhi',
     niche: 'Online Business & SMMA',
     synopsis: 'Built a multi-million dollar education empire by crafting an aspirational brand narrative through high-production, cinematic storytelling.',
-    image: 'https://placehold.co/800x600.png',
-    imageHint: 'man luxury suit',
     strategy: [
       {
         title: 'Step 1: Cinematic YouTube Documentaries',
@@ -69,8 +63,6 @@ export const caseStudies: CaseStudy[] = [
     name: 'Leila Hormozi',
     niche: 'Operations & Business Scaling (B2B)',
     synopsis: 'As CEO of Acquisition.com, she shares hyper-practical, operational advice for scaling businesses, establishing herself as a leading expert for founders.',
-    image: 'https://placehold.co/800x600.png',
-    imageHint: 'woman ceo office',
     strategy: [
         {
             title: 'Step 1: Hyper-Specific, No-Fluff Content',
@@ -95,8 +87,6 @@ export const caseStudies: CaseStudy[] = [
     name: 'Alex Eubank',
     niche: 'Fitness & Lifestyle',
     synopsis: 'Built a massive fitness community and apparel brand by documenting his life with raw authenticity, making his journey relatable to millions.',
-    image: 'https://placehold.co/800x600.png',
-    imageHint: 'fitness man gym',
     strategy: [
         {
             title: 'Step 1: Radical Transparency Through Vlogging',
@@ -121,8 +111,6 @@ export const caseStudies: CaseStudy[] = [
     name: 'Simon Squibb',
     niche: 'Entrepreneurship & Angel Investing',
     synopsis: 'Gained millions of followers by taking his message to the streets, offering to fund business ideas on the spot and democratizing entrepreneurship.',
-    image: 'https://placehold.co/800x600.png',
-    imageHint: 'man talking street',
     strategy: [
         {
             title: 'Step 1: The "Street-Level" Content Hook',
@@ -147,8 +135,6 @@ export const caseStudies: CaseStudy[] = [
     name: 'Gary Vaynerchuk',
     niche: 'Marketing & Entrepreneurship',
     synopsis: 'Pioneered the "document, don\'t create" philosophy, building a media empire by relentlessly sharing his journey and insights across every social platform.',
-    image: 'https://placehold.co/800x600.png',
-    imageHint: 'man speaking stage',
     strategy: [
       {
         title: 'Step 1: The Content Pyramid Model',
@@ -173,8 +159,6 @@ export const caseStudies: CaseStudy[] = [
     name: 'Codie Sanchez',
     niche: 'Unconventional Investing & SMB',
     synopsis: 'Educates millions on "boring businesses" like laundromats and car washes, using contrarian takes and high-quality production to make wealth-building accessible.',
-    image: 'https://placehold.co/800x600.png',
-    imageHint: 'woman business elegant',
     strategy: [
       {
         title: 'Step 1: Contrarian Niche Domination',
@@ -199,8 +183,6 @@ export const caseStudies: CaseStudy[] = [
     name: 'MrBeast',
     niche: 'YouTube Entertainment & Philanthropy',
     synopsis: 'Reinvented YouTube by focusing obsessively on audience retention, creating high-stakes philanthropic spectacles that are impossible to ignore.',
-    image: 'https://placehold.co/800x600.png',
-    imageHint: 'youtube creator fun',
     strategy: [
       {
         title: 'Step 1: The Viral Idea Flywheel',
@@ -225,8 +207,6 @@ export const caseStudies: CaseStudy[] = [
     name: 'Ali Abdaal',
     niche: 'Productivity & Education',
     synopsis: 'Transitioned from a medical doctor to one of the world\'s leading productivity experts by creating systematic, evidence-based content for students and professionals.',
-    image: 'https://placehold.co/800x600.png',
-    imageHint: 'man desk productivity',
     strategy: [
       {
         title: 'Step 1: The "Part-Time YouTuber" Method',
@@ -251,8 +231,6 @@ export const caseStudies: CaseStudy[] = [
     name: 'Sahil Bloom',
     niche: 'Mental Models & Finance',
     synopsis: 'Grew a massive audience on Twitter by breaking down complex financial and philosophical concepts into simple, visually-engaging threads and frameworks.',
-    image: 'https://placehold.co/800x600.png',
-    imageHint: 'man thinking abstract',
     strategy: [
       {
         title: 'Step 1: The Curiosity-Driven Thread',
@@ -277,8 +255,6 @@ export const caseStudies: CaseStudy[] = [
     name: 'Justin Welsh',
     niche: 'Solopreneurship & LinkedIn Growth',
     synopsis: 'Built a multi-million dollar one-person business by openly documenting his journey and providing hyper-practical advice for growing an audience on LinkedIn.',
-    image: 'https://placehold.co/800x600.png',
-    imageHint: 'man laptop business',
     strategy: [
       {
         title: 'Step 1: Niche Down on a Platform',
@@ -303,8 +279,6 @@ export const caseStudies: CaseStudy[] = [
     name: 'Ryan Holiday',
     niche: 'Stoicism & Modern Philosophy',
     synopsis: 'He single-handedly repopularized Stoicism for a modern audience, building an empire of books, courses, and communities around ancient wisdom.',
-    image: 'https://placehold.co/800x600.png',
-    imageHint: 'books philosophy statue',
     strategy: [
       {
         title: 'Step 1: Reading as Content Generation',
