@@ -7,7 +7,7 @@
  * - HeadlineRewriterOutput - The return type for the rewriteHeadlines function.
  */
 
-import {ai} from '@/ai/genkit';
+import {ai} from '../genkit';
 import {z} from 'genkit';
 
 export const HeadlineRewriterInputSchema = z.object({
@@ -43,7 +43,7 @@ const headlineRewriterFlow = ai.defineFlow(
     inputSchema: HeadlineRewriterInputSchema,
     outputSchema: HeadlineRewriterOutputSchema,
   },
-  async input => {
+  async (input: HeadlineRewriterInput) => {
     const {output} = await prompt(input);
     return output!;
   }

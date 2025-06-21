@@ -109,7 +109,7 @@ export default function HeadlineRewriterPage() {
             <CardContent>
               <div className="space-y-3">
                 {result ? (
-                  result.rewrittenHeadlines.map((h, index) => (
+                  result.rewrittenHeadlines.map((h: string, index: number) => (
                     <div key={index} className="p-3 bg-background rounded-md text-white">
                       {h}
                     </div>

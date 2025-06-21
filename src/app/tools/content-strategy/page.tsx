@@ -113,13 +113,13 @@ export default function ContentStrategyPage() {
                   <div>
                     <h3 className="font-bold text-accent text-lg">Topic Pillars</h3>
                     <ul className="list-disc list-inside mt-2 space-y-1 text-white/80">
-                      {result.topicPillars.map((pillar, i) => <li key={i}>{pillar}</li>)}
+                      {result.topicPillars.map((pillar: string, i: number) => <li key={i}>{pillar}</li>)}
                     </ul>
                   </div>
                   <div>
                     <h3 className="font-bold text-accent text-lg">Sample Headlines</h3>
                     <ul className="list-disc list-inside mt-2 space-y-1 text-white/80">
-                      {result.sampleHeadlines.map((headline, i) => <li key={i}>{headline}</li>)}
+                      {result.sampleHeadlines.map((headline: string, i: number) => <li key={i}>{headline}</li>)}
                     </ul>
                   </div>
                    <div>

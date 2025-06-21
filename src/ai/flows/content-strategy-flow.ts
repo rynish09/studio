@@ -7,7 +7,7 @@
  * - ContentStrategyOutput - The return type for the generateContentStrategy function.
  */
 
-import {ai} from '@/ai/genkit';
+import {ai} from '../genkit';
 import {z} from 'genkit';
 
 export const ContentStrategyInputSchema = z.object({
@@ -47,7 +47,7 @@ const contentStrategyFlow = ai.defineFlow(
     inputSchema: ContentStrategyInputSchema,
     outputSchema: ContentStrategyOutputSchema,
   },
-  async input => {
+  async (input: ContentStrategyInput) => {
     const {output} = await prompt(input);
     return output!;
   }
