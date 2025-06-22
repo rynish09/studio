@@ -1,10 +1,10 @@
-
 'use client';
 
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useToast } from '@/hooks/use-toast';
+import { submitLead } from './actions';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -40,16 +40,21 @@ export function ContactForm() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // In a real application, you would call a server action here to process the form data.
-    // e.g., await submitLead(values);
+    const result = await submitLead(values);
 
-    console.log(values);
-
-    toast({
-      title: 'Access Granted!',
-      description: "Your Growth OS is on its way. Check your inbox.",
-    });
-    form.reset();
+    if (result.success) {
+      toast({
+        title: 'Access Granted!',
+        description: "Your Growth OS is on its way. Check your inbox.",
+      });
+      form.reset();
+    } else if (result.error) {
+      toast({
+        variant: 'destructive',
+        title: 'Submission Failed',
+        description: result.error,
+      });
+    }
   }
 
   return (
