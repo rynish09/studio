@@ -8,8 +8,9 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 
 export const metadata: Metadata = {
-  title: 'The ConteX - Elite Content Agency',
-  description: "We Build The Growth Playbooks For The World's Top 1%.",
+  title: 'The ConteX - Premier Content Agency for Organic Marketing',
+  description: "The ConteX is a top-tier content agency specializing in organic marketing strategies. We create class content to build authority and drive growth for visionary brands.",
+  keywords: ['content agency', 'organic marketing agency', 'class content', 'strategic content', 'brand narrative', 'enterprise value', 'SEO'],
   icons: {
     icon: '/favicon.ico',
   },

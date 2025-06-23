@@ -38,7 +38,7 @@ export default function ServicesPage() {
             Our Offerings
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg text-white/80" style={{ lineHeight: 1.6 }}>
-            We provide a focused suite of services designed for one purpose: to build enduring authority and enterprise value through content.
+            As a top-tier organic marketing agency, we provide a focused suite of services designed for one purpose: to build enduring authority and enterprise value through class content.
           </p>
         </section>
       </AnimatedWrapper>

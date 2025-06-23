@@ -15,7 +15,7 @@ export default function AboutPage() {
             Substance over Spectacle.
           </h2>
           <p className="mt-6 max-w-3xl mx-auto text-lg text-white/80" style={{ lineHeight: 1.6 }}>
-            We are a strategic content firm dedicated to building defensible brand narratives for leaders and innovators. We don't chase algorithms; we cultivate authority, trust, and lasting enterprise value.
+            We are a premier content agency dedicated to building defensible brand narratives for leaders and innovators. As an organic marketing agency, we don't chase algorithms; we cultivate authority, trust, and lasting enterprise value.
           </p>
         </section>
       </AnimatedWrapper>
