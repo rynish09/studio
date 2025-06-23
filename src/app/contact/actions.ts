@@ -1,8 +1,8 @@
+
 'use server';
 
 import { z } from 'zod';
-import { db } from '@/lib/firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { google } from 'googleapis';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -21,14 +21,38 @@ export async function submitLead(values: z.infer<typeof formSchema>) {
     return { error: 'Invalid fields.' };
   }
 
+  const { name, email, phone } = validatedFields.data;
+
   try {
-    await addDoc(collection(db, 'leads'), {
-      ...validatedFields.data,
-      submittedAt: serverTimestamp(),
+    const auth = new google.auth.GoogleAuth({
+      credentials: {
+        client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+        private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+      },
+      scopes: [
+        'https://www.googleapis.com/auth/drive',
+        'https://www.googleapis.com/auth/drive.file',
+        'https://www.googleapis.com/auth/spreadsheets',
+      ],
     });
+
+    const sheets = google.sheets({
+      auth,
+      version: 'v4',
+    });
+
+    const response = await sheets.spreadsheets.values.append({
+      spreadsheetId: process.env.GOOGLE_SHEET_ID,
+      range: 'A1:D1',
+      valueInputOption: 'USER_ENTERED',
+      requestBody: {
+        values: [[new Date().toISOString(), name, email, phone || '']],
+      },
+    });
+
     return { success: true };
-  } catch (e) {
-    console.error('Error adding document: ', e);
+  } catch (e: any) {
+    console.error('Error adding document to Google Sheet: ', e.message);
     return { error: 'Something went wrong. Please try again.' };
   }
 }
