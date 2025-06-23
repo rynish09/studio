@@ -25,10 +25,10 @@ export default function AboutPage() {
             <div className="space-y-6 text-center">
                 <h3 className="text-3xl font-bold font-headline text-white">Our Guiding Philosophy</h3>
                 <p className="text-white/80 text-lg" style={{ lineHeight: 1.7 }}>
-                At The ConteX, we believe true influence is an outcome of generosity and expertise, systematically delivered. We distill complexity into clarity, codify success into repeatable systems, and execute with an obsessive focus on craft.
+                At The ConteX, our content agency believes true influence is an outcome of generosity and expertise, systematically delivered. We distill complexity into clarity, codify success into repeatable systems, and execute with an obsessive focus on craft and class content.
                 </p>
                 <p className="text-white/80 text-lg" style={{ lineHeight: 1.7 }}>
-                Our mission is to make your perspective the definitive voice in your domain, forging a loyal audience and a brand that commands respect.
+                Our mission is to make your perspective the definitive voice in your domain, forging a loyal audience and a brand that commands respect through organic marketing.
                 </p>
             </div>
         </section>
@@ -41,10 +41,10 @@ export default function AboutPage() {
                     <h3 className="text-3xl font-bold font-headline text-white">Our Core Principle</h3>
                     <blockquote className="mt-6 max-w-4xl mx-auto">
                         <p className="text-xl md:text-2xl italic text-white" style={{ lineHeight: 1.6 }}>
-                        "The most valuable asset in the new economy is attention. We believe the most effective way to earn it is by generously sharing expertise and creating content so valuable, it would be a crime to charge for it."
+                        "The most valuable asset in the new economy is attention. We believe the most effective way to earn it is by generously sharing expertise and creating class content so valuable, it would be a crime to charge for it."
                         </p>
                     </blockquote>
-                    <p className="mt-4 text-sm text-muted-foreground">This is the philosophy we apply to building brands.</p>
+                    <p className="mt-4 text-sm text-muted-foreground">This is the philosophy our content agency applies to building brands.</p>
                 </div>
             </div>
         </section>

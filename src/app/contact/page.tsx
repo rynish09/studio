@@ -12,7 +12,7 @@ export default function ContactPage() {
             Start The Conversation
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg text-white/80" style={{ lineHeight: 1.6 }}>
-            Choose the path that best suits your ambitions. Whether you're ready for a deep dive or simply wish to get our strategic insights, we're ready to connect.
+            Choose the path that best suits your ambitions. Whether you're ready for a deep dive with our content agency or simply wish to get our strategic insights, we're ready to connect.
           </p>
         </section>
       </AnimatedWrapper>
@@ -23,7 +23,7 @@ export default function ContactPage() {
             <CardHeader>
               <CardTitle className="text-3xl font-bold font-headline text-white">Book a 1-on-1 Strategy Session</CardTitle>
               <CardDescription className="text-white/70">
-                This is a no-obligation, 30-minute deep-dive call to deconstruct your content challenges and map out a potent growth trajectory.
+                This is a no-obligation, 30-minute deep-dive call with our content agency to deconstruct your challenges and map out a potent growth trajectory.
               </CardDescription>
             </CardHeader>
             <CardContent className="flex-grow">
@@ -45,7 +45,7 @@ export default function ContactPage() {
             <CardHeader>
               <CardTitle className="text-3xl font-bold font-headline text-white">Get The Free Growth OS</CardTitle>
               <CardDescription className="text-white/70">
-                Not ready for a call? Get our playbook of curated resources and systems by joining our private mailing list.
+                Not ready for a call? Get our playbook of curated resources and systems for creating class content by joining our private mailing list.
               </CardDescription>
             </CardHeader>
             <CardContent className="flex-grow flex flex-col justify-center">

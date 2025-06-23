@@ -10,21 +10,21 @@ const services = [
     icon: DraftingCompass,
     title: 'The Blueprint',
     subtitle: 'Strategic Playbook Design',
-    description: 'A comprehensive, one-time audit and strategy design. We deliver a complete playbook for your brand\'s content, identifying your unique narrative, target audience, and a 90-day execution plan.',
+    description: 'A comprehensive, one-time audit and strategy design from our content agency. We deliver a complete class content playbook for your brand\'s organic marketing, identifying your unique narrative, target audience, and a 90-day execution plan.',
     audience: 'Best for: Brands with in-house teams who need expert direction.',
   },
   {
     icon: Factory,
     title: 'The Engine',
     subtitle: 'Full-Service Content Execution',
-    description: 'Our flagship, full-service partnership. We become your dedicated content department, executing the strategy from creation to distribution and optimization. We build your legacy, so you can focus on your business.',
-    audience: 'Best for: Visionaries who want to outsource their entire content operation.',
+    description: 'Our flagship, full-service partnership. Our content agency becomes your dedicated content department, executing the strategy from creation to distribution and optimization. We build your legacy with class content, so you can focus on your business.',
+    audience: 'Best for: Visionaries who want to outsource their entire organic marketing operation.',
   },
   {
     icon: Megaphone,
     title: 'The Amplifier',
     subtitle: 'Founder & CEO Branding',
-    description: 'A specialized program designed to turn founders and CEOs into the definitive voice of their industry. We distill your expertise into a powerful personal brand that drives enterprise value.',
+    description: 'A specialized program designed to turn founders and CEOs into the definitive voice of their industry. Our content agency distills your expertise into a powerful personal brand that drives enterprise value through class content.',
     audience: 'Best for: CEOs & Founders ready to become the face of their brand.',
   },
 ];
@@ -71,7 +71,7 @@ export default function ServicesPage() {
         <section className="mt-24 text-center">
           <h2 className="text-3xl font-bold font-headline text-white">Ready to Forge Your Legacy?</h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
-            A single conversation can be the catalyst for industry-defining authority. Let's explore your potential.
+            A single conversation with our content agency can be the catalyst for industry-defining authority. Let's explore your potential.
           </p>
           <Button asChild size="lg" className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-10 py-7 rounded-md">
             <Link href="/contact">Book a Strategy Call</Link>

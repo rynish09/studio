@@ -23,7 +23,7 @@ const processSteps = [
   {
     icon: Rocket,
     title: 'Content Execution',
-    description: 'Our team executes the playbook, creating high-authority content.',
+    description: 'Our team executes the playbook, creating high-authority class content.',
   },
   {
     icon: Crown,
@@ -43,7 +43,7 @@ export default function Home() {
         <section className="relative container mx-auto flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] text-center p-4 z-10">
           <AnimatedWrapper>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 max-w-4xl leading-tight font-headline">
-              We Don't Build Brands. We Forge Legacies.
+              We Don't Build Brands. We Forge Legacies with Class Content.
             </h1>
             <p
               className="mt-6 text-lg md:text-xl text-white/80 max-w-3xl mx-auto font-body"
@@ -75,9 +75,9 @@ export default function Home() {
       <section className="py-24 sm:py-32 bg-card border-y border-border">
         <div className="container mx-auto">
           <AnimatedWrapper className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">The ConteX Method</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">The ConteX Method: An Organic Marketing Agency's Approach</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
-              A systematic approach to building a legendary brand through content.
+              A systematic approach to building a legendary brand through strategic, class content.
             </p>
           </AnimatedWrapper>
           <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -97,9 +97,9 @@ export default function Home() {
       <section className="py-24 sm:py-32">
         <div className="container mx-auto">
           <AnimatedWrapper className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">Learn From The Titans</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">Learn From The Titans of Content</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
-              We deconstruct the content playbooks of giants. Here's a glimpse of what's inside.
+              Our content agency deconstructs the playbooks of giants. Here's a glimpse of what's inside.
             </p>
           </AnimatedWrapper>
 

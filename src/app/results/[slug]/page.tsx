@@ -67,7 +67,7 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
         <section className="mt-24 text-center">
             <h3 className="text-3xl font-bold font-headline text-white">Ready for your own success story?</h3>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
-                Let's discuss how we can tailor a playbook for your brand.
+                Let's discuss how our content agency can tailor a playbook for your brand.
             </p>
             <Button asChild size="lg" className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-10 py-7 rounded-md">
                 <Link href="/contact">Book Your Strategy Session</Link>

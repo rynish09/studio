@@ -9,25 +9,25 @@ const processSteps = [
   {
     step: '01',
     title: 'Discovery & Audit',
-    description: 'We conduct a comprehensive audit of your existing content ecosystem and market positioning to identify foundational gaps and opportunities.',
+    description: 'Our content agency conducts a comprehensive audit of your existing content ecosystem and market positioning to identify foundational gaps and opportunities.',
     icon: Search,
   },
   {
     step: '02',
     title: 'Strategy & Playbook Design',
-    description: 'Based on our findings, we design a bespoke content playbook—a strategic roadmap detailing themes, formats, and distribution channels.',
+    description: 'Based on our findings, we design a bespoke class content playbook—a strategic roadmap detailing themes, formats, and distribution channels for organic marketing success.',
     icon: Map,
   },
   {
     step: '03',
     title: 'Execution & Optimization',
-    description: 'Our team executes the playbook with precision, creating and distributing high-value content while continuously monitoring performance data.',
+    description: 'Our team executes the playbook with precision, creating and distributing high-value content while continuously monitoring performance data to optimize your organic marketing.',
     icon: Rocket,
   },
   {
     step: '04',
     title: 'Scaling & Authority',
-    description: 'We leverage data-driven insights to double down on what works, scaling content production to establish you as the undeniable authority in your niche.',
+    description: 'We leverage data-driven insights to double down on what works, scaling class content production to establish you as the undeniable authority in your niche.',
     icon: Crown,
   },
 ];
@@ -38,10 +38,10 @@ export default function ProcessPage() {
       <AnimatedWrapper>
         <section className="text-center">
           <h1 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 font-headline">
-            The Playbook
+            The Playbook for Class Content
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg text-white/80" style={{ lineHeight: 1.6 }}>
-            Our proprietary 4-step framework is designed to build legendary brands. It's a system for clarity, repeatability, and relentless growth.
+            Our proprietary 4-step framework from our organic marketing agency is designed to build legendary brands. It's a system for clarity, repeatability, and relentless growth.
           </p>
         </section>
       </AnimatedWrapper>
@@ -75,7 +75,7 @@ export default function ProcessPage() {
         <section className="mt-24 text-center">
           <h2 className="text-3xl font-bold font-headline text-white">Explore The Evidence</h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
-            The system is proven. The results are public. Explore the playbooks we've deconstructed for visionary brands.
+            The system is proven. The results are public. Explore the class content playbooks we've deconstructed for visionary brands.
           </p>
           <Button asChild size="lg" className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-10 py-7 rounded-md">
             <Link href="/results">View Case Studies</Link>

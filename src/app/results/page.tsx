@@ -15,7 +15,7 @@ export default function ResultsPage() {
             Deconstructing Greatness
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg text-white/80" style={{ lineHeight: 1.6 }}>
-            Success leaves clues. We deconstruct the content playbooks of industry titans who turned organic content into empires. Learn from the best.
+            Success leaves clues. Our content agency deconstructs the playbooks of industry titans who turned organic marketing and class content into empires. Learn from the best.
           </p>
         </section>
       </AnimatedWrapper>
