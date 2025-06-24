@@ -6,6 +6,13 @@ import { Toaster } from '@/components/ui/toaster';
 import CustomCursor from '@/components/custom-cursor';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
+import { Sora } from 'next/font/google';
+
+const sora = Sora({
+  subsets: ['latin'],
+  weight: ['400', '600', '700', '800'],
+  variable: '--font-sora',
+});
 
 export const metadata: Metadata = {
   title: 'The ConteX - Premier Content Agency for Organic Marketing',
@@ -22,19 +29,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="en" className={cn('dark', sora.variable)}>
+      <head />
       <body className={cn('font-body antialiased')}>
         <CustomCursor />
         <div className="relative z-10">
