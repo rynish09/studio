@@ -22,6 +22,7 @@ const navLinks = [
   { href: '/services', label: 'Services' },
   { href: '/process', label: 'Process' },
   { href: '/results', label: 'Case Studies' },
+  { href: '/community', label: 'Community' },
   { href: '/about', label: 'About' },
 ];
 
