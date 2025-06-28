@@ -9,32 +9,32 @@ const deliverables = [
   {
     icon: Video,
     title: 'Extensive Course Library',
-    description: 'Deep-dive video modules and PDFs covering our entire growth framework.'
+    description: 'Deep-dive video modules and PDFs covering our entire growth framework for YouTube and Instagram.'
   },
   {
     icon: BrainCircuit,
     title: 'Content Strategy & Ideation',
-    description: 'Master the art of crafting a content strategy that establishes you as an authority.'
+    description: 'Master crafting a content strategy, ideation, and defining upload frequency to establish authority.'
   },
   {
     icon: FileText,
     title: 'Elite-Level Scripting',
-    description: 'Learn to write scripts that hook and hold attention from the first second.'
+    description: 'Learn to write scripts that hook and hold attention from the first second to the last.'
   },
   {
     icon: TrendingUp,
     title: 'Market & Trend Analysis',
-    description: 'Stay ahead of the curve by understanding what\'s working in the market right now.'
+    description: 'Stay ahead of the curve by understanding what is working in the market right now.'
   },
   {
     icon: BarChart,
-    title: 'Performance Analysis & Optimization',
-    description: 'Learn to analyze your own data to double down on what works and cut what doesn\'t.'
+    title: 'Performance Analysis',
+    description: 'Learn to analyze your content performance to double down on what works and cut what does not.'
   },
   {
     icon: Users,
     title: 'Weekly Live Q&A Sessions',
-    description: 'Get your personal questions answered by our team in exclusive weekly calls.'
+    description: 'Get your personal questions answered by our team in exclusive weekly group calls.'
   }
 ];
 
