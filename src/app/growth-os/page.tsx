@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Zap, BrainCircuit, Repeat, BarChart, Youtube, Twitter, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const pillars = [
   {
@@ -67,25 +66,8 @@ export default function GrowthOsPage() {
           </div>
         </section>
       </AnimatedWrapper>
-
-      <AnimatedWrapper delay={300}>
-        <section className="mt-24 max-w-5xl mx-auto">
-          <h3 className="text-3xl font-bold font-headline text-white text-center">Diagram: The Repurposing Engine in Action</h3>
-          <p className="mt-4 text-center text-lg text-white/80">Visually mapping how a single 60-minute podcast becomes a month's worth of multi-platform content.</p>
-          <div className="mt-8 bg-card border border-border rounded-lg p-4">
-            <Image 
-              src="https://placehold.co/1200x600.png"
-              alt="Flowchart of the content repurposing engine"
-              width={1200}
-              height={600}
-              className="rounded-md w-full"
-              data-ai-hint="flowchart diagram"
-            />
-          </div>
-        </section>
-      </AnimatedWrapper>
       
-      <AnimatedWrapper delay={400}>
+      <AnimatedWrapper delay={300}>
         <section className="mt-24 max-w-5xl mx-auto">
             <h3 className="text-3xl font-bold font-headline text-white text-center">Practical Implementation: Steal These Formats</h3>
             <p className="mt-4 text-center text-lg text-white/80">Theory is nothing without execution. Here are two battle-tested content formats you can use today.</p>
@@ -148,7 +130,7 @@ export default function GrowthOsPage() {
         </section>
       </AnimatedWrapper>
 
-      <AnimatedWrapper delay={500}>
+      <AnimatedWrapper delay={400}>
         <section className="mt-24 text-center bg-card border border-border rounded-lg p-8 md:p-12">
             <h2 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 font-headline">The Unfair Advantage</h2>
             <p className="mt-6 max-w-3xl mx-auto text-xl text-white/80" style={{ lineHeight: 1.7 }}>
