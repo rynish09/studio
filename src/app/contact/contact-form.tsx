@@ -1,9 +1,9 @@
+
 'use client';
 
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { useToast } from '@/hooks/use-toast';
 import { submitLead } from './actions';
 import { useRouter } from 'next/navigation';
 
@@ -29,7 +29,6 @@ const formSchema = z.object({
 });
 
 export function ContactForm() {
-  const { toast } = useToast();
   const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -41,28 +40,13 @@ export function ContactForm() {
     },
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    const result = await submitLead(values);
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    // Fire and forget the lead submission. 
+    // It will run in the background on the server.
+    submitLead(values);
 
-    if (result.success) {
-      toast({
-        title: 'Success! Access Granted.',
-        description: 'Your details are saved. Redirecting you to the Growth OS...',
-        duration: 5000,
-      });
-      form.reset();
-      
-      setTimeout(() => {
-        router.push('/growth-os');
-      }, 1500);
-
-    } else if (result.error) {
-      toast({
-        variant: 'destructive',
-        title: 'Submission Failed',
-        description: result.error,
-      });
-    }
+    // Immediately redirect the user to the Growth OS page.
+    router.push('/growth-os');
   }
 
   return (
@@ -125,7 +109,7 @@ export function ContactForm() {
           className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold"
           disabled={form.formState.isSubmitting}
         >
-          {form.formState.isSubmitting ? 'Submitting...' : 'Access Now'}
+          {form.formState.isSubmitting ? 'Processing...' : 'Access Now'}
         </Button>
       </form>
     </Form>
