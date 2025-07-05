@@ -79,7 +79,7 @@ export default function CommunityPage() {
                 <CardContent>
                     <div className="my-4 text-center">
                         <span className="text-2xl font-bold text-muted-foreground line-through">$99</span>
-                        <span className="text-5xl font-black text-white ml-2">$69</span>
+                        <span className="text-5xl font-black text-white ml-2">$49</span>
                         <p className="text-accent font-semibold mt-2">Limited Time Offer</p>
                     </div>
                     <Button asChild size="lg" className="w-full mt-6 bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg py-7 rounded-md">
