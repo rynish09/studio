@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -6,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useToast } from '@/hooks/use-toast';
 import { submitLead } from './actions';
+import { useRouter } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -30,6 +30,7 @@ const formSchema = z.object({
 
 export function ContactForm() {
   const { toast } = useToast();
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -46,9 +47,10 @@ export function ContactForm() {
     if (result.success) {
       toast({
         title: 'Access Granted!',
-        description: "Your Growth OS is on its way. Check your inbox.",
+        description: 'Redirecting you to the Growth OS...',
       });
       form.reset();
+      router.push('/growth-os');
     } else if (result.error) {
       toast({
         variant: 'destructive',
