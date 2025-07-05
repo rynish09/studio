@@ -46,11 +46,16 @@ export function ContactForm() {
 
     if (result.success) {
       toast({
-        title: 'Access Granted!',
-        description: 'Redirecting you to the Growth OS...',
+        title: 'Success! Access Granted.',
+        description: 'Your details are saved. Redirecting you to the Growth OS...',
+        duration: 5000,
       });
       form.reset();
-      router.push('/growth-os');
+      
+      setTimeout(() => {
+        router.push('/growth-os');
+      }, 1500);
+
     } else if (result.error) {
       toast({
         variant: 'destructive',
