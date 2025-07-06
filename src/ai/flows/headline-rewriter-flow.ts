@@ -11,13 +11,13 @@
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
-export const HeadlineRewriterInputSchema = z.object({
+const HeadlineRewriterInputSchema = z.object({
   headline: z.string().describe('The original headline to be rewritten.'),
   niche: z.string().describe('The niche or industry for which the headline is targeted.'),
 });
 export type HeadlineRewriterInput = z.infer<typeof HeadlineRewriterInputSchema>;
 
-export const HeadlineRewriterOutputSchema = z.object({
+const HeadlineRewriterOutputSchema = z.object({
   rewrittenHeadlines: z.array(z.string()).describe('A list of 5 rewritten headline variations.'),
 });
 export type HeadlineRewriterOutput = z.infer<typeof HeadlineRewriterOutputSchema>;

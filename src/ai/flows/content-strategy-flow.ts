@@ -11,13 +11,13 @@
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
-export const ContentStrategyInputSchema = z.object({
+const ContentStrategyInputSchema = z.object({
   niche: z.string().describe('The niche or industry for the content strategy.'),
   audience: z.string().describe('The target audience for the content.'),
 });
 export type ContentStrategyInput = z.infer<typeof ContentStrategyInputSchema>;
 
-export const ContentStrategyOutputSchema = z.object({
+const ContentStrategyOutputSchema = z.object({
   topicPillars: z.array(z.string()).describe('A list of 3-5 core content topic pillars.'),
   sampleHeadlines: z.array(z.string()).describe('A list of 5-7 sample headlines based on the topic pillars.'),
   postingSchedule: z.string().describe('A recommended weekly posting schedule.'),
