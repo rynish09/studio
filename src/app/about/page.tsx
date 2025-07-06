@@ -6,8 +6,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'About Us | The ConteX',
-  description: 'We are a premier content agency dedicated to building defensible brand narratives for leaders and innovators. We don\'t chase algorithms; we cultivate authority.',
+  title: 'About Our Content Agency | The ConteX',
+  description: 'Learn about The ConteX, a premier content agency specializing in organic marketing. We build brand narratives for leaders through expert content marketing and strategy.',
 };
 
 export default function AboutPage() {

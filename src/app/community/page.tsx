@@ -8,8 +8,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: 'Inner Circle Community | The ConteX',
-    description: 'Join our exclusive community to master YouTube and Instagram growth with our proven frameworks, extensive course library, and weekly Q&A sessions.',
+    title: 'Community for Content Marketing Mastery | The ConteX',
+    description: 'Join The ConteX community to master content marketing for YouTube and Instagram. Learn our organic marketing frameworks and grow your business.',
 };
 
 const deliverables = [

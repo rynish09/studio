@@ -15,9 +15,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Our Services | The ConteX',
+  title: 'Content Marketing Services | The ConteX Organic Marketing Agency',
   description:
-    'Explore our focused suite of content services: Strategy Blueprint, Full-Scale Content Partnership, and Founder Amplification. We build authority and drive growth.',
+    'Explore the services offered by The ConteX, a premier content agency. We specialize in organic marketing, content strategy, and founder amplification to drive growth.',
 };
 
 const services = [
@@ -58,7 +58,7 @@ export default function ServicesPage() {
     <div className="container mx-auto py-24 sm:py-32">
       <PageHeader
         title="Services Built to Forge Legends"
-        subtitle="We offer a focused suite of services, not a confusing menu. Each is engineered to build enduring authority and transform your brand into the definitive voice of your industry."
+        subtitle="As a top-tier organic marketing agency, we offer a focused suite of content marketing services. Each is engineered to build enduring authority and transform your brand into the definitive voice of your industry."
       />
 
       <section className="mt-24">

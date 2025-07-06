@@ -6,8 +6,8 @@ import { PageHeader } from '@/components/ui/page-header';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Contact Us | The ConteX',
-    description: 'Book a 1-on-1 strategy session or get our free Growth OS. Connect with our content agency to start building your legacy.',
+    title: 'Contact Our Content Agency | The ConteX',
+    description: 'Connect with The ConteX, a leading organic marketing agency. Book a strategy session to discuss your content marketing needs and start building your brand.',
 };
 
 export default function ContactPage() {

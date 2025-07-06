@@ -49,7 +49,7 @@ export default function Home() {
               className="mt-6 text-lg md:text-xl text-white/80 max-w-3xl mx-auto font-body"
               style={{ lineHeight: 1.6 }}
             >
-              As a leading content agency, we specialize in organic marketing to turn your expertise into enterprise value. Our medium is class content. Our metric is authority.
+              As a leading content agency, we specialize in organic marketing and strategic content marketing to turn your expertise into enterprise value. Our medium is class content. Our metric is authority.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <Button

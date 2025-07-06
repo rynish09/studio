@@ -8,8 +8,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: 'Our Process | The ConteX',
-    description: 'Our proprietary 4-step framework is designed to build legendary brands. A systematic approach for clarity, repeatability, and relentless growth.',
+    title: 'Our Content Marketing Process | The ConteX Agency',
+    description: 'Discover the proprietary 4-step framework our content agency uses for organic marketing success. Our process builds legendary brands through strategic content marketing.',
 };
 
 const processSteps = [

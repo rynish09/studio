@@ -26,11 +26,11 @@ export async function generateMetadata(
   }
 
   return {
-    title: `${study.name} Case Study | The ConteX`,
-    description: `Deconstructing the growth playbook of ${study.name}. ${study.synopsis}`,
+    title: `${study.name} Content Marketing Case Study | The ConteX`,
+    description: `A content agency's breakdown of ${study.name}'s organic marketing strategy. ${study.synopsis}`,
     openGraph: {
-        title: `${study.name} Case Study | The ConteX`,
-        description: `Deconstructing the growth playbook of ${study.name}. ${study.synopsis}`,
+        title: `${study.name} Content Marketing Case Study | The ConteX`,
+        description: `A content agency's breakdown of ${study.name}'s organic marketing strategy. ${study.synopsis}`,
     },
   };
 }
