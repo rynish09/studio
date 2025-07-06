@@ -6,17 +6,39 @@ import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import type { Metadata, ResolvingMetadata } from 'next';
+
+interface CaseStudyPageProps {
+  params: { slug: string };
+}
+
+export async function generateMetadata(
+  { params }: CaseStudyPageProps,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const study = getCaseStudyBySlug(params.slug);
+
+  if (!study) {
+    return {
+      title: 'Case Study Not Found | The ConteX',
+      description: 'The requested case study could not be found.',
+    };
+  }
+
+  return {
+    title: `${study.name} Case Study | The ConteX`,
+    description: `Deconstructing the growth playbook of ${study.name}. ${study.synopsis}`,
+    openGraph: {
+        title: `${study.name} Case Study | The ConteX`,
+        description: `Deconstructing the growth playbook of ${study.name}. ${study.synopsis}`,
+    },
+  };
+}
 
 export async function generateStaticParams() {
     return caseStudies.map((cs) => ({
       slug: cs.slug,
     }));
-}
-
-interface CaseStudyPageProps {
-  params: {
-    slug: string;
-  };
 }
 
 export default function CaseStudyPage({ params }: CaseStudyPageProps) {
@@ -42,8 +64,8 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
 
       <AnimatedWrapper delay={200}>
         <section className="mt-16 max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold font-headline text-white text-center">The Growth Playbook</h2>
-          <div className="mt-16 grid grid-cols-1 gap-8">
+          <h2 className="text-4xl font-bold font-headline text-white text-center mb-12">The Growth Playbook</h2>
+          <div className="grid grid-cols-1 gap-8">
             {study.strategy.map((step, index) => (
               <Card key={index} className="bg-card border-border overflow-hidden">
                 <div className="grid grid-cols-1 md:grid-cols-[80px_1fr] items-start">

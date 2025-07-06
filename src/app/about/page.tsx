@@ -1,24 +1,22 @@
 
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { Button } from '@/components/ui/button';
+import { PageHeader } from '@/components/ui/page-header';
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'About Us | The ConteX',
+  description: 'We are a premier content agency dedicated to building defensible brand narratives for leaders and innovators. We don\'t chase algorithms; we cultivate authority.',
+};
 
 export default function AboutPage() {
   return (
     <div className="container mx-auto py-24 sm:py-32">
-      <AnimatedWrapper>
-        <section className="text-center">
-          <h1 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 font-headline">
-            Signal in the Noise.
-          </h1>
-          <h2 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 font-headline mt-2">
-            Substance over Spectacle.
-          </h2>
-          <p className="mt-6 max-w-3xl mx-auto text-lg text-white/80" style={{ lineHeight: 1.6 }}>
-            We are a premier content agency dedicated to building defensible brand narratives for leaders and innovators. As an organic marketing agency, we don't chase algorithms; we cultivate authority, trust, and lasting enterprise value.
-          </p>
-        </section>
-      </AnimatedWrapper>
+      <PageHeader
+        title={<>Signal in the Noise.<br />Substance over Spectacle.</>}
+        subtitle="We are a premier content agency dedicated to building defensible brand narratives for leaders and innovators. As an organic marketing agency, we don't chase algorithms; we cultivate authority, trust, and lasting enterprise value."
+      />
 
       <AnimatedWrapper delay={200}>
         <section className="mt-24 max-w-4xl mx-auto">

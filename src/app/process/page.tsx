@@ -2,8 +2,15 @@
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { PageHeader } from '@/components/ui/page-header';
 import { Crown, Rocket, Map, Search } from 'lucide-react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+    title: 'Our Process | The ConteX',
+    description: 'Our proprietary 4-step framework is designed to build legendary brands. A systematic approach for clarity, repeatability, and relentless growth.',
+};
 
 const processSteps = [
   {
@@ -35,20 +42,14 @@ const processSteps = [
 export default function ProcessPage() {
   return (
     <div className="container mx-auto py-24 sm:py-32">
-      <AnimatedWrapper>
-        <section className="text-center">
-          <h1 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 font-headline">
-            The Playbook for Class Content
-          </h1>
-          <p className="mt-6 max-w-3xl mx-auto text-lg text-white/80" style={{ lineHeight: 1.6 }}>
-            Our proprietary 4-step framework from our organic marketing agency is designed to build legendary brands. It's a system for clarity, repeatability, and relentless growth.
-          </p>
-        </section>
-      </AnimatedWrapper>
+      <PageHeader
+        title="The Playbook for Class Content"
+        subtitle="Our proprietary 4-step framework from our organic marketing agency is designed to build legendary brands. It's a system for clarity, repeatability, and relentless growth."
+      />
       
       <section className="mt-24">
-        <div className="relative">
-          <div className="absolute top-1/2 left-0 w-full h-0.5 bg-border/30 max-w-5xl mx-auto" aria-hidden="true"></div>
+        <div className="relative max-w-6xl mx-auto">
+          <div className="absolute top-1/2 left-0 w-full h-0.5 bg-border -z-10" aria-hidden="true"></div>
           
           <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {processSteps.map((step, index) => (

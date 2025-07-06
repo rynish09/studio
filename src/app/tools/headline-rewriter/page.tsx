@@ -10,6 +10,7 @@ import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Loader, Wand2 } from 'lucide-react';
 import { rewriteHeadlines, type HeadlineRewriterOutput } from '@/ai/flows/headline-rewriter-flow';
+import { PageHeader } from '@/components/ui/page-header';
 
 export default function HeadlineRewriterPage() {
   const [headline, setHeadline] = useState('');
@@ -36,16 +37,10 @@ export default function HeadlineRewriterPage() {
 
   return (
     <div className="container mx-auto py-24 sm:py-32">
-      <AnimatedWrapper>
-        <section className="text-center">
-          <h1 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 font-headline">
-            SEO Headline Rewriter
-          </h1>
-          <p className="mt-6 max-w-3xl mx-auto text-lg text-white/80" style={{ lineHeight: 1.6 }}>
-            Input a successful headline from your niche. Our AI will rewrite a series of new headlines that emulate its winning components for enhanced SEO.
-          </p>
-        </section>
-      </AnimatedWrapper>
+      <PageHeader 
+        title="SEO Headline Rewriter"
+        subtitle="Input a successful headline from your niche. Our AI will rewrite a series of new headlines that emulate its winning components for enhanced SEO."
+      />
 
       <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
         <AnimatedWrapper delay={150}>

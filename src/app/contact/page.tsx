@@ -2,20 +2,21 @@
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ContactForm } from './contact-form';
+import { PageHeader } from '@/components/ui/page-header';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Contact Us | The ConteX',
+    description: 'Book a 1-on-1 strategy session or get our free Growth OS. Connect with our content agency to start building your legacy.',
+};
 
 export default function ContactPage() {
   return (
     <div className="container mx-auto py-24 sm:py-32">
-      <AnimatedWrapper>
-        <section className="text-center">
-          <h1 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 font-headline">
-            Start The Conversation
-          </h1>
-          <p className="mt-6 max-w-3xl mx-auto text-lg text-white/80" style={{ lineHeight: 1.6 }}>
-            Choose the path that best suits your ambitions. Whether you're ready for a deep dive with our content agency or simply wish to get our strategic insights, we're ready to connect.
-          </p>
-        </section>
-      </AnimatedWrapper>
+      <PageHeader 
+        title="Start The Conversation"
+        subtitle="Choose the path that best suits your ambitions. Whether you're ready for a deep dive with our content agency or simply wish to get our strategic insights, we're ready to connect."
+      />
       
       <div className="mt-20 grid grid-cols-1 lg:grid-cols-5 gap-12">
         <AnimatedWrapper className="lg:col-span-3">

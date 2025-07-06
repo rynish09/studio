@@ -11,6 +11,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Loader, Wand2 } from 'lucide-react';
 import { generateContentStrategy, type ContentStrategyOutput } from '@/ai/flows/content-strategy-flow';
+import { PageHeader } from '@/components/ui/page-header';
 
 export default function ContentStrategyPage() {
   const [niche, setNiche] = useState('');
@@ -37,16 +38,10 @@ export default function ContentStrategyPage() {
 
   return (
     <div className="container mx-auto py-24 sm:py-32">
-      <AnimatedWrapper>
-        <section className="text-center">
-          <h1 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 font-headline">
-            AI Content Strategy
-          </h1>
-          <p className="mt-6 max-w-3xl mx-auto text-lg text-white/80" style={{ lineHeight: 1.6 }}>
-            Define your niche and target audience, and let our AI generate a foundational content strategy with topic ideas and posting schedules.
-          </p>
-        </section>
-      </AnimatedWrapper>
+      <PageHeader
+        title="AI Content Strategy Generator"
+        subtitle="Define your niche and target audience, and let our AI generate a foundational content strategy with topic ideas and posting schedules."
+      />
 
       <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
         <AnimatedWrapper delay={150}>

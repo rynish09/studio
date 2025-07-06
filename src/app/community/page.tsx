@@ -3,7 +3,14 @@ import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Check, Users, Video, FileText, BrainCircuit, TrendingUp, BarChart } from 'lucide-react';
+import { PageHeader } from '@/components/ui/page-header';
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+    title: 'Inner Circle Community | The ConteX',
+    description: 'Join our exclusive community to master YouTube and Instagram growth with our proven frameworks, extensive course library, and weekly Q&A sessions.',
+};
 
 const deliverables = [
   {
@@ -41,16 +48,10 @@ const deliverables = [
 export default function CommunityPage() {
   return (
     <div className="container mx-auto py-24 sm:py-32">
-      <AnimatedWrapper>
-        <section className="text-center">
-          <h1 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 font-headline">
-            The ConteX Inner Circle
-          </h1>
-          <p className="mt-6 max-w-3xl mx-auto text-lg text-white/80" style={{ lineHeight: 1.6 }}>
-            Stop guessing, start building. We've reverse-engineered the playbooks of content titans into a complete operating system for YouTube and Instagram growth. This is where you forge your legacy.
-          </p>
-        </section>
-      </AnimatedWrapper>
+      <PageHeader 
+        title="The ConteX Inner Circle"
+        subtitle="Stop guessing, start building. We've reverse-engineered the playbooks of content titans into a complete operating system for YouTube and Instagram growth. This is where you forge your legacy."
+      />
 
       <div className="mt-20 grid grid-cols-1 lg:grid-cols-3 gap-12">
         <AnimatedWrapper delay={150} className="lg:col-span-2">

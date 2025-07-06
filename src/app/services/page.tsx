@@ -2,8 +2,15 @@
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { Button } from '@/components/ui/button';
 import { Card, CardDescription, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { PageHeader } from '@/components/ui/page-header';
 import { DraftingCompass, Factory, Megaphone } from 'lucide-react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+    title: 'Our Services | The ConteX',
+    description: 'A focused suite of services designed to build enduring authority and enterprise value through class content, from strategy design to full-service execution.',
+};
 
 const services = [
   {
@@ -32,16 +39,10 @@ const services = [
 export default function ServicesPage() {
   return (
     <div className="container mx-auto py-24 sm:py-32">
-      <AnimatedWrapper>
-        <section className="text-center">
-          <h1 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 font-headline">
-            Our Offerings
-          </h1>
-          <p className="mt-6 max-w-3xl mx-auto text-lg text-white/80" style={{ lineHeight: 1.6 }}>
-            As a top-tier organic marketing agency, we provide a focused suite of services designed for one purpose: to build enduring authority and enterprise value through class content.
-          </p>
-        </section>
-      </AnimatedWrapper>
+      <PageHeader 
+        title="Our Offerings"
+        subtitle="As a top-tier organic marketing agency, we provide a focused suite of services designed for one purpose: to build enduring authority and enterprise value through class content."
+      />
 
       <section className="mt-24">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
