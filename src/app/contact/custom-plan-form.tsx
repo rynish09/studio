@@ -1,7 +1,8 @@
 
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { submitCustomPlan } from './actions';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,6 +10,14 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { servicesList } from '@/lib/services-list';
 import { ArrowRight, Loader2 } from 'lucide-react';
 import { Label } from '@/components/ui/label';
+import { z } from 'zod';
+
+const customPlanFormSchema = z.object({
+  name: z.string().min(2, 'Name must be at least 2 characters.'),
+  email: z.string().email('Please enter a valid email address.'),
+  phone: z.string().optional(),
+  services: z.array(z.string()).min(1, 'You must select at least one service.'),
+});
 
 const initialState = {
   errors: {},
@@ -40,7 +49,7 @@ function SubmitButton() {
 }
 
 export function CustomPlanForm() {
-  const [state, formAction] = useFormState(submitCustomPlan, initialState);
+  const [state, formAction] = useActionState(submitCustomPlan, initialState);
 
   return (
     <form action={formAction} className="space-y-8">
