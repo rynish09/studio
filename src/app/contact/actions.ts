@@ -29,15 +29,9 @@ const leadSchema = z.object({
 
 
 export async function submitLead(values: z.infer<typeof leadSchema>) {
-  const validatedFields = leadSchema.safeParse(values);
-
-  if (!validatedFields.success) {
-    return { error: 'Invalid fields.', success: false };
-  }
-
   try {
     await addDoc(collection(db, 'leads'), {
-      ...validatedFields.data,
+      ...values,
       submittedAt: new Date(),
     });
     return { success: true };
@@ -48,15 +42,9 @@ export async function submitLead(values: z.infer<typeof leadSchema>) {
 }
 
 export async function submitCustomPlan(values: z.infer<typeof customPlanSchema>) {
-  const validatedFields = customPlanSchema.safeParse(values);
-
-  if (!validatedFields.success) {
-    return { error: 'Invalid fields.', success: false };
-  }
-
   try {
     const docRef = await addDoc(collection(db, 'custom_plans'), {
-      ...validatedFields.data,
+      ...values,
       submittedAt: new Date(),
     });
     return { success: true, docId: docRef.id };
