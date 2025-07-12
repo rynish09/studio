@@ -17,8 +17,9 @@ const leadSchema = z.object({
 
 export async function submitLead(values: z.infer<typeof leadSchema>) {
   try {
+    const validatedData = leadSchema.parse(values);
     await addDoc(collection(db, 'leads'), {
-      ...values,
+      ...validatedData,
       submittedAt: new Date(),
     });
     return { success: true };
@@ -28,23 +29,27 @@ export async function submitLead(values: z.infer<typeof leadSchema>) {
   }
 }
 
-// The custom plan schema needs to be re-defined here for server-side validation.
+// The custom plan schema is defined here for server-side validation.
 const customPlanFormSchema = z.object({
-    name: z.string().min(2),
-    email: z.string().email(),
+    name: z.string().min(2, "Name must be at least 2 characters."),
+    email: z.string().email("Please enter a valid email address."),
     phone: z.string().optional(),
-    services: z.array(z.string()).min(1),
+    services: z.array(z.string()).min(1, "You must select at least one service."),
 });
 
 export async function submitCustomPlan(values: z.infer<typeof customPlanFormSchema>) {
   try {
+    const validatedData = customPlanFormSchema.parse(values);
     const docRef = await addDoc(collection(db, 'custom_plans'), {
-      ...values,
+      ...validatedData,
       submittedAt: new Date(),
     });
     return { success: true, docId: docRef.id };
   } catch (e: any) {
     console.error('Error adding document: ', e.message);
+    if (e instanceof z.ZodError) {
+      return { error: e.errors.map(err => err.message).join(', '), success: false };
+    }
     return { error: 'Something went wrong. Please try again.', success: false };
   }
 }
