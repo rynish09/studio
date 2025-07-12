@@ -54,4 +54,9 @@ export const servicesList = [
     label: 'Full-Scale Organic Marketing Campaigns',
     description: 'Our flagship offering. An end-to-end partnership where we become your outsourced content department, executing a multi-platform strategy to establish you as the definitive voice in your industry.'
   },
+  {
+    id: 'brand-narrative',
+    label: 'Brand Narrative & Messaging Strategy',
+    description: 'Before you create content, you need a story. We help you define your core message, brand voice, and unique value proposition, creating a powerful narrative that informs every piece of content you produce.'
+  }
 ];
