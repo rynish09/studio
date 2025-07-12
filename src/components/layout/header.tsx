@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -8,7 +9,7 @@ import { Menu, X } from 'lucide-react';
 import { Logo } from '@/components/logo';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 
 const navLinks = [
   { href: '/services', label: 'Services' },
@@ -69,16 +70,17 @@ export default function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="bg-card border-l-border w-full p-0">
+              <SheetHeader className="flex flex-row items-center justify-between p-4 border-b border-border">
+                  <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
+                      <Logo className="text-2xl"/>
+                  </Link>
+                   <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
+                  <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
+                      <X className="h-6 w-6 text-white" />
+                      <span className="sr-only">Close menu</span>
+                  </Button>
+              </SheetHeader>
               <div className="flex flex-col h-full">
-                <div className="flex items-center justify-between p-4 border-b border-border">
-                    <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
-                        <Logo className="text-2xl"/>
-                    </Link>
-                    <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
-                        <X className="h-6 w-6 text-white" />
-                        <span className="sr-only">Close menu</span>
-                    </Button>
-                </div>
                 <nav className="flex-grow p-6 space-y-4">
                   {renderNavLinks(true)}
                    <Link
