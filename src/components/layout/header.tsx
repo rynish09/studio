@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -9,12 +8,6 @@ import { Menu, X } from 'lucide-react';
 import { Logo } from '@/components/logo';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const navLinks = [
@@ -24,11 +17,6 @@ const navLinks = [
   { href: '/results', label: 'Case Studies' },
   { href: '/community', label: 'Community' },
   { href: '/about', label: 'About' },
-];
-
-const toolLinks = [
-  { href: '/tools/content-strategy', label: 'Content Strategy' },
-  { href: '/tools/headline-rewriter', label: 'Headline Rewriter' },
 ];
 
 export default function Header() {
@@ -51,50 +39,17 @@ export default function Header() {
           {link.label}
         </Link>
       ))}
-      {mobile ? (
-        <div className="pt-2">
-            <p className="text-accent text-lg font-medium">Tools</p>
-            {toolLinks.map((link) => (
-                 <Link
-                 key={link.href}
-                 href={link.href}
-                 onClick={() => mobile && setIsMobileMenuOpen(false)}
-                 className={cn(
-                   'block py-2 text-lg font-medium transition-colors hover:text-accent',
-                   pathname === link.href ? 'text-accent' : 'text-white'
-                 )}
-               >
-                 {link.label}
-               </Link>
-            ))}
-        </div>
-      ) : (
-        <DropdownMenu>
-          <DropdownMenuTrigger
-            className={cn(
-              'font-medium text-sm transition-colors hover:text-accent outline-none',
-              pathname.startsWith('/tools') ? 'text-accent' : 'text-white'
-            )}
-          >
-            Tools
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className="bg-card border-border">
-            {toolLinks.map((link) => (
-              <DropdownMenuItem key={link.href} asChild>
-                <Link
-                  href={link.href}
-                  className={cn(
-                    'font-medium',
-                    pathname === link.href ? 'text-accent' : 'text-white'
-                  )}
-                >
-                  {link.label}
-                </Link>
-              </DropdownMenuItem>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
-      )}
+      <Link
+        href="/content-strategy"
+        onClick={() => mobile && setIsMobileMenuOpen(false)}
+        className={cn(
+          'font-medium transition-colors hover:text-accent',
+          pathname === '/content-strategy' ? 'text-accent' : 'text-white',
+          mobile ? 'block py-2 text-lg' : 'text-sm'
+        )}
+      >
+        AI Strategy Tool
+      </Link>
     </>
   );
 
