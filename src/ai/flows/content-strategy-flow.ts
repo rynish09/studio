@@ -50,7 +50,7 @@ const ContentStrategyOutputSchema = z.object({
 export type ContentStrategyOutput = z.infer<typeof ContentStrategyOutputSchema>;
 
 export async function generateContentStrategy(
-  input: unknown
+  input: ContentStrategyInput
 ): Promise<ContentStrategyOutput> {
   const result = ContentStrategyInputSchema.safeParse(input);
   if (!result.success) {

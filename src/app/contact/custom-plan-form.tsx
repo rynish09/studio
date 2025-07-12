@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useActionState } from 'react';
+import { useActionState, useEffect } from 'react';
 import { useFormStatus } from 'react-dom';
 import { submitCustomPlan } from './actions';
 import { Button } from '@/components/ui/button';
@@ -10,17 +10,12 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { servicesList } from '@/lib/services-list';
 import { ArrowRight, Loader2 } from 'lucide-react';
 import { Label } from '@/components/ui/label';
-import { z } from 'zod';
-
-const customPlanFormSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters.'),
-  email: z.string().email('Please enter a valid email address.'),
-  phone: z.string().optional(),
-  services: z.array(z.string()).min(1, 'You must select at least one service.'),
-});
+import { PageHeader } from '@/components/ui/page-header';
 
 const initialState = {
   errors: {},
+  message: '',
+  isSuccess: false,
 };
 
 function SubmitButton() {
@@ -50,6 +45,28 @@ function SubmitButton() {
 
 export function CustomPlanForm() {
   const [state, formAction] = useActionState(submitCustomPlan, initialState);
+
+  if (state.isSuccess) {
+    return (
+      <div className="space-y-8">
+        <PageHeader 
+          title="Thank You. Final Step."
+          subtitle="Your request has been sent. Now, let's get your strategy session on the books. Please choose a time that works best for you below."
+        />
+        <div className="mt-8 max-w-4xl mx-auto">
+          <div className="aspect-[4/3] rounded-lg overflow-hidden border border-border bg-card">
+            <iframe
+              src="https://calendly.com/thecontexagency09/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=1c1e26&text_color=ffffff&primary_color=ef4444"
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              title="Calendly Booking"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <form action={formAction} className="space-y-8">

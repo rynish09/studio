@@ -5,8 +5,6 @@ import { z } from 'zod';
 import { db } from '@/lib/firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
-
 
 const customPlanFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
@@ -27,6 +25,8 @@ export async function submitCustomPlan(prevState: any, formData: FormData) {
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
+      message: 'Please correct the errors and try again.',
+      isSuccess: false,
     };
   }
   
@@ -41,15 +41,19 @@ export async function submitCustomPlan(prevState: any, formData: FormData) {
       submittedAt: new Date(),
     });
     
-    // This is necessary to clear the form cache and redirect
     revalidatePath('/contact');
+    return {
+      errors: {},
+      message: 'Success! Please book your call below.',
+      isSuccess: true,
+    }
 
   } catch (e: any) {
     console.error('Error adding document: ', e.message);
     return {
-      errors: { _form: 'Something went wrong. Please try again.' },
+      errors: { _form: 'Something went wrong on our end. Please try again.' },
+      message: 'An unexpected error occurred.',
+      isSuccess: false,
     };
   }
-
-  redirect('/thank-you');
 }

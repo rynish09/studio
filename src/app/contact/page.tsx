@@ -1,3 +1,4 @@
+
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { PageHeader } from '@/components/ui/page-header';
 import type { Metadata } from 'next';
@@ -11,13 +12,16 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="container mx-auto py-24 sm:py-32">
-      <PageHeader 
-        title="Start The Conversation"
-        subtitle="You're one step away from a bespoke strategy. Select the services you need below, and then schedule your call to lock in your plan with our team."
-      />
-      
-      <AnimatedWrapper delay={200} className="mt-20 max-w-4xl mx-auto">
-        <CustomPlanForm />
+       <AnimatedWrapper delay={200}>
+         <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+               <PageHeader 
+                title="Start The Conversation"
+                subtitle="You're one step away from a bespoke strategy. Select the services you need below, and then schedule your call to lock in your plan with our team."
+              />
+            </div>
+            <CustomPlanForm />
+         </div>
       </AnimatedWrapper>
     </div>
   );
