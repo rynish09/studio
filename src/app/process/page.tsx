@@ -1,4 +1,3 @@
-
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -74,12 +73,12 @@ export default function ProcessPage() {
 
       <AnimatedWrapper delay={600}>
         <section className="mt-24 text-center">
-          <h2 className="text-3xl font-bold font-headline text-white">Explore The Evidence</h2>
+          <h2 className="text-3xl font-bold font-headline text-white">Ready To Implement This Process?</h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
-            The system is proven. The results are public. Explore the class content playbooks we've deconstructed for visionary brands.
+            A system is only as good as its execution. Let's talk about building a custom growth engine for your brand.
           </p>
           <Button asChild size="lg" className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-10 py-7 rounded-md">
-            <Link href="/results">View Case Studies</Link>
+            <Link href="/custom-plan">Customize Your Plan</Link>
           </Button>
         </section>
       </AnimatedWrapper>

@@ -14,18 +14,13 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Loader, Wand2, Lightbulb, CheckCircle, BarChart2 } from 'lucide-react';
-import { generateContentStrategy, type ContentStrategyOutput } from '@/ai/flows/content-strategy-flow';
+import { generateContentStrategy, ContentStrategyInputSchema, type ContentStrategyOutput } from '@/ai/flows/content-strategy-flow';
 import { PageHeader } from '@/components/ui/page-header';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 
 const leadFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
   email: z.string().email("Please enter a valid email."),
-});
-
-const strategyFormSchema = z.object({
-  niche: z.string().min(3, "Please describe your niche."),
-  audience: z.string().min(10, "Please describe your target audience in more detail."),
 });
 
 export default function ContentStrategyPage() {
@@ -39,8 +34,8 @@ export default function ContentStrategyPage() {
     defaultValues: { name: "", email: "" },
   });
 
-  const strategyForm = useForm<z.infer<typeof strategyFormSchema>>({
-    resolver: zodResolver(strategyFormSchema),
+  const strategyForm = useForm<z.infer<typeof ContentStrategyInputSchema>>({
+    resolver: zodResolver(ContentStrategyInputSchema),
     defaultValues: { niche: "", audience: "" },
   });
 
@@ -49,7 +44,7 @@ export default function ContentStrategyPage() {
     setIsGated(false);
   };
 
-  const handleStrategySubmit = async (values: z.infer<typeof strategyFormSchema>) => {
+  const handleStrategySubmit = async (values: z.infer<typeof ContentStrategyInputSchema>) => {
     setLoading(true);
     setError(null);
     setResult(null);
@@ -164,7 +159,12 @@ export default function ContentStrategyPage() {
                   <CardDescription>Your AI-powered content plan will appear here.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  {result ? (
+                  {loading ? (
+                    <div className="p-4 bg-background rounded-md text-white/70 min-h-[200px] flex items-center justify-center flex-col gap-4">
+                      <Loader className="h-8 w-8 animate-spin text-accent" />
+                      <span>Generating your strategy...</span>
+                    </div>
+                  ) : result ? (
                     <div className="space-y-8 text-white">
                       <div>
                         <h3 className="flex items-center gap-2 font-bold text-accent text-xl mb-3"><BarChart2 className="w-5 h-5"/>Current Trends</h3>

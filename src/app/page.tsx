@@ -1,10 +1,9 @@
-
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { caseStudies } from '@/lib/case-studies';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, Crown, Map, Rocket, Search } from 'lucide-react';
+import { ArrowRight, Crown, Map, Rocket, Search, Wand2 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 const featuredStudies = caseStudies.slice(0, 3);
@@ -57,7 +56,7 @@ export default function Home() {
                 size="lg"
                 className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-10 py-7 rounded-md shadow-lg shadow-accent/20 transition-all duration-300 hover:shadow-accent/40 hover:scale-105"
               >
-                <Link href="/contact">Book a Strategy Call</Link>
+                <Link href="/contact">Get The Free Growth OS</Link>
               </Button>
               <Button
                 asChild
@@ -65,7 +64,7 @@ export default function Home() {
                 size="lg"
                 className="font-bold text-lg px-10 py-7 rounded-md border-2 border-border"
               >
-                <Link href="/process">Discover Our Method</Link>
+                <Link href="/content-strategy">Try AI Strategy Tool <Wand2 className="ml-2" /></Link>
               </Button>
             </div>
           </AnimatedWrapper>

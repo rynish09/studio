@@ -40,12 +40,12 @@ export function ContactForm() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Fire and forget the lead submission. 
+    // Fire and forget the lead submission.
     // It will run in the background on the server.
     submitLead(values);
 
     // Immediately redirect the user to the Growth OS page.
-    router.push('/growth-os');
+    router.push('/free-growth-os');
   }
 
   return (
@@ -108,7 +108,7 @@ export function ContactForm() {
           className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold"
           disabled={form.formState.isSubmitting}
         >
-          {form.formState.isSubmitting ? 'Processing...' : 'Access Now'}
+          {form.formState.isSubmitting ? 'Processing...' : 'Access The OS Now'}
         </Button>
       </form>
     </Form>

@@ -11,8 +11,8 @@ import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
 export const ContentStrategyInputSchema = z.object({
-  niche: z.string().describe('The niche or industry for the content strategy.'),
-  audience: z.string().describe('The target audience for the content.'),
+  niche: z.string().min(3, "Please describe your niche."),
+  audience: z.string().min(10, "Please describe your target audience in more detail."),
 });
 export type ContentStrategyInput = z.infer<typeof ContentStrategyInputSchema>;
 
@@ -29,7 +29,11 @@ export const ContentStrategyOutputSchema = z.object({
 export type ContentStrategyOutput = z.infer<typeof ContentStrategyOutputSchema>;
 
 export async function generateContentStrategy(input: ContentStrategyInput): Promise<ContentStrategyOutput> {
-  return contentStrategyFlow(input);
+  const validatedInput = ContentStrategyInputSchema.safeParse(input);
+  if (!validatedInput.success) {
+    throw new Error('Invalid input.');
+  }
+  return contentStrategyFlow(validatedInput.data);
 }
 
 const prompt = ai.definePrompt({
