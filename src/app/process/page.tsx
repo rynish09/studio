@@ -78,7 +78,7 @@ export default function ProcessPage() {
             A system is only as good as its execution. Let's talk about building a custom growth engine for your brand.
           </p>
           <Button asChild size="lg" className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-10 py-7 rounded-md">
-            <Link href="/custom-plan">Customize Your Plan</Link>
+            <Link href="/contact">Book Your Strategy Call</Link>
           </Button>
         </section>
       </AnimatedWrapper>

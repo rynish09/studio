@@ -8,6 +8,7 @@ const footerNav = [
   { href: '/process', label: 'Process' },
   { href: '/results', label: 'Case Studies' },
   { href: '/community', label: 'Community' },
+  { href: '/faq', label: 'FAQ' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];

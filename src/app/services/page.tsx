@@ -56,8 +56,8 @@ export default function ServicesPage() {
             size="lg"
             className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-10 py-7 rounded-md"
           >
-            <Link href="/custom-plan">
-              Customize Your Plan <ArrowRight className="ml-2 w-5 h-5" />
+            <Link href="/contact">
+              Book Your Strategy Call <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
           </Button>
         </section>

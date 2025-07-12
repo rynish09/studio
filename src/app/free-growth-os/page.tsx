@@ -1,24 +1,11 @@
 'use client';
 
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { submitLead } from '@/app/contact/actions';
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PageHeader } from '@/components/ui/page-header';
-import { Zap, BrainCircuit, Repeat, BarChart, ArrowRight, BookLock } from 'lucide-react';
+import { Zap, BrainCircuit, Repeat, BarChart, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-
-const leadFormSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters."),
-  email: z.string().email("Please enter a valid email."),
-  phone: z.string().optional(),
-});
 
 const pillars = [
   {
@@ -59,81 +46,12 @@ const formats = [
 ]
 
 export default function GrowthOsPage() {
-  const [isGated, setIsGated] = useState(true);
-
-  const form = useForm<z.infer<typeof leadFormSchema>>({
-    resolver: zodResolver(leadFormSchema),
-    defaultValues: { name: "", email: "", phone: "" },
-  });
-
-  const handleLeadSubmit = (values: z.infer<typeof leadFormSchema>) => {
-    submitLead(values); // Fire and forget lead submission
-    setIsGated(false);
-  };
-
   return (
     <div className="container mx-auto py-24 sm:py-32">
-      {isGated ? (
-        <AnimatedWrapper>
-          <Card className="bg-card border-border max-w-lg mx-auto text-center">
-            <CardHeader>
-              <div className="mx-auto w-16 h-16 mb-6 flex items-center justify-center rounded-lg bg-secondary text-accent">
-                <BookLock className="w-8 h-8 text-accent"/>
-              </div>
-              <CardTitle className="text-2xl font-bold font-headline">Access The Growth OS</CardTitle>
-              <CardDescription>Enter your details to unlock the blueprint we use to forge industry titans. Instantly.</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(handleLeadSubmit)} className="space-y-6 text-left">
-                  <FormField control={form.control} name="name" render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Name</FormLabel>
-                      <FormControl>
-                        <Input placeholder="e.g., Alex Hormozi" {...field} className="bg-background text-white" />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )} />
-                  <FormField control={form.control} name="email" render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Email</FormLabel>
-                      <FormControl>
-                        <Input placeholder="e.g., alex@acquisition.com" type="email" {...field} className="bg-background text-white" />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )} />
-                   <FormField
-                      control={form.control}
-                      name="phone"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-white">Phone (Optional)</FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="+1 555-123-4567"
-                              {...field}
-                              className="bg-background text-white"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold" disabled={form.formState.isSubmitting}>
-                    {form.formState.isSubmitting ? 'Unlocking...' : 'Access Now'}
-                  </Button>
-                </form>
-              </Form>
-            </CardContent>
-          </Card>
-        </AnimatedWrapper>
-      ) : (
         <>
           <PageHeader
             title={<>The ConteX Growth OS</>}
-            subtitle="You have been granted access. This isn't a list of 'hacks.' This is the operating system we use to forge industry titans. The principles within are a cheat code for building a legacy brand. Read it. Internalize it. Apply it."
+            subtitle="This isn't a list of 'hacks.' This is the operating system we use to forge industry titans. The principles within are a cheat code for building a legacy brand. Read it. Internalize it. Apply it."
           />
 
           <AnimatedWrapper delay={200}>
@@ -243,7 +161,6 @@ export default function GrowthOsPage() {
             </section>
           </AnimatedWrapper>
         </>
-      )}
     </div>
   );
 }

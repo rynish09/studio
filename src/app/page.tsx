@@ -2,10 +2,12 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { caseStudies } from '@/lib/case-studies';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, Crown, Map, Rocket, Search, Wand2, Bot } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { ArrowRight, Crown, Map, Rocket, Search, CheckCircle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { servicesList } from '@/lib/services-list';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { faqList } from '@/lib/faq-list';
 
 const featuredStudies = caseStudies.slice(0, 3);
 
@@ -31,6 +33,8 @@ const processSteps = [
     description: 'We scale production to solidify you as the undeniable industry voice.',
   },
 ];
+
+const vipFaqs = faqList.filter(f => f.vip).slice(0, 3);
 
 export default function Home() {
   return (
@@ -93,7 +97,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+      
       <section className="py-24 sm:py-32">
         <div className="container mx-auto">
           <AnimatedWrapper className="text-center">
@@ -124,28 +128,53 @@ export default function Home() {
         </div>
       </section>
 
-       <section className="py-24 sm:py-32 bg-secondary/30">
-        <div className="container mx-auto">
-          <AnimatedWrapper>
-            <div className="bg-card border border-accent/30 rounded-lg p-8 md:p-12 text-center flex flex-col items-center">
-               <div className="w-16 h-16 mb-6 flex items-center justify-center rounded-lg bg-secondary text-accent">
-                    <Bot className="w-8 h-8 text-accent"/>
-                </div>
-              <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">The Game-Changer AI for Your Content Strategy</h2>
-              <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
-                We've built a proprietary AI, trained on the playbooks of market titans, to generate your next winning content strategy. And it's free, forever.
-              </p>
-              <Button asChild size="lg" className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-10 py-7 rounded-md">
-                <Link href="/content-strategy">
-                  Click Here to Use The AI Tool
-                  <Wand2 className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </div>
-          </AnimatedWrapper>
-        </div>
+       <section className="py-24 sm:py-32 bg-card border-y border-border">
+          <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <AnimatedWrapper>
+                  <div className="max-w-xl">
+                      <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">Your 90-Day Transformation</h2>
+                      <p className="mt-4 text-lg text-white/80" style={{lineHeight: 1.7}}>
+                          Our discovery call isn't a sales pitch. It's the first step in a strategic partnership. We'll diagnose your current content ecosystem and co-create a custom 90-day plan designed for one thing: turning your expertise into undeniable authority and enterprise value.
+                      </p>
+                      <ul className="mt-6 space-y-3 text-white/80">
+                          <li className="flex items-start gap-3">
+                              <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
+                              <span><span className="font-bold text-white">Full Content Audit:</span> We identify what's working, what's not, and where the untapped potential lies.</span>
+                          </li>
+                          <li className="flex items-start gap-3">
+                              <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
+                              <span><span className="font-bold text-white">Bespoke 90-Day Playbook:</span> You get a clear, actionable roadmap with content pillars, formats, and distribution channels.</span>
+                          </li>
+                          <li className="flex items-start gap-3">
+                              <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
+                              <span><span className="font-bold text-white">Transparent Pricing & Scope:</span> No surprises. We'll define the exact scope of our engagement and what you can expect.</span>
+                          </li>
+                      </ul>
+                      <Button asChild size="lg" className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground font-bold">
+                        <Link href="/contact">Book Your No-Obligation Call</Link>
+                      </Button>
+                  </div>
+              </AnimatedWrapper>
+              <AnimatedWrapper delay={200}>
+                  <Card className="bg-background border-accent/30 shadow-lg shadow-accent/10">
+                      <CardHeader>
+                          <CardTitle className="text-2xl text-accent">What is a Custom Package?</CardTitle>
+                          <CardDescription className="text-white/70">It's a tailored selection of our services, packaged into a 90-day sprint.</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                          <p className="text-white/80">Every visionary brand is unique. That's why we don't do "one-size-fits-all." On our call, we'll listen to your goals and hand-pick the services—from YouTube production to content repurposing—that will generate the highest leverage for you right now.</p>
+                          <p className="mt-4 font-bold text-white">Example Package for a Founder:</p>
+                          <ul className="mt-2 list-disc list-inside text-sm text-white/70 space-y-1">
+                              <li>2x Long-Form YouTube Videos/Month</li>
+                              <li>16x Repurposed Short-Form Clips</li>
+                              <li>8x LinkedIn/X Thought Leadership Posts</li>
+                              <li>Weekly Content Performance Report</li>
+                          </ul>
+                      </CardContent>
+                  </Card>
+              </AnimatedWrapper>
+          </div>
       </section>
-
 
       <section className="py-24 sm:py-32">
         <div className="container mx-auto">
@@ -155,7 +184,6 @@ export default function Home() {
               Our content agency deconstructs the playbooks of giants. Here's a glimpse of what's inside.
             </p>
           </AnimatedWrapper>
-
           <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredStudies.map((study, index) => (
               <AnimatedWrapper key={study.slug} delay={index * 100}>
@@ -180,6 +208,34 @@ export default function Home() {
           <AnimatedWrapper className="mt-16 text-center">
               <Button asChild variant="outline" size="lg" className="font-bold">
                   <Link href="/results">Explore All Case Studies</Link>
+              </Button>
+          </AnimatedWrapper>
+        </div>
+      </section>
+
+      <section className="py-24 sm:py-32 bg-secondary/30">
+        <div className="container mx-auto">
+           <AnimatedWrapper className="text-center">
+            <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">Answers to Your Questions</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
+              Clarity is kindness. Here are some answers to common questions we receive.
+            </p>
+          </AnimatedWrapper>
+          <div className="mt-16 max-w-3xl mx-auto">
+             <Accordion type="single" collapsible className="w-full">
+                {vipFaqs.map((faq, index) => (
+                  <AccordionItem value={`item-${index}`} key={index}>
+                    <AccordionTrigger className="text-lg font-semibold text-left text-white">{faq.question}</AccordionTrigger>
+                    <AccordionContent className="text-base text-white/80" style={{lineHeight: 1.7}}>
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+          </div>
+           <AnimatedWrapper className="mt-12 text-center">
+              <Button asChild variant="outline" size="lg" className="font-bold">
+                  <Link href="/faq">See All FAQs</Link>
               </Button>
           </AnimatedWrapper>
         </div>

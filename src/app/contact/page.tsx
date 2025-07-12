@@ -2,11 +2,10 @@
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { PageHeader } from '@/components/ui/page-header';
 import type { Metadata } from 'next';
-import { CustomPlanForm } from './custom-plan-form';
 
 export const metadata: Metadata = {
     title: 'Book a Consultation | The ConteX',
-    description: 'Ready to build your legacy? Customize your strategic content plan and book a consultation with The ConteX, a premier organic marketing agency.',
+    description: 'Schedule your free, no-obligation strategy call with The ConteX. Let\'s build your custom 90-day content playbook.',
 };
 
 export default function ContactPage() {
@@ -16,11 +15,21 @@ export default function ContactPage() {
          <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
                <PageHeader 
-                title="Start The Conversation"
-                subtitle="You're one step away from a bespoke strategy. Select the services you need below, and then schedule your call to lock in your plan with our team."
+                title="Book Your Strategy Call"
+                subtitle="This 30-minute call is the first step. We'll discuss your goals, audit your current strategy, and determine if we're the right partner to build your legacy. There's no pressure and no obligation."
               />
             </div>
-            <CustomPlanForm />
+            <div className="mt-8 max-w-4xl mx-auto">
+              <div className="aspect-[3/4] sm:aspect-video rounded-lg overflow-hidden border border-border bg-card">
+                <iframe
+                  src="https://calendly.com/thecontexagency09/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=101116&text_color=ffffff&primary_color=ff0000"
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  title="Calendly Booking"
+                ></iframe>
+              </div>
+            </div>
          </div>
       </AnimatedWrapper>
     </div>

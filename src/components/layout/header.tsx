@@ -15,8 +15,8 @@ const navLinks = [
   { href: '/services', label: 'Services' },
   { href: '/process', label: 'Process' },
   { href: '/results', label: 'Case Studies' },
-  { href: '/content-strategy', label: 'AI Strategy Tool' },
   { href: '/community', label: 'Community' },
+  { href: '/faq', label: 'FAQ' },
   { href: '/about', label: 'About' },
 ];
 

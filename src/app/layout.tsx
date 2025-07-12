@@ -6,12 +6,12 @@ import { Toaster } from '@/components/ui/toaster';
 import CustomCursor from '@/components/custom-cursor';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
-import { Sora } from 'next/font/google';
+import { Inter } from 'next/font/google';
 
-const sora = Sora({
+const inter = Inter({
   subsets: ['latin'],
-  weight: ['400', '600', '700', '800'],
-  variable: '--font-sora',
+  weight: ['400', '600', '700', '900'],
+  variable: '--font-inter',
 });
 
 export const metadata: Metadata = {
@@ -29,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn('dark', sora.variable)}>
+    <html lang="en" className={cn('dark', inter.variable)}>
       <head />
       <body className={cn('font-body antialiased')}>
         <CustomCursor />
