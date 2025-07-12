@@ -3,8 +3,9 @@ import Link from 'next/link';
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { caseStudies } from '@/lib/case-studies';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, Crown, Map, Rocket, Search, Wand2 } from 'lucide-react';
+import { ArrowRight, Crown, Map, Rocket, Search, Wand2, Bot } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { servicesList } from '@/lib/services-list';
 
 const featuredStudies = caseStudies.slice(0, 3);
 
@@ -56,7 +57,7 @@ export default function Home() {
                 size="lg"
                 className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-10 py-7 rounded-md shadow-lg shadow-accent/20 transition-all duration-300 hover:shadow-accent/40 hover:scale-105"
               >
-                <Link href="/contact">Get The Free Growth OS</Link>
+                <Link href="/contact">Book A Consultation</Link>
               </Button>
               <Button
                 asChild
@@ -64,7 +65,7 @@ export default function Home() {
                 size="lg"
                 className="font-bold text-lg px-10 py-7 rounded-md border-2 border-border"
               >
-                <Link href="/content-strategy">Try AI Strategy Tool <Wand2 className="ml-2" /></Link>
+                <Link href="/free-growth-os">Get The Free Growth OS</Link>
               </Button>
             </div>
           </AnimatedWrapper>
@@ -92,6 +93,57 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="py-24 sm:py-32">
+        <div className="container mx-auto">
+          <AnimatedWrapper className="text-center">
+            <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">Our Services</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
+              A suite of solutions designed to build your brand into an industry-defining force.
+            </p>
+          </AnimatedWrapper>
+
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+              {servicesList.slice(0, 8).map((service, index) => (
+                  <AnimatedWrapper key={service.id} delay={index * 100}>
+                      <Card className="bg-card border-border text-center p-4 h-full">
+                          <CardContent className="p-0">
+                            <p className="font-semibold text-white/90">{service.label}</p>
+                          </CardContent>
+                      </Card>
+                  </AnimatedWrapper>
+              ))}
+          </div>
+          <AnimatedWrapper className="mt-12 text-center">
+              <Button asChild variant="outline" size="lg" className="font-bold">
+                  <Link href="/services">Explore All Services</Link>
+              </Button>
+          </AnimatedWrapper>
+        </div>
+      </section>
+
+       <section className="py-24 sm:py-32 bg-secondary/30">
+        <div className="container mx-auto">
+          <AnimatedWrapper>
+            <div className="bg-card border border-accent/30 rounded-lg p-8 md:p-12 text-center flex flex-col items-center">
+               <div className="w-16 h-16 mb-6 flex items-center justify-center rounded-lg bg-secondary text-accent">
+                    <Bot className="w-8 h-8 text-accent"/>
+                </div>
+              <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">The Game-Changer AI for Your Content Strategy</h2>
+              <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
+                We've built a proprietary AI, trained on the playbooks of market titans, to generate your next winning content strategy. And it's free, forever.
+              </p>
+              <Button asChild size="lg" className="mt-8">
+                <Link href="/content-strategy">
+                  Click Here to Use The AI Tool
+                  <Wand2 className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
+          </AnimatedWrapper>
+        </div>
+      </section>
+
 
       <section className="py-24 sm:py-32">
         <div className="container mx-auto">

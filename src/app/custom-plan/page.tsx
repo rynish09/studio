@@ -1,7 +1,7 @@
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { PageHeader } from '@/components/ui/page-header';
 import type { Metadata } from 'next';
-import { CustomPlanForm } from './custom-plan-form';
+import { CustomPlanForm } from '../contact/custom-plan-form';
 
 export const metadata: Metadata = {
   title: 'Customize Your Growth Plan | The ConteX',

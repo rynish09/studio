@@ -53,10 +53,10 @@ export default function Header() {
 
         <div className="hidden md:flex items-center gap-4">
           <Button asChild variant="ghost">
-            <Link href="/content-strategy">AI Strategy Tool</Link>
+            <Link href="/free-growth-os">Free Growth OS</Link>
           </Button>
           <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold">
-            <Link href="/contact">Get Free Growth OS</Link>
+            <Link href="/contact">Book a Call</Link>
           </Button>
         </div>
 
@@ -82,19 +82,19 @@ export default function Header() {
                 <nav className="flex-grow p-6 space-y-4">
                   {renderNavLinks(true)}
                    <Link
-                    href="/content-strategy"
+                    href="/free-growth-os"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={cn(
                       'font-medium transition-colors hover:text-accent block py-2 text-lg',
-                      pathname === '/content-strategy' ? 'text-accent' : 'text-white'
+                      pathname === '/free-growth-os' ? 'text-accent' : 'text-white'
                     )}
                   >
-                    AI Strategy Tool
+                    Free Growth OS
                   </Link>
                 </nav>
                 <div className="p-6 border-t border-border">
                   <Button asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold">
-                    <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>Get Free Growth OS</Link>
+                    <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>Book a Call</Link>
                   </Button>
                 </div>
               </div>
