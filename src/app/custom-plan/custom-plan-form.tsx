@@ -17,8 +17,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
-import { customPlanSchema } from './actions';
-import { submitCustomPlan } from './actions';
+import { customPlanSchema, submitCustomPlan } from './actions';
 import { useToast } from '@/hooks/use-toast';
 import { servicesList } from '@/lib/services-list';
 import { ArrowRight } from 'lucide-react';
@@ -41,7 +40,7 @@ export function CustomPlanForm() {
     const result = await submitCustomPlan(data);
 
     if (result.success) {
-      router.push('https://calendly.com/thecontexagency09/30min');
+      router.push('/thank-you');
     } else {
       toast({
         title: 'Submission Failed',
@@ -133,7 +132,7 @@ export function CustomPlanForm() {
                                 checked={field.value?.includes(item.id)}
                                 onCheckedChange={(checked) => {
                                   return checked
-                                    ? field.onChange([...field.value, item.id])
+                                    ? field.onChange([...(field.value || []), item.id])
                                     : field.onChange(
                                         field.value?.filter(
                                           (value) => value !== item.id
@@ -167,7 +166,7 @@ export function CustomPlanForm() {
             'Processing...'
           ) : (
             <>
-              Final Step: Book Your Call <ArrowRight className="ml-2 h-5 w-5" />
+              Submit & Book Your Call <ArrowRight className="ml-2 h-5 w-5" />
             </>
           )}
         </Button>

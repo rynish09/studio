@@ -1,16 +1,24 @@
+'use client';
+
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import { submitLead } from '@/app/contact/actions';
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { PageHeader } from '@/components/ui/page-header';
-import { Zap, BrainCircuit, Repeat, BarChart, ArrowRight } from 'lucide-react';
-import type { Metadata } from 'next';
+import { Zap, BrainCircuit, Repeat, BarChart, ArrowRight, BookLock } from 'lucide-react';
 import Link from 'next/link';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
 
-export const metadata: Metadata = {
-  title: 'The Free Growth OS | The ConteX',
-  description:
-    'Access the blueprint for market domination. Our Growth OS is the operating system we use to forge industry titans. Internalize and apply these principles.',
-};
+const leadFormSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters."),
+  email: z.string().email("Please enter a valid email."),
+  phone: z.string().optional(),
+});
 
 const pillars = [
   {
@@ -51,120 +59,191 @@ const formats = [
 ]
 
 export default function GrowthOsPage() {
+  const [isGated, setIsGated] = useState(true);
+
+  const form = useForm<z.infer<typeof leadFormSchema>>({
+    resolver: zodResolver(leadFormSchema),
+    defaultValues: { name: "", email: "", phone: "" },
+  });
+
+  const handleLeadSubmit = (values: z.infer<typeof leadFormSchema>) => {
+    submitLead(values); // Fire and forget lead submission
+    setIsGated(false);
+  };
+
   return (
     <div className="container mx-auto py-24 sm:py-32">
-      <PageHeader
-        title={<>The ConteX Growth OS</>}
-        subtitle="You have been granted access. This isn't a list of 'hacks.' This is the operating system we use to forge industry titans. The principles within are a cheat code for building a legacy brand. Read it. Internalize it. Apply it."
-      />
+      {isGated ? (
+        <AnimatedWrapper>
+          <Card className="bg-card border-border max-w-lg mx-auto text-center">
+            <CardHeader>
+              <div className="mx-auto w-16 h-16 mb-6 flex items-center justify-center rounded-lg bg-secondary text-accent">
+                <BookLock className="w-8 h-8 text-accent"/>
+              </div>
+              <CardTitle className="text-2xl font-bold font-headline">Access The Growth OS</CardTitle>
+              <CardDescription>Enter your details to unlock the blueprint we use to forge industry titans. Instantly.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(handleLeadSubmit)} className="space-y-6 text-left">
+                  <FormField control={form.control} name="name" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Name</FormLabel>
+                      <FormControl>
+                        <Input placeholder="e.g., Alex Hormozi" {...field} className="bg-background text-white" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                  <FormField control={form.control} name="email" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email</FormLabel>
+                      <FormControl>
+                        <Input placeholder="e.g., alex@acquisition.com" type="email" {...field} className="bg-background text-white" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                   <FormField
+                      control={form.control}
+                      name="phone"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-white">Phone (Optional)</FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="+1 555-123-4567"
+                              {...field}
+                              className="bg-background text-white"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold" disabled={form.formState.isSubmitting}>
+                    {form.formState.isSubmitting ? 'Unlocking...' : 'Access Now'}
+                  </Button>
+                </form>
+              </Form>
+            </CardContent>
+          </Card>
+        </AnimatedWrapper>
+      ) : (
+        <>
+          <PageHeader
+            title={<>The ConteX Growth OS</>}
+            subtitle="You have been granted access. This isn't a list of 'hacks.' This is the operating system we use to forge industry titans. The principles within are a cheat code for building a legacy brand. Read it. Internalize it. Apply it."
+          />
 
-      <AnimatedWrapper delay={200}>
-        <section className="mt-24 max-w-5xl mx-auto">
-          <h3 className="text-3xl font-bold font-headline text-white text-center">
-            The Four Pillars of a Content Legacy
-          </h3>
-          <p className="mt-4 text-center text-lg text-white/80">
-            This is the framework that underpins every successful brand we've
-            studied and built. Master these four pillars, and you master your
-            market.
-          </p>
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-            {pillars.map((pillar, index) => (
-              <Card key={index} className="bg-card border-border flex flex-col">
-                <CardHeader className="flex-row items-center gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-lg bg-secondary text-accent">
-                    <pillar.icon className="w-6 h-6" />
-                  </div>
-                  <CardTitle className="text-xl font-bold text-white">
-                    {pillar.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-white/70">{pillar.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-      </AnimatedWrapper>
-
-      <AnimatedWrapper delay={300}>
-        <section className="mt-24 max-w-5xl mx-auto">
-          <h3 className="text-3xl font-bold font-headline text-white text-center">
-            Practical Implementation: Steal These Formats
-          </h3>
-          <p className="mt-4 text-center text-lg text-white/80">
-            Theory is nothing without execution. Here are two battle-tested
-            content formats you can use today.
-          </p>
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-            {formats.map((format, index) => (
-                <Card key={index} className="bg-card border-border">
-                    <CardHeader>
-                        <CardTitle className="text-xl font-bold text-accent">{format.title}</CardTitle>
+          <AnimatedWrapper delay={200}>
+            <section className="mt-24 max-w-5xl mx-auto">
+              <h3 className="text-3xl font-bold font-headline text-white text-center">
+                The Four Pillars of a Content Legacy
+              </h3>
+              <p className="mt-4 text-center text-lg text-white/80">
+                This is the framework that underpins every successful brand we've
+                studied and built. Master these four pillars, and you master your
+                market.
+              </p>
+              <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+                {pillars.map((pillar, index) => (
+                  <Card key={index} className="bg-card border-border flex flex-col">
+                    <CardHeader className="flex-row items-center gap-4">
+                      <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-lg bg-secondary text-accent">
+                        <pillar.icon className="w-6 h-6" />
+                      </div>
+                      <CardTitle className="text-xl font-bold text-white">
+                        {pillar.title}
+                      </CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <p className="text-white/70">{format.description}</p>
+                      <p className="text-white/70">{pillar.description}</p>
                     </CardContent>
-                </Card>
-            ))}
-          </div>
-        </section>
-      </AnimatedWrapper>
+                  </Card>
+                ))}
+              </div>
+            </section>
+          </AnimatedWrapper>
 
-      <AnimatedWrapper delay={400}>
-        <section className="mt-24 text-center bg-card border border-accent/30 rounded-lg p-8 md:p-12 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-accent/10"></div>
-          <div className="relative z-10">
-            <h2 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 font-headline">
-              The Unfair Advantage
-            </h2>
-            <p
-              className="mt-6 max-w-3xl mx-auto text-xl text-white/80"
-              style={{ lineHeight: 1.7 }}
-            >
-              You now have the playbook. The entire strategy is laid out before
-              you. But knowledge is not power.{' '}
-              <span className="text-accent font-bold">
-                Applied knowledge is power.
-              </span>
-            </p>
-            <p
-              className="mt-4 max-w-3xl mx-auto text-lg text-white/70"
-              style={{ lineHeight: 1.7 }}
-            >
-              Executing this at an elite level requires obsession, consistency,
-              and a team that lives and breathes this philosophy. It's the
-              difference between knowing the path and walking the path.
-            </p>
-            <p
-              className="mt-6 max-w-3xl mx-auto text-xl text-white font-bold"
-              style={{ lineHeight: 1.7 }}
-            >
-              We are the execution partners for founders who demand to be
-              legends. We don't just advise; we build your content engine for
-              you.
-            </p>
-            <Button
-              asChild
-              size="lg"
-              className="mt-10 bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-10 py-7 rounded-md shadow-lg shadow-accent/20 transition-all duration-300 hover:shadow-accent/40 hover:scale-105"
-            >
-              <Link
-                href="https://calendly.com/thecontexagency09/30min"
-                target="_blank"
-              >
-                Book Your Strategy Call & Skip The Line
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Link>
-            </Button>
-            <p className="mt-4 text-sm text-muted-foreground">
-              This is not a sales call. It's a strategic session to see if we're
-              a fit to build your legacy.
-            </p>
-          </div>
-        </section>
-      </AnimatedWrapper>
+          <AnimatedWrapper delay={300}>
+            <section className="mt-24 max-w-5xl mx-auto">
+              <h3 className="text-3xl font-bold font-headline text-white text-center">
+                Practical Implementation: Steal These Formats
+              </h3>
+              <p className="mt-4 text-center text-lg text-white/80">
+                Theory is nothing without execution. Here are two battle-tested
+                content formats you can use today.
+              </p>
+              <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+                {formats.map((format, index) => (
+                    <Card key={index} className="bg-card border-border">
+                        <CardHeader>
+                            <CardTitle className="text-xl font-bold text-accent">{format.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className="text-white/70">{format.description}</p>
+                        </CardContent>
+                    </Card>
+                ))}
+              </div>
+            </section>
+          </AnimatedWrapper>
+
+          <AnimatedWrapper delay={400}>
+            <section className="mt-24 text-center bg-card border border-accent/30 rounded-lg p-8 md:p-12 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-accent/10"></div>
+              <div className="relative z-10">
+                <h2 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 font-headline">
+                  The Unfair Advantage
+                </h2>
+                <p
+                  className="mt-6 max-w-3xl mx-auto text-xl text-white/80"
+                  style={{ lineHeight: 1.7 }}
+                >
+                  You now have the playbook. The entire strategy is laid out before
+                  you. But knowledge is not power.{' '}
+                  <span className="text-accent font-bold">
+                    Applied knowledge is power.
+                  </span>
+                </p>
+                <p
+                  className="mt-4 max-w-3xl mx-auto text-lg text-white/70"
+                  style={{ lineHeight: 1.7 }}
+                >
+                  Executing this at an elite level requires obsession, consistency,
+                  and a team that lives and breathes this philosophy. It's the
+                  difference between knowing the path and walking the path.
+                </p>
+                <p
+                  className="mt-6 max-w-3xl mx-auto text-xl text-white font-bold"
+                  style={{ lineHeight: 1.7 }}
+                >
+                  We are the execution partners for founders who demand to be
+                  legends. We don't just advise; we build your content engine for
+                  you.
+                </p>
+                <Button
+                  asChild
+                  size="lg"
+                  className="mt-10 bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-10 py-7 rounded-md shadow-lg shadow-accent/20 transition-all duration-300 hover:shadow-accent/40 hover:scale-105"
+                >
+                  <Link
+                    href="/contact"
+                  >
+                    Book Your Strategy Call & Skip The Line
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Link>
+                </Button>
+                <p className="mt-4 text-sm text-muted-foreground">
+                  This is not a sales call. It's a strategic session to see if we're
+                  a fit to build your legacy.
+                </p>
+              </div>
+            </section>
+          </AnimatedWrapper>
+        </>
+      )}
     </div>
   );
 }

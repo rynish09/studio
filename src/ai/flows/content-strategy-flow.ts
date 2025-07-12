@@ -31,7 +31,8 @@ export type ContentStrategyOutput = z.infer<typeof ContentStrategyOutputSchema>;
 export async function generateContentStrategy(input: ContentStrategyInput): Promise<ContentStrategyOutput> {
   const validatedInput = ContentStrategyInputSchema.safeParse(input);
   if (!validatedInput.success) {
-    throw new Error('Invalid input.');
+    // This provides a more detailed error message to the client.
+    throw new Error(`Invalid input: ${validatedInput.error.errors.map(e => e.message).join(', ')}`);
   }
   return contentStrategyFlow(validatedInput.data);
 }
