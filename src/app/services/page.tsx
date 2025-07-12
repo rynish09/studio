@@ -22,21 +22,20 @@ export default function ServicesPage() {
         subtitle="We provide integrated solutions to build your brand into an industry-defining force. Below is our full arsenal of capabilities. We will build a custom package based on your unique goals."
       />
 
-      <section className="mt-24 max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {servicesList.map((service, index) => (
-            <AnimatedWrapper
-              key={service.id}
-              delay={index * 100}
-              className="[&:nth-child(1)]:col-span-2 md:[&:nth-child(1)]:col-span-2 lg:[&:nth-child(1)]:col-span-2 [&:nth-child(2)]:col-span-2 md:[&:nth-child(2)]:col-span-2 lg:[&:nth-child(2)]:col-span-2"
-            >
-              <Card className="bg-card border-border h-full p-6 text-center flex flex-col justify-center items-center group transition-all duration-300 hover:border-accent hover:-translate-y-1">
-                <CardContent className="p-0">
-                  <p className="font-semibold text-lg text-white/90 group-hover:text-white transition-colors">{service.label}</p>
-                </CardContent>
-              </Card>
-            </AnimatedWrapper>
-          ))}
+      <section className="mt-24 max-w-4xl mx-auto">
+        <div className="space-y-8">
+            {servicesList.map((service, index) => (
+                <AnimatedWrapper key={service.id} delay={index * 150}>
+                    <Card className="bg-card border-border shadow-lg transition-all duration-300 hover:border-accent hover:-translate-y-1">
+                        <CardHeader>
+                            <CardTitle className="text-2xl text-accent">{service.label}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className="text-white/80" style={{ lineHeight: 1.7 }}>{service.description}</p>
+                        </CardContent>
+                    </Card>
+                </AnimatedWrapper>
+            ))}
         </div>
       </section>
 
