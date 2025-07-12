@@ -22,6 +22,8 @@ const AnimatedWrapper = ({
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          // Add a class to the element when it becomes visible
+          entry.target.classList.add('is-visible');
           observer.unobserve(entry.target);
         }
       },
@@ -47,10 +49,8 @@ const AnimatedWrapper = ({
     <div
       ref={ref}
       className={cn(
-        'transition-all duration-700',
-        isVisible
-          ? 'opacity-100 translate-y-0'
-          : 'opacity-0 translate-y-8',
+        'transition-opacity duration-700 opacity-0',
+        isVisible && 'opacity-100',
         className
       )}
       style={{ transitionDelay: `${delay}ms` }}

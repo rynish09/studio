@@ -22,15 +22,22 @@ export default function ServicesPage() {
         subtitle="We provide integrated solutions to build your brand into an industry-defining force. Below is our full arsenal of capabilities. We will build a custom package based on your unique goals."
       />
 
-      <section className="mt-24 max-w-4xl mx-auto">
-        <div className="space-y-8">
+      <section className="mt-24 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {servicesList.map((service, index) => (
-                <AnimatedWrapper key={service.id} delay={index * 150}>
-                    <Card className="bg-card border-border shadow-lg transition-all duration-300 hover:border-accent hover:-translate-y-1">
-                        <CardHeader>
-                            <CardTitle className="text-2xl text-accent">{service.label}</CardTitle>
+                <AnimatedWrapper 
+                    key={service.id} 
+                    delay={index * 100}
+                    className={index % 2 === 0 ? 'md:[&.is-visible]:animate-slide-in-left' : 'md:[&.is-visible]:animate-slide-in-right'}
+                >
+                    <Card className="bg-card border-border shadow-lg transition-all duration-300 hover:border-accent hover:-translate-y-1 h-full flex flex-col">
+                        <CardHeader className="flex flex-row items-start gap-4">
+                            <span className="text-4xl font-black text-accent/50 w-16 text-center">
+                                {String(index + 1).padStart(2, '0')}
+                            </span>
+                            <CardTitle className="text-2xl text-accent !mt-0">{service.label}</CardTitle>
                         </CardHeader>
-                        <CardContent>
+                        <CardContent className="flex-grow">
                             <p className="text-white/80" style={{ lineHeight: 1.7 }}>{service.description}</p>
                         </CardContent>
                     </Card>
