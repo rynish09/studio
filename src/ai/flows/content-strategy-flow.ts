@@ -1,3 +1,4 @@
+
 'use server';
 /**
  * @fileOverview A content strategy generation AI agent.
@@ -11,26 +12,53 @@ import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
 const ContentStrategyInputSchema = z.object({
-  niche: z.string().min(3, "Please describe your niche."),
-  audience: z.string().min(10, "Please describe your target audience in more detail."),
+  niche: z.string().min(3, 'Please describe your niche.'),
+  audience: z
+    .string()
+    .min(10, 'Please describe your target audience in more detail.'),
 });
 export type ContentStrategyInput = z.infer<typeof ContentStrategyInputSchema>;
 
 const ContentStrategyOutputSchema = z.object({
-  trendingTopics: z.array(z.string()).describe('A list of 3-4 currently trending topics or formats in the specified niche.'),
+  trendingTopics: z
+    .array(z.string())
+    .describe(
+      'A list of 3-4 currently trending topics or formats in the specified niche.'
+    ),
   contentIdeas: z
-    .array(z.object({
-      title: z.string().describe('A compelling, clickable headline for the content idea.'),
-      description: z.string().describe('A brief description of what the content would cover and why it provides value.')
-    }))
-    .describe('A list of the top 5 specific content ideas (e.g., video, blog post, thread) based on the niche and audience.'),
-  callToAction: z.string().describe('A concluding paragraph that naturally transitions into a call-to-action, suggesting that executing this strategy effectively requires expertise and inviting the user to book a call to discuss partnership.'),
+    .array(
+      z.object({
+        title: z
+          .string()
+          .describe('A compelling, clickable headline for the content idea.'),
+        description: z
+          .string()
+          .describe(
+            'A brief description of what the content would cover and why it provides value.'
+          ),
+      })
+    )
+    .describe(
+      'A list of the top 5 specific content ideas (e.g., video, blog post, thread) based on the niche and audience.'
+    ),
+  callToAction: z
+    .string()
+    .describe(
+      'A concluding paragraph that naturally transitions into a call-to-action, suggesting that executing this strategy effectively requires expertise and inviting the user to book a call to discuss partnership.'
+    ),
 });
 export type ContentStrategyOutput = z.infer<typeof ContentStrategyOutputSchema>;
 
-export async function generateContentStrategy(input: unknown): Promise<ContentStrategyOutput> {
-  const validatedInput = ContentStrategyInputSchema.parse(input);
-  return contentStrategyFlow(validatedInput);
+export async function generateContentStrategy(
+  input: unknown
+): Promise<ContentStrategyOutput> {
+  const result = ContentStrategyInputSchema.safeParse(input);
+  if (!result.success) {
+    throw new Error(
+      `Invalid input: ${result.error.errors.map((e) => e.message).join(', ')}`
+    );
+  }
+  return contentStrategyFlow(result.data);
 }
 
 const prompt = ai.definePrompt({
@@ -58,7 +86,9 @@ const contentStrategyFlow = ai.defineFlow(
   async (input) => {
     const {output} = await prompt(input);
     if (!output) {
-      throw new Error('Failed to generate a content strategy. The AI model did not return a valid output.');
+      throw new Error(
+        'Failed to generate a content strategy. The AI model did not return a valid output.'
+      );
     }
     return output;
   }

@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -46,7 +47,8 @@ export default function ContentStrategyPage() {
   });
 
   const handleLeadSubmit = (values: z.infer<typeof leadFormSchema>) => {
-    submitLead(values); // Fire and forget lead submission
+    // Fire and forget lead submission to a general 'leads' collection
+    addDoc(collection(db, 'leads'), { ...values, submittedAt: new Date(), source: 'AI_Tool_Gate' });
     setIsGated(false);
   };
 
