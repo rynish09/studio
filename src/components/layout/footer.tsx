@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
 import { Button } from '@/components/ui/button';
-import { Github, Twitter, Linkedin } from 'lucide-react';
+import { Github, Twitter, Linkedin, Youtube } from 'lucide-react';
 
 const footerNav = [
   { href: '/services', label: 'Services' },
@@ -15,9 +15,9 @@ const footerNav = [
 ];
 
 const socialLinks = [
+  { href: 'https://youtube.com/@the.contex', icon: Youtube, label: 'YouTube' },
   { href: '#', icon: Twitter, label: 'Twitter' },
   { href: '#', icon: Linkedin, label: 'LinkedIn' },
-  { href: '#', icon: Github, label: 'GitHub' },
 ];
 
 export default function Footer() {
@@ -50,6 +50,8 @@ export default function Footer() {
                 <a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.label}
                   className="text-muted-foreground transition-colors hover:text-white"
                 >

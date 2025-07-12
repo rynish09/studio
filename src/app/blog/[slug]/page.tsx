@@ -5,7 +5,7 @@ import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import type { Metadata } from 'next';
-import { ArrowLeft, Calendar, User } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Youtube, Phone } from 'lucide-react';
 import { format } from 'date-fns';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Separator } from '@/components/ui/separator';
@@ -92,13 +92,22 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <section className="mt-24 text-center bg-card border border-border rounded-lg p-8 md:p-12 max-w-4xl mx-auto">
             <h3 className="text-3xl font-bold font-headline text-white">Turn Insights Into Action</h3>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
-                Inspired by this article? Let's discuss how these principles can be applied directly to your brand to build authority and drive growth.
+                Inspired by this article? The next step is to see how these principles apply to you. Watch our deep-dive content on YouTube or book a free, no-obligation call to build your growth plan.
             </p>
-            <Button asChild size="lg" className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-10 py-7 rounded-md">
-                <Link href="/contact">
-                    Book Your Free Strategy Call
-                </Link>
-            </Button>
+            <div className="mt-10 flex flex-wrap justify-center gap-4">
+              <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-8 py-6 rounded-md">
+                  <Link href="/contact">
+                      <Phone className="w-5 h-5 mr-2" />
+                      Book Your Strategy Call
+                  </Link>
+              </Button>
+               <Button asChild size="lg" variant="outline" className="font-bold text-lg px-8 py-6 rounded-md border-2 border-border">
+                  <a href="https://youtube.com/@the.contex" target="_blank" rel="noopener noreferrer">
+                      <Youtube className="w-5 h-5 mr-2" />
+                      Watch on YouTube
+                  </a>
+              </Button>
+            </div>
         </section>
       </AnimatedWrapper>
     </div>
