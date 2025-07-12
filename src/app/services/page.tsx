@@ -1,9 +1,10 @@
+
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PageHeader } from '@/components/ui/page-header';
 import { servicesList } from '@/lib/services-list';
-import { Check, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
@@ -21,24 +22,22 @@ export default function ServicesPage() {
         subtitle="We provide integrated solutions to build your brand into an industry-defining force. Below is our full arsenal of capabilities. We will build a custom package based on your unique goals."
       />
 
-      <section className="mt-24 max-w-5xl mx-auto">
-        <AnimatedWrapper delay={200}>
-          <Card className="bg-card border-border">
-            <CardHeader>
-              <CardTitle className="text-3xl font-bold font-headline text-white text-center">
-                Our Capabilities
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 text-lg p-8">
-              {servicesList.map((service) => (
-                <div key={service.id} className="flex items-start gap-3">
-                  <Check className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
-                  <span className="text-white/90">{service.label}</span>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
-        </AnimatedWrapper>
+      <section className="mt-24 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {servicesList.map((service, index) => (
+            <AnimatedWrapper
+              key={service.id}
+              delay={index * 100}
+              className="[&:nth-child(1)]:col-span-2 md:[&:nth-child(1)]:col-span-2 lg:[&:nth-child(1)]:col-span-2 [&:nth-child(2)]:col-span-2 md:[&:nth-child(2)]:col-span-2 lg:[&:nth-child(2)]:col-span-2"
+            >
+              <Card className="bg-card border-border h-full p-6 text-center flex flex-col justify-center items-center group transition-all duration-300 hover:border-accent hover:-translate-y-1">
+                <CardContent className="p-0">
+                  <p className="font-semibold text-lg text-white/90 group-hover:text-white transition-colors">{service.label}</p>
+                </CardContent>
+              </Card>
+            </AnimatedWrapper>
+          ))}
+        </div>
       </section>
 
       <AnimatedWrapper delay={400}>

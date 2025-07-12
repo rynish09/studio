@@ -1,3 +1,4 @@
+
 export interface FAQ {
   question: string;
   answer: string;
@@ -11,8 +12,8 @@ export const faqList: FAQ[] = [
     vip: true,
   },
   {
-    question: "How much does it cost to work with you?",
-    answer: "Our custom packages are priced based on the scope of work and the services included. Engagements typically start at $5,000 per month for a comprehensive 90-day plan. We provide a detailed, transparent quote after our discovery call, with no hidden fees.",
+    question: "How do you determine pricing?",
+    answer: "We don't offer cookie-cutter packages or pricing. Every partnership is unique, and so is our pricing structure. Your investment is determined by the specific services you need and the scope of our engagement. We'll build a detailed, transparent proposal for you following our initial strategy call, so you know exactly where your investment is going.",
     vip: true,
   },
   {

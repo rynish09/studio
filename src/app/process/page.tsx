@@ -1,6 +1,6 @@
+
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
 import { PageHeader } from '@/components/ui/page-header';
 import { Crown, Rocket, Map, Search } from 'lucide-react';
 import type { Metadata } from 'next';
@@ -14,26 +14,26 @@ export const metadata: Metadata = {
 const processSteps = [
   {
     step: '01',
-    title: 'Discovery & Audit',
-    description: 'Our content agency conducts a comprehensive audit of your existing content ecosystem and market positioning to identify foundational gaps and opportunities.',
+    title: 'Phase 1: Deep Discovery & Strategic Audit',
+    description: 'Our journey begins not with assumptions, but with data. We immerse ourselves in your world, conducting a comprehensive audit of your brand, market, and competitors. We identify your unique voice, pinpoint untapped opportunities, and define what success looks like for you. This is the foundation upon which legacies are built.',
     icon: Search,
   },
   {
     step: '02',
-    title: 'Strategy & Playbook Design',
-    description: 'Based on our findings, we design a bespoke class content playbook—a strategic roadmap detailing themes, formats, and distribution channels for organic marketing success.',
+    title: 'Phase 2: The Bespoke Content Playbook',
+    description: "Armed with insight, we architect your custom Content Playbook. This isn't a generic template; it's a strategic roadmap detailing the exact themes, formats, and distribution channels needed to establish you as the definitive authority in your space. We define your content pillars and map out the first 90 days of execution.",
     icon: Map,
   },
   {
     step: '03',
-    title: 'Execution & Optimization',
-    description: 'Our team executes the playbook with precision, creating and distributing high-value content while continuously monitoring performance data to optimize your organic marketing.',
+    title: 'Phase 3: Elite Execution & Optimization',
+    description: "With the strategy set, our team of specialists brings it to life. From cinematic YouTube videos to high-impact LinkedIn posts, we execute with precision and an obsessive focus on quality. We continuously monitor performance, using data to refine our approach and double down on what's working, ensuring every piece of content drives results.",
     icon: Rocket,
   },
   {
     step: '04',
-    title: 'Scaling & Authority',
-    description: 'We leverage data-driven insights to double down on what works, scaling class content production to establish you as the undeniable authority in your niche.',
+    title: 'Phase 4: Scaling Authority & Industry Domination',
+    description: "Once we have a proven content engine, we scale. We amplify your message, expand your reach, and solidify your position as the undeniable leader in your field. This is where your brand transcends the noise and becomes a signal—an authority that commands respect, trust, and enterprise value.",
     icon: Crown,
   },
 ];
@@ -42,38 +42,40 @@ export default function ProcessPage() {
   return (
     <div className="container mx-auto py-24 sm:py-32">
       <PageHeader
-        title="The Playbook for Class Content"
-        subtitle="Our proprietary 4-step framework from our organic marketing agency is designed to build legendary brands. It's a system for clarity, repeatability, and relentless growth."
+        title="Our Proven Path to Authority"
+        subtitle="This isn't guesswork; it's a battle-tested system. Our proprietary 4-phase process is designed to turn your expertise into a powerful, defensible brand that commands attention and drives growth."
       />
       
-      <section className="mt-24">
-        <div className="relative max-w-6xl mx-auto">
-          <div className="absolute top-1/2 left-0 w-full h-0.5 bg-border -z-10" aria-hidden="true"></div>
+      <section className="mt-24 max-w-4xl mx-auto">
+        <div className="relative">
+          <div className="absolute left-1/2 -translate-x-1/2 top-4 w-1 bg-border/20 h-full -z-10" aria-hidden="true" />
           
-          <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="space-y-16">
             {processSteps.map((step, index) => (
-              <AnimatedWrapper key={step.step} delay={index * 150}>
-                <Card className="bg-card border-border h-full p-8 text-center space-y-4 relative overflow-hidden group">
-                  <div className="absolute -top-12 -right-12 w-32 h-32 text-white/5 font-black text-9xl group-hover:text-accent/10 transition-colors duration-300">
-                    {step.step}
-                  </div>
-                  <div className="relative z-10 flex flex-col items-center">
-                    <div className="w-20 h-20 flex items-center justify-center rounded-lg bg-secondary text-accent transition-all duration-300 group-hover:scale-110 group-hover:bg-accent group-hover:text-accent-foreground">
-                      <step.icon className="w-10 h-10"/>
+              <AnimatedWrapper key={step.step} delay={index * 200}>
+                <div className="relative flex items-start gap-8">
+                  <div className="flex-shrink-0 flex flex-col items-center">
+                    <div className="w-16 h-16 flex items-center justify-center rounded-full bg-secondary text-accent border-2 border-border shadow-lg">
+                      <step.icon className="w-8 h-8"/>
                     </div>
-                    <h3 className="mt-6 text-2xl font-bold font-headline text-white">{step.title}</h3>
-                    <p className="mt-2 text-white/70 flex-grow" style={{ lineHeight: 1.6 }}>{step.description}</p>
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-accent text-accent-foreground font-bold text-sm">
+                      {index + 1}
+                    </div>
                   </div>
-                </Card>
+                  <div className="bg-card border-border rounded-xl p-6 flex-1 shadow-lg">
+                    <h3 className="text-2xl font-bold font-headline text-white">{step.title}</h3>
+                    <p className="mt-4 text-white/70" style={{ lineHeight: 1.7 }}>{step.description}</p>
+                  </div>
+                </div>
               </AnimatedWrapper>
             ))}
           </div>
         </div>
       </section>
 
-      <AnimatedWrapper delay={600}>
+      <AnimatedWrapper delay={800}>
         <section className="mt-24 text-center">
-          <h2 className="text-3xl font-bold font-headline text-white">Ready To Implement This Process?</h2>
+          <h2 className="text-3xl font-bold font-headline text-white">Ready to walk the path?</h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
             A system is only as good as its execution. Let's talk about building a custom growth engine for your brand.
           </p>
