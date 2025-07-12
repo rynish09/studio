@@ -4,19 +4,6 @@ import { z } from 'zod';
 import { db } from '@/lib/firebase';
 import { collection, addDoc } from 'firebase/firestore';
 
-const customPlanSchema = z.object({
-  name: z.string().min(2, {
-    message: 'Name must be at least 2 characters.',
-  }),
-  email: z.string().email({
-    message: 'Please enter a valid email address.',
-  }),
-  phone: z.string().optional(),
-  services: z.array(z.string()).refine((value) => value.some((item) => item), {
-    message: 'You have to select at least one service.',
-  }),
-});
-
 const leadSchema = z.object({
   name: z.string().min(2, {
     message: 'Name must be at least 2 characters.',
@@ -41,7 +28,15 @@ export async function submitLead(values: z.infer<typeof leadSchema>) {
   }
 }
 
-export async function submitCustomPlan(values: z.infer<typeof customPlanSchema>) {
+// The custom plan schema needs to be re-defined here for server-side validation.
+const customPlanFormSchema = z.object({
+    name: z.string().min(2),
+    email: z.string().email(),
+    phone: z.string().optional(),
+    services: z.array(z.string()).min(1),
+});
+
+export async function submitCustomPlan(values: z.infer<typeof customPlanFormSchema>) {
   try {
     const docRef = await addDoc(collection(db, 'custom_plans'), {
       ...values,

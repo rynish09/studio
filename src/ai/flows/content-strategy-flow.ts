@@ -29,6 +29,7 @@ export const ContentStrategyOutputSchema = z.object({
 export type ContentStrategyOutput = z.infer<typeof ContentStrategyOutputSchema>;
 
 export async function generateContentStrategy(input: ContentStrategyInput): Promise<ContentStrategyOutput> {
+  // The input from the form is nested, so we access it directly.
   return contentStrategyFlow(input);
 }
 
