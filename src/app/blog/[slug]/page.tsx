@@ -1,6 +1,6 @@
 
 import { notFound } from 'next/navigation';
-import { getPostBySlug, blogPosts } from '@/lib/blog-posts.tsx';
+import { getPostData, getAllPostSlugs } from '@/lib/blog';
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -17,34 +17,32 @@ interface BlogPostPageProps {
 export async function generateMetadata(
   { params }: BlogPostPageProps,
 ): Promise<Metadata> {
-  const post = getPostBySlug(params.slug);
-
-  if (!post) {
+  try {
+    const post = await getPostData(params.slug);
+    return {
+      title: `${post.title} | The ConteX Blog`,
+      description: post.excerpt,
+      openGraph: {
+          title: `${post.title} | The ConteX Blog`,
+          description: post.excerpt,
+      },
+    };
+  } catch (error) {
     return {
       title: 'Post Not Found | The ConteX',
     };
   }
-
-  return {
-    title: `${post.title} | The ConteX Blog`,
-    description: post.excerpt,
-    openGraph: {
-        title: `${post.title} | The ConteX Blog`,
-        description: post.excerpt,
-    },
-  };
 }
 
 export async function generateStaticParams() {
-    return blogPosts.map((post) => ({
-      slug: post.slug,
-    }));
+    return getAllPostSlugs();
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = getPostBySlug(params.slug);
-
-  if (!post) {
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  let post;
+  try {
+    post = await getPostData(params.slug);
+  } catch (error) {
     notFound();
   }
 
@@ -82,9 +80,10 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
             <Separator className="my-8"/>
 
-            <div className="prose prose-invert prose-lg max-w-none text-white/80 prose-headings:text-white prose-a:text-accent prose-strong:text-white prose-blockquote:border-accent">
-                {post.content}
-            </div>
+            <div 
+              className="prose prose-invert prose-lg max-w-none text-white/80 prose-headings:text-white prose-a:text-accent prose-strong:text-white prose-blockquote:border-accent prose-h3:text-accent"
+              dangerouslySetInnerHTML={{ __html: post.contentHtml }} 
+            />
           </article>
         </div>
       </AnimatedWrapper>

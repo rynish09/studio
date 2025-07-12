@@ -1,13 +1,12 @@
 
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { PageHeader } from '@/components/ui/page-header';
-import { blogPosts } from '@/lib/blog-posts.tsx';
+import { getSortedPostsData } from '@/lib/blog';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
 import { format } from 'date-fns';
-import Image from 'next/image';
 
 export const metadata: Metadata = {
     title: 'Blog | The ConteX',
@@ -15,6 +14,8 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
+  const blogPosts = getSortedPostsData();
+
   return (
     <div className="container mx-auto py-24 sm:py-32">
       <PageHeader 
