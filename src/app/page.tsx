@@ -106,11 +106,13 @@ export default function Home() {
           <div className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
               {servicesList.slice(0, 8).map((service, index) => (
                   <AnimatedWrapper key={service.id} delay={index * 100}>
-                      <Card className="bg-card border-border text-center p-4 h-full">
-                          <CardContent className="p-0">
-                            <p className="font-semibold text-white/90">{service.label}</p>
-                          </CardContent>
-                      </Card>
+                      <Link href="/services" className="block group h-full">
+                        <Card className="bg-card border-border text-center p-4 h-full transition-colors group-hover:border-accent">
+                            <CardContent className="p-0">
+                              <p className="font-semibold text-white/90">{service.label}</p>
+                            </CardContent>
+                        </Card>
+                      </Link>
                   </AnimatedWrapper>
               ))}
           </div>
@@ -133,7 +135,7 @@ export default function Home() {
               <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
                 We've built a proprietary AI, trained on the playbooks of market titans, to generate your next winning content strategy. And it's free, forever.
               </p>
-              <Button asChild size="lg" className="mt-8">
+              <Button asChild size="lg" className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-10 py-7 rounded-md">
                 <Link href="/content-strategy">
                   Click Here to Use The AI Tool
                   <Wand2 className="ml-2 h-5 w-5" />

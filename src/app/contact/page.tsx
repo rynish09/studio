@@ -1,4 +1,3 @@
-
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { PageHeader } from '@/components/ui/page-header';
 import type { Metadata } from 'next';

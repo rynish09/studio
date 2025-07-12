@@ -4,8 +4,9 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { submitLead } from '@/app/contact/actions';
+import Link from 'next/link';
 
+import { submitLead } from '@/app/contact/actions';
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -13,7 +14,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Loader, Wand2, Lightbulb, CheckCircle, BarChart2 } from 'lucide-react';
+import { Loader, Wand2, Lightbulb, CheckCircle, BarChart2, BookLock, ArrowRight } from 'lucide-react';
 import { generateContentStrategy, ContentStrategyInputSchema, type ContentStrategyOutput } from '@/ai/flows/content-strategy-flow';
 import { PageHeader } from '@/components/ui/page-header';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
@@ -69,14 +70,17 @@ export default function ContentStrategyPage() {
       <div className="mt-20 max-w-6xl mx-auto">
         {isGated ? (
           <AnimatedWrapper>
-            <Card className="bg-card border-border max-w-lg mx-auto">
-              <CardHeader className="text-center">
+            <Card className="bg-card border-border max-w-lg mx-auto text-center">
+              <CardHeader>
+                <div className="mx-auto w-16 h-16 mb-6 flex items-center justify-center rounded-lg bg-secondary text-accent">
+                  <BookLock className="w-8 h-8 text-accent"/>
+                </div>
                 <CardTitle className="text-2xl font-bold font-headline">Unlock The AI Strategist</CardTitle>
                 <CardDescription>Enter your details to gain instant access to our free tool.</CardDescription>
               </CardHeader>
               <CardContent>
                 <Form {...leadForm}>
-                  <form onSubmit={leadForm.handleSubmit(handleLeadSubmit)} className="space-y-6">
+                  <form onSubmit={leadForm.handleSubmit(handleLeadSubmit)} className="space-y-6 text-left">
                     <FormField control={leadForm.control} name="name" render={({ field }) => (
                       <FormItem>
                         <Label>Name</Label>
@@ -186,6 +190,11 @@ export default function ContentStrategyPage() {
                        <div>
                         <h3 className="flex items-center gap-2 font-bold text-accent text-xl mb-3"><CheckCircle className="w-5 h-5"/>Your Next Step</h3>
                         <p className="mt-2 text-white/80 bg-secondary/30 p-4 rounded-md border border-dashed border-accent/40" style={{lineHeight: 1.7}}>{result.callToAction}</p>
+                         <Button asChild size="lg" className="w-full mt-6 bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg py-7 rounded-md">
+                            <Link href="/contact">
+                                Customize Your Plan & Book A Call <ArrowRight className="ml-2 h-5 w-5" />
+                            </Link>
+                        </Button>
                       </div>
                     </div>
                   ) : (

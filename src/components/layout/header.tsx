@@ -11,10 +11,10 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const navLinks = [
-  { href: '/', label: 'Home' },
   { href: '/services', label: 'Services' },
   { href: '/process', label: 'Process' },
   { href: '/results', label: 'Case Studies' },
+  { href: '/content-strategy', label: 'AI Strategy Tool' },
   { href: '/community', label: 'Community' },
   { href: '/about', label: 'About' },
 ];
