@@ -17,9 +17,9 @@ export default function ThankYouPage() {
       
       <AnimatedWrapper delay={200}>
         <div className="mt-20 max-w-4xl mx-auto">
-          <div className="aspect-[4/3] rounded-lg overflow-hidden border border-border">
+          <div className="aspect-[4/3] rounded-lg overflow-hidden border border-border bg-card">
             <iframe
-              src="https://calendly.com/thecontexagency09/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0a0f19&text_color=ffffff&primary_color=ef4444"
+              src="https://calendly.com/thecontexagency09/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=1c1e26&text_color=ffffff&primary_color=ef4444"
               width="100%"
               height="100%"
               frameBorder="0"

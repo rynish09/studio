@@ -15,13 +15,18 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Loader, Wand2, Lightbulb, CheckCircle, BarChart2, BookLock, ArrowRight } from 'lucide-react';
-import { generateContentStrategy, ContentStrategyInputSchema, type ContentStrategyOutput } from '@/ai/flows/content-strategy-flow';
+import { generateContentStrategy, type ContentStrategyOutput } from '@/ai/flows/content-strategy-flow';
 import { PageHeader } from '@/components/ui/page-header';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 
 const leadFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
   email: z.string().email("Please enter a valid email."),
+});
+
+const contentStrategyFormSchema = z.object({
+  niche: z.string().min(3, "Please describe your niche."),
+  audience: z.string().min(10, "Please describe your target audience in more detail."),
 });
 
 export default function ContentStrategyPage() {
@@ -35,8 +40,8 @@ export default function ContentStrategyPage() {
     defaultValues: { name: "", email: "" },
   });
 
-  const strategyForm = useForm<z.infer<typeof ContentStrategyInputSchema>>({
-    resolver: zodResolver(ContentStrategyInputSchema),
+  const strategyForm = useForm<z.infer<typeof contentStrategyFormSchema>>({
+    resolver: zodResolver(contentStrategyFormSchema),
     defaultValues: { niche: "", audience: "" },
   });
 
@@ -45,7 +50,7 @@ export default function ContentStrategyPage() {
     setIsGated(false);
   };
 
-  const handleStrategySubmit = async (values: z.infer<typeof ContentStrategyInputSchema>) => {
+  const handleStrategySubmit = async (values: z.infer<typeof contentStrategyFormSchema>) => {
     setLoading(true);
     setError(null);
     setResult(null);
@@ -191,7 +196,7 @@ export default function ContentStrategyPage() {
                         <h3 className="flex items-center gap-2 font-bold text-accent text-xl mb-3"><CheckCircle className="w-5 h-5"/>Your Next Step</h3>
                         <p className="mt-2 text-white/80 bg-secondary/30 p-4 rounded-md border border-dashed border-accent/40" style={{lineHeight: 1.7}}>{result.callToAction}</p>
                          <Button asChild size="lg" className="w-full mt-6 bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg py-7 rounded-md">
-                            <Link href="/contact">
+                            <Link href="/custom-plan">
                                 Customize Your Plan & Book A Call <ArrowRight className="ml-2 h-5 w-5" />
                             </Link>
                         </Button>

@@ -14,7 +14,6 @@ const leadSchema = z.object({
   phone: z.string().optional(),
 });
 
-
 export async function submitLead(values: z.infer<typeof leadSchema>) {
   try {
     const validatedData = leadSchema.parse(values);
@@ -25,6 +24,9 @@ export async function submitLead(values: z.infer<typeof leadSchema>) {
     return { success: true };
   } catch (e: any) {
     console.error('Error adding document: ', e.message);
+    if (e instanceof z.ZodError) {
+      return { error: e.errors.map(err => err.message).join(', '), success: false };
+    }
     return { error: 'Something went wrong. Please try again.', success: false };
   }
 }
@@ -36,7 +38,7 @@ const customPlanFormSchema = z.object({
     services: z.array(z.string()).min(1, "You must select at least one service."),
 });
 
-export async function submitCustomPlan(values: z.infer<typeof customPlanFormSchema>) {
+export async function submitCustomPlan(values: unknown) {
   try {
     const validatedData = customPlanFormSchema.parse(values);
     const docRef = await addDoc(collection(db, 'custom_plans'), {

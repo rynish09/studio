@@ -10,13 +10,13 @@
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
-export const ContentStrategyInputSchema = z.object({
+const ContentStrategyInputSchema = z.object({
   niche: z.string().min(3, "Please describe your niche."),
   audience: z.string().min(10, "Please describe your target audience in more detail."),
 });
 export type ContentStrategyInput = z.infer<typeof ContentStrategyInputSchema>;
 
-export const ContentStrategyOutputSchema = z.object({
+const ContentStrategyOutputSchema = z.object({
   trendingTopics: z.array(z.string()).describe('A list of 3-4 currently trending topics or formats in the specified niche.'),
   contentIdeas: z
     .array(z.object({
@@ -28,7 +28,7 @@ export const ContentStrategyOutputSchema = z.object({
 });
 export type ContentStrategyOutput = z.infer<typeof ContentStrategyOutputSchema>;
 
-export async function generateContentStrategy(input: ContentStrategyInput): Promise<ContentStrategyOutput> {
+export async function generateContentStrategy(input: unknown): Promise<ContentStrategyOutput> {
   const validatedInput = ContentStrategyInputSchema.parse(input);
   return contentStrategyFlow(validatedInput);
 }
@@ -57,6 +57,9 @@ const contentStrategyFlow = ai.defineFlow(
   },
   async (input) => {
     const {output} = await prompt(input);
-    return output!;
+    if (!output) {
+      throw new Error('Failed to generate a content strategy. The AI model did not return a valid output.');
+    }
+    return output;
   }
 );
