@@ -1,7 +1,7 @@
 
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { PageHeader } from '@/components/ui/page-header';
-import { blogPosts } from '@/lib/blog-posts';
+import { blogPosts } from '@/lib/blog-posts.tsx';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';

@@ -1,6 +1,6 @@
 
 import { notFound } from 'next/navigation';
-import { getPostBySlug, blogPosts } from '@/lib/blog-posts';
+import { getPostBySlug, blogPosts } from '@/lib/blog-posts.tsx';
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
