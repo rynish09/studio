@@ -7,18 +7,18 @@ export interface FAQ {
 
 export const faqList: FAQ[] = [
   {
+    question: "What is your 90-Day 2x Organic Revenue Guarantee?",
+    answer: "We are confident in our ability to deliver transformative results. For qualifying partners, we guarantee to double your monthly revenue attributed to organic channels within our first 90 days of working together. This is a partnership built on a shared commitment to aggressive, measurable growth.",
+    vip: true,
+  },
+  {
+    question: "What happens if you don't achieve the 2x results in 90 days?",
+    answer: "Our guarantee is a testament to our commitment. If we do not achieve the 2x organic revenue goal within the 90-day timeframe, we will continue to work for free, at the full scope of our engagement, until we do. Your success is our success, and we stand by that.",
+    vip: true,
+  },
+  {
     question: "What exactly is a 'Custom Package'?",
     answer: "A Custom Package is a tailored 90-day strategic sprint designed for your specific goals. After our initial discovery call, we hand-pick a combination of our services (e.g., YouTube production, content repurposing, social media management) that will deliver the highest impact for your brand. It's not a one-size-fits-all solution; it's a bespoke partnership.",
-    vip: true,
-  },
-  {
-    question: "How do you determine pricing?",
-    answer: "We don't offer cookie-cutter packages or pricing. Every partnership is unique, and so is our pricing structure. Your investment is determined by the specific services you need and the scope of our engagement. We'll build a detailed, transparent proposal for you following our initial strategy call, so you know exactly where your investment is going.",
-    vip: true,
-  },
-  {
-    question: "What results can I expect in 90 days?",
-    answer: "In 90 days, you can expect to have a powerful, repeatable content engine, a significant increase in brand authority and audience engagement, and a clear path to long-term organic growth. We focus on building foundational assets (like a strong YouTube presence) that deliver compounding returns over time, not just short-term vanity metrics.",
     vip: true,
   },
   {
