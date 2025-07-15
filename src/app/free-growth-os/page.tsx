@@ -2,32 +2,15 @@
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { PageHeader } from '@/components/ui/page-header';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Check } from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
 import type { Metadata } from 'next';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: 'The Content OS | The ConteX',
+    title: 'The Free Growth OS | The ConteX',
     description: 'The operating system for organic growth. Learn our four-phase framework for building a content engine that drives results.',
 };
-
-const frameworkPillars = [
-  {
-    name: 'STRATEGIZE',
-    description: 'Deep Dive & Content Strategy. We immerse ourselves in your brand, market & competitors to define your unique voice & content pillars.',
-  },
-  {
-    name: 'CREATE',
-    description: 'Content Production & Execution. Our team of specialists brings the strategy to life with elite-level content creation.',
-  },
-  {
-    name: 'DISTRIBUTE',
-    description: 'Platform-Specific Publishing. We manage the entire distribution process, ensuring your content reaches the right audience on the right platform.',
-  },
-  {
-    name: 'ANALYZE',
-    description: 'Performance Tracking & Optimization. We continuously monitor performance, using data to refine our approach and double down on what\'s working.',
-  },
-];
 
 const phases = [
   {
@@ -75,31 +58,15 @@ const phases = [
 export default function GrowthOsPage() {
   return (
     <div className="container mx-auto py-24 sm:py-32">
-        <div className="text-center">
-            <PageHeader
-                title="THE CONTENT OS"
-                subtitle="THE OPERATING SYSTEM FOR ORGANIC GROWTH"
-            />
-        </div>
-
-        <AnimatedWrapper delay={200}>
-            <section className="mt-20 max-w-4xl mx-auto">
-                <h2 className="text-3xl font-bold font-headline text-center text-white mb-10">THE FRAMEWORK</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-                    {frameworkPillars.map((pillar, index) => (
-                        <div key={index}>
-                            <h3 className="text-xl font-bold text-accent">{pillar.name}</h3>
-                            <p className="mt-2 text-white/70">{pillar.description}</p>
-                        </div>
-                    ))}
-                </div>
-            </section>
-        </AnimatedWrapper>
+        <PageHeader
+            title="THE FREE GROWTH OS"
+            subtitle="This is the blueprint we use to turn expertise into enterprise value. A four-phase operating system for building a content engine that drives sustainable organic growth."
+        />
         
-        <AnimatedWrapper delay={300}>
-            <section className="mt-24 max-w-5xl mx-auto space-y-16">
-                {phases.map((phase, index) => (
-                    <Card key={index} className="bg-card border-border overflow-hidden">
+        <section className="mt-24 max-w-5xl mx-auto space-y-16">
+            {phases.map((phase, index) => (
+                <AnimatedWrapper key={index} delay={index * 200}>
+                    <Card className="bg-card border-border overflow-hidden">
                         <CardHeader>
                             <CardTitle className="text-3xl font-headline text-accent">{phase.name}</CardTitle>
                             <CardDescription className="text-white/70 !mt-2">{phase.subtitle}</CardDescription>
@@ -118,9 +85,23 @@ export default function GrowthOsPage() {
                             </div>
                         </CardContent>
                     </Card>
-                ))}
+                </AnimatedWrapper>
+            ))}
+        </section>
+
+        <AnimatedWrapper delay={400}>
+            <section className="mt-24 text-center bg-card border border-accent/20 rounded-lg p-8 md:p-12 max-w-4xl mx-auto">
+                <h3 className="text-3xl font-bold font-headline text-white">Turn Insights Into Action</h3>
+                <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
+                    A framework is only as good as its execution. Let us build a bespoke growth engine tailored to your unique brand and goals.
+                </p>
+                <Button asChild size="lg" className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-10 py-7 rounded-md">
+                    <Link href="/contact">
+                        Book Your Free Strategy Call <ArrowRight className="ml-2 w-5 h-5" />
+                    </Link>
+                </Button>
             </section>
-        </AnimatedWrapper>
+      </AnimatedWrapper>
     </div>
   );
 }
