@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { submitLead } from './actions';
+import { useToast } from '@/hooks/use-toast';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -34,6 +35,7 @@ interface ContactFormProps {
 }
 
 export function ContactForm({ onSuccess }: ContactFormProps) {
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -44,8 +46,16 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    await submitLead(values);
-    onSuccess();
+    try {
+      await submitLead(values);
+      onSuccess();
+    } catch (error: any) {
+      toast({
+        variant: "destructive",
+        title: "Submission Failed",
+        description: error.message,
+      })
+    }
   }
 
   return (
