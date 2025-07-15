@@ -1,13 +1,10 @@
-'use client';
 
-import { useState } from 'react';
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PageHeader } from '@/components/ui/page-header';
 import { Zap, BrainCircuit, Repeat, BarChart, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { ContactForm } from '../contact/contact-form';
 
 const pillars = [
   {
@@ -48,35 +45,6 @@ const formats = [
 ]
 
 export default function GrowthOsPage() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleSuccess = () => {
-    setIsSubmitted(true);
-  };
-
-  if (!isSubmitted) {
-    return (
-       <div className="container mx-auto py-24 sm:py-32">
-            <PageHeader 
-                title="Get The Free Growth OS"
-                subtitle="You're one step away. Access the exact frameworks we use to build industry titans. Enter your details for instant access."
-            />
-            <AnimatedWrapper delay={200}>
-                <div className="mt-12 max-w-lg mx-auto">
-                    <Card className="bg-card border-border">
-                        <CardHeader>
-                            <CardTitle className="text-2xl font-headline text-white">Unlock Instant Access</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <ContactForm onSuccess={handleSuccess} />
-                        </CardContent>
-                    </Card>
-                </div>
-            </AnimatedWrapper>
-       </div>
-    );
-  }
-
   return (
     <div className="container mx-auto py-24 sm:py-32">
         <>

@@ -3,7 +3,6 @@ import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { PageHeader } from '@/components/ui/page-header';
 import type { Metadata } from 'next';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
-import { ContactForm } from './contact-form';
 
 export const metadata: Metadata = {
     title: 'Contact Us & Get Free Resources | The ConteX',
