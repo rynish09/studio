@@ -5,7 +5,6 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { submitLead } from './actions';
-import { useRouter } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -30,9 +29,11 @@ const formSchema = z.object({
   }),
 });
 
-export function ContactForm() {
-  const router = useRouter();
+interface ContactFormProps {
+  onSuccess: () => void;
+}
 
+export function ContactForm({ onSuccess }: ContactFormProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -44,7 +45,7 @@ export function ContactForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     await submitLead(values);
-    router.push('/free-growth-os');
+    onSuccess();
   }
 
   return (

@@ -16,17 +16,17 @@ export default function ContactPage() {
        <AnimatedWrapper>
          <PageHeader 
             title="Connect With Us"
-            subtitle="Whether you're ready to build your legacy or seeking invaluable resources to start, you're in the right place. Choose your path below."
+            subtitle="Ready to build your legacy? The first step is a strategic conversation. Book a complimentary, no-obligation strategy call below."
           />
       </AnimatedWrapper>
        
-       <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+       <div className="mt-20 max-w-4xl mx-auto">
             <AnimatedWrapper delay={200}>
-                <Card className="bg-card border-border h-full">
+                <Card className="bg-card border-border">
                     <CardHeader>
-                        <CardTitle className="text-3xl font-headline text-accent">Option 1: Book a Strategy Call</CardTitle>
+                        <CardTitle className="text-3xl font-headline text-accent">Book Your Strategy Call</CardTitle>
                         <CardDescription className="text-lg text-white/70 pt-2">
-                            For established experts ready for a strategic partnership. Let's build your 90-day growth playbook together.
+                            This isn't a sales pitch. It's a strategic session to diagnose your content ecosystem and co-create a custom 90-day growth plan.
                         </CardDescription>
                     </CardHeader>
                     <CardContent>
@@ -39,20 +39,6 @@ export default function ContactPage() {
                             title="Calendly Booking"
                             ></iframe>
                         </div>
-                    </CardContent>
-                </Card>
-            </AnimatedWrapper>
-            
-            <AnimatedWrapper delay={300}>
-                <Card className="bg-card border-border h-full">
-                    <CardHeader>
-                        <CardTitle className="text-3xl font-headline text-accent">Option 2: Get The Free Growth OS</CardTitle>
-                        <CardDescription className="text-lg text-white/70 pt-2">
-                            Access the exact frameworks we use to build industry titans. Enter your details for instant access.
-                        </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <ContactForm />
                     </CardContent>
                 </Card>
             </AnimatedWrapper>
