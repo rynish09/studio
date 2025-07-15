@@ -54,8 +54,8 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-8">{renderNavLinks()}</nav>
 
         <div className="hidden md:flex items-center gap-4">
-          <Button asChild variant="ghost">
-            <Link href="/free-growth-os">Free Growth OS</Link>
+          <Button asChild variant="outline">
+            <Link href="/contact">Free Growth OS</Link>
           </Button>
           <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold">
             <Link href="/contact">Book a Call</Link>
@@ -85,11 +85,11 @@ export default function Header() {
                 <nav className="flex-grow p-6 space-y-4">
                   {renderNavLinks(true)}
                    <Link
-                    href="/free-growth-os"
+                    href="/contact"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={cn(
                       'font-medium transition-colors hover:text-accent block py-2 text-lg',
-                      pathname === '/free-growth-os' ? 'text-accent' : 'text-white'
+                       pathname.startsWith('/contact') || pathname.startsWith('/free-growth-os') ? 'text-accent' : 'text-white'
                     )}
                   >
                     Free Growth OS

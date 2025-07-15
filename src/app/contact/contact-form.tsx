@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -24,7 +25,9 @@ const formSchema = z.object({
   email: z.string().email({
     message: 'Please enter a valid email address.',
   }),
-  phone: z.string().optional(),
+  phone: z.string().min(10, {
+    message: 'Please enter a valid phone number.',
+  }),
 });
 
 export function ContactForm() {
@@ -39,12 +42,8 @@ export function ContactForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Fire and forget the lead submission.
-    // It will run in the background on the server.
-    submitLead(values);
-
-    // Immediately redirect the user to the Growth OS page.
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    await submitLead(values);
     router.push('/free-growth-os');
   }
 
@@ -91,7 +90,7 @@ export function ContactForm() {
           name="phone"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-white">Phone (Optional)</FormLabel>
+              <FormLabel className="text-white">Phone</FormLabel>
               <FormControl>
                 <Input
                   placeholder="+1 555-123-4567"
@@ -105,7 +104,7 @@ export function ContactForm() {
         />
         <Button
           type="submit"
-          className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold"
+          className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg py-6"
           disabled={form.formState.isSubmitting}
         >
           {form.formState.isSubmitting ? 'Processing...' : 'Access The OS Now'}

@@ -69,7 +69,7 @@ export default function Home() {
                 size="lg"
                 className="font-bold text-lg px-10 py-7 rounded-md border-2 border-border"
               >
-                <Link href="/free-growth-os">Get The Free Growth OS</Link>
+                <Link href="/contact">Get The Free Growth OS</Link>
               </Button>
             </div>
           </AnimatedWrapper>
