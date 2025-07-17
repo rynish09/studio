@@ -57,7 +57,7 @@ export function GrowthFlowchart() {
                 <Line delay={800} label="Yes"/>
                 <FlowNode delay={900}>Move into Adjacencies</FlowNode>
                 <Line delay={1000} />
-                <FlowNode delay={1100} isDecision={true}>Choose Adjacency Rationale</FlowNode>
+                <FlowNode delay={1100} isDecision={true} className="border-accent/50">Choose Adjacency Rationale</FlowNode>
                 <Line delay={1200} />
 
                 <div className="w-full pl-8 border-l-4 border-accent/20 space-y-4 pb-4">

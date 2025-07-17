@@ -1,3 +1,4 @@
+
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { PageHeader } from '@/components/ui/page-header';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -16,7 +17,7 @@ export default function FaqPage() {
     <div className="container mx-auto py-24 sm:py-32">
       <PageHeader 
         title="Frequently Asked Questions"
-        subtitle="Clarity is kindness. Here are answers to the most common questions we receive about our process, pricing, and partnerships."
+        subtitle="Clarity is kindness. Here are direct answers to the most common questions about our process, pricing, and partnerships."
       />
 
       <section className="mt-20 max-w-4xl mx-auto">
@@ -38,7 +39,7 @@ export default function FaqPage() {
 
       <AnimatedWrapper delay={300}>
         <section className="mt-24 text-center">
-            <h3 className="text-3xl font-bold font-headline text-white">Have More Questions?</h3>
+            <h3 className="text-3xl font-bold font-headline text-white">Have a Different Question?</h3>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
                 The best way to get answers is to talk with us directly. Let's discuss your specific goals on a no-obligation strategy call.
             </p>

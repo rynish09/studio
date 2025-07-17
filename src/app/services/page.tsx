@@ -18,8 +18,8 @@ export default function ServicesPage() {
   return (
     <div className="container mx-auto py-24 sm:py-32">
       <PageHeader
-        title="Your End-to-End Content & Growth Partner"
-        subtitle="We provide integrated solutions to build your brand into an industry-defining force. Below is our full arsenal of capabilities. We will build a custom package based on your unique goals."
+        title="Your End-to-End Growth Partner"
+        subtitle="We provide integrated solutions to build your brand into an industry-defining force. Below is our full arsenal of capabilities, which we use to build a custom package based on your unique goals."
       />
 
       <section className="mt-24 max-w-5xl mx-auto">
@@ -52,7 +52,7 @@ export default function ServicesPage() {
             Ready for a Bespoke Strategy?
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
-            Your goals are unique. Your plan should be too. Let's build a
+            Your goals are unique. Your plan must be too. Let's build a
             custom package that combines our capabilities into a cohesive
             growth engine for your brand.
           </p>

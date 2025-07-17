@@ -87,10 +87,10 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
       </AnimatedWrapper>
       
       <AnimatedWrapper delay={300}>
-        <section className="mt-24 text-center bg-card border border-accent/20 rounded-lg p-8 md:p-12">
+        <section className="mt-24 text-center bg-card border border-accent/20 rounded-lg p-8 md:p-12 max-w-4xl mx-auto">
             <h3 className="text-3xl font-bold font-headline text-white">Inspired? Let's Build Your Legacy.</h3>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
-                The same principles that built these titans can be applied to your brand. We specialize in tailoring these strategies to your unique voice and goals.
+                The same principles that built these titans can be applied to your brand. Our content agency specializes in tailoring these strategies to your unique voice and goals.
             </p>
             <Button asChild size="lg" className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-10 py-7 rounded-md">
                 <Link href="/contact">

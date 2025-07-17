@@ -15,25 +15,25 @@ const processSteps = [
   {
     step: '01',
     title: 'Phase 1: Deep Discovery & Strategic Audit',
-    description: 'Our journey begins not with assumptions, but with data. We immerse ourselves in your world, conducting a comprehensive audit of your brand, market, and competitors. We identify your unique voice, pinpoint untapped opportunities, and define what success looks like for you. This is the foundation upon which legacies are built.',
+    description: 'Our journey begins with data, not assumptions. We immerse ourselves in your world, auditing your brand, market, and competitors to identify your unique voice and define what success looks like. This is the foundation upon which legacies are built.',
     icon: Search,
   },
   {
     step: '02',
     title: 'Phase 2: The Bespoke Content Playbook',
-    description: "Armed with insight, we architect your custom Content Playbook. This isn't a generic template; it's a strategic roadmap detailing the exact themes, formats, and distribution channels needed to establish you as the definitive authority in your space. We define your content pillars and map out the first 90 days of execution.",
+    description: "Armed with insight, we architect your custom Content Playbook. This is a strategic roadmap detailing the exact themes, formats, and channels needed to establish you as the definitive authority. We define your content pillars and map out the first 90 days of execution.",
     icon: Map,
   },
   {
     step: '03',
     title: 'Phase 3: Elite Execution & Optimization',
-    description: "With the strategy set, our team of specialists brings it to life. From cinematic YouTube videos to high-impact LinkedIn posts, we execute with precision and an obsessive focus on quality. We continuously monitor performance, using data to refine our approach and double down on what's working, ensuring every piece of content drives results.",
+    description: "Strategy is nothing without execution. Our team of specialists brings the playbook to life with precision and an obsessive focus on quality. We continuously monitor performance, using data to refine our approach and ensure every piece of content drives results.",
     icon: Rocket,
   },
   {
     step: '04',
     title: 'Phase 4: Scaling Authority & Industry Domination',
-    description: "Once we have a proven content engine, we scale. We amplify your message, expand your reach, and solidify your position as the undeniable leader in your field. This is where your brand transcends the noise and becomes a signal—an authority that commands respect, trust, and enterprise value.",
+    description: "With a proven content engine, we scale. We amplify your message, expand your reach, and solidify your position as the undeniable leader in your field. This is where your brand transcends the noise and becomes a signal—an authority that commands respect, trust, and enterprise value.",
     icon: Crown,
   },
 ];
@@ -52,7 +52,11 @@ export default function ProcessPage() {
           
           <div className="space-y-16">
             {processSteps.map((step, index) => (
-              <AnimatedWrapper key={step.step} delay={index * 200}>
+              <AnimatedWrapper 
+                key={step.step} 
+                delay={index * 200}
+                className={index % 2 === 0 ? '[&.is-visible]:animate-slide-in-left' : '[&.is-visible]:animate-slide-in-right'}
+              >
                 <div className="relative flex items-start gap-8">
                   <div className="flex-shrink-0 flex flex-col items-center">
                     <div className="w-16 h-16 flex items-center justify-center rounded-full bg-secondary text-accent border-2 border-border shadow-lg">
@@ -75,7 +79,7 @@ export default function ProcessPage() {
 
       <AnimatedWrapper delay={800}>
         <section className="mt-24 text-center">
-          <h2 className="text-3xl font-bold font-headline text-white">Ready to walk the path?</h2>
+          <h2 className="text-3xl font-bold font-headline text-white">Ready to Walk The Path?</h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
             A system is only as good as its execution. Let's talk about building a custom growth engine for your brand.
           </p>

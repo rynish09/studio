@@ -52,7 +52,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="max-w-3xl mx-auto">
           <Link href="/blog" className="flex items-center gap-2 text-accent font-semibold hover:underline mb-8">
             <ArrowLeft className="w-4 h-4" />
-            Back to all posts
+            Back to Playbook
           </Link>
           
           <article>
@@ -90,9 +90,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       
       <AnimatedWrapper delay={300}>
         <section className="mt-24 text-center bg-card border border-border rounded-lg p-8 md:p-12 max-w-4xl mx-auto">
-            <h3 className="text-3xl font-bold font-headline text-white">Turn Insights Into Action</h3>
+            <h3 className="text-3xl font-bold font-headline text-white">Turn Insights Into Enterprise Value</h3>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
-                Inspired by this article? The next step is to see how these principles apply to you. Watch our deep-dive content on YouTube or book a free, no-obligation call to build your growth plan.
+                Inspired by this framework? The next step is to forge it into your growth engine. Watch our deep-dive content on YouTube or book a no-obligation strategy call to build your 90-day plan.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-8 py-6 rounded-md">

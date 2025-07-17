@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
@@ -15,22 +16,22 @@ const processSteps = [
   {
     icon: Search,
     title: 'Discovery & Audit',
-    description: 'We map your content landscape to find untapped opportunities.',
+    description: 'We map your content landscape to find untapped opportunities and define your unique authority.',
   },
   {
     icon: Map,
     title: 'Strategy Design',
-    description: 'We architect a bespoke content playbook for market leadership.',
+    description: 'We architect a bespoke content playbook for market leadership and defensible brand narrative.',
   },
   {
     icon: Rocket,
     title: 'Content Execution',
-    description: 'Our team executes the playbook, creating high-authority class content.',
+    description: 'Our team executes the playbook, creating high-authority class content that builds enterprise value.',
   },
   {
     icon: Crown,
     title: 'Scale & Dominate',
-    description: 'We scale production to solidify you as the undeniable industry voice.',
+    description: 'We scale production to solidify you as the undeniable industry voice, creating a long-term asset.',
   },
 ];
 
@@ -47,13 +48,13 @@ export default function Home() {
         <section className="relative container mx-auto flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] text-center p-4 z-10">
           <AnimatedWrapper>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 max-w-4xl leading-tight font-headline">
-              We Don't Build Brands. We Forge Legacies with Class Content.
+              We Don't Build Brands. We Forge Legacies.
             </h1>
             <p
               className="mt-6 text-lg md:text-xl text-white/80 max-w-3xl mx-auto font-body"
               style={{ lineHeight: 1.6 }}
             >
-              As a leading content agency, we specialize in organic marketing and strategic content marketing to turn your expertise into enterprise value. Our medium is class content. Our metric is authority.
+              As a premier content agency, we turn your expertise into enterprise value. We don't just create content; we build authority. Our mission is to make you the undeniable leader in your space.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <Button
@@ -79,9 +80,9 @@ export default function Home() {
       <section className="py-24 sm:py-32 bg-card border-y border-border">
         <div className="container mx-auto">
           <AnimatedWrapper className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">The ConteX Method: An Organic Marketing Agency's Approach</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">The ConteX Method: A System for Authority</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
-              A systematic approach to building a legendary brand through strategic, class content.
+              A systematic approach to building a legendary brand through strategic, high-leverage content.
             </p>
           </AnimatedWrapper>
           <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -112,7 +113,7 @@ export default function Home() {
                   <AnimatedWrapper key={service.id} delay={index * 100}>
                       <Link href="/services" className="block group h-full">
                         <Card className="bg-card border-border text-center p-4 h-full transition-colors group-hover:border-accent">
-                            <CardContent className="p-0">
+                            <CardContent className="p-0 flex items-center justify-center h-full">
                               <p className="font-semibold text-white/90">{service.label}</p>
                             </CardContent>
                         </Card>
@@ -130,7 +131,7 @@ export default function Home() {
 
        <section className="py-24 sm:py-32 bg-card border-y border-border">
           <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <AnimatedWrapper>
+              <AnimatedWrapper className="[&.is-visible]:animate-slide-in-left">
                   <div className="max-w-xl">
                       <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">Your 90-Day Transformation</h2>
                       <p className="mt-4 text-lg text-white/80" style={{lineHeight: 1.7}}>
@@ -155,14 +156,14 @@ export default function Home() {
                       </Button>
                   </div>
               </AnimatedWrapper>
-              <AnimatedWrapper delay={200}>
+              <AnimatedWrapper delay={200} className="[&.is-visible]:animate-slide-in-right">
                   <Card className="bg-background border-accent/30 shadow-lg shadow-accent/10">
                       <CardHeader>
                           <CardTitle className="text-2xl text-accent">What is a Custom Package?</CardTitle>
                           <CardDescription className="text-white/70">It's a tailored selection of our services, packaged into a 90-day sprint.</CardDescription>
                       </CardHeader>
                       <CardContent>
-                          <p className="text-white/80">Every visionary brand is unique. That's why we don't do "one-size-fits-all." On our call, we'll listen to your goals and hand-pick the services—from YouTube production to content repurposing—that will generate the highest leverage for you right now.</p>
+                          <p className="text-white/80">Every visionary brand is unique. That's why we don't do "one-size-fits-all." On our call, we listen to your goals and hand-pick the services—from YouTube production to content repurposing—that will generate the highest leverage for you right now.</p>
                           <p className="mt-4 font-bold text-white">Example Package for a Founder:</p>
                           <ul className="mt-2 list-disc list-inside text-sm text-white/70 space-y-1">
                               <li>2x Long-Form YouTube Videos/Month</li>
@@ -181,7 +182,7 @@ export default function Home() {
           <AnimatedWrapper className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">Learn From The Titans of Content</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
-              Our content agency deconstructs the playbooks of giants. Here's a glimpse of what's inside.
+              Our content agency deconstructs the playbooks of giants. Success leaves clues.
             </p>
           </AnimatedWrapper>
           <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -216,9 +217,9 @@ export default function Home() {
       <section className="py-24 sm:py-32 bg-secondary/30">
         <div className="container mx-auto">
            <AnimatedWrapper className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">Answers to Your Questions</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">Your Questions, Answered.</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
-              Clarity is kindness. Here are some answers to common questions we receive.
+              Clarity is kindness. Here are direct answers to common questions we receive.
             </p>
           </AnimatedWrapper>
           <div className="mt-16 max-w-3xl mx-auto">

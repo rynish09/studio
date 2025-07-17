@@ -20,7 +20,7 @@ export default function BlogPage() {
     <div className="container mx-auto py-24 sm:py-32">
       <PageHeader 
         title="From The ConteX Playbook"
-        subtitle="Insights on organic marketing, content strategy, and brand building. We share the same frameworks we use to build legendary brands for our clients."
+        subtitle="We don't share tips; we share frameworks. These are the same systems our content agency uses to build legendary brands and generate enterprise value for our clients."
       />
 
       <section className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -37,7 +37,7 @@ export default function BlogPage() {
                 <CardContent className="flex flex-col flex-grow p-6 pt-0">
                   <p className="text-white/70 mb-6 flex-grow">{post.excerpt}</p>
                   <div className="flex items-center text-accent font-semibold mt-auto">
-                    <span>Read More</span>
+                    <span>Read The Framework</span>
                     <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
                 </CardContent>
