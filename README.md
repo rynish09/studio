@@ -22,15 +22,16 @@ The AI-powered tools use the Gemini API.
 - Go to [Google AI Studio](https://aistudio.google.com/app/apikey) to generate your free API key.
 - Open your new `.env` file and paste the key into the `GEMINI_API_KEY` variable.
 
-### 3. Get Your Firebase Credentials
+### 3. Configure Resend for Email Leads
 
-The contact form saves leads to a Firestore database.
+The contact form uses [Resend](https://resend.com) to email lead notifications to you.
 
-- Go to your [Firebase Project Settings](https://console.firebase.google.com/project/_/settings/general/).
-- Scroll down to the "Your apps" card.
-- Select "Web" as the platform type if you haven't already.
-- Find and copy the configuration values (`apiKey`, `authDomain`, etc.) into the corresponding `NEXT_PUBLIC_FIREBASE_*` variables in your `.env` file.
-- **Important**: In the Firebase Console, go to **Build > Firestore Database** and ensure you have created a database. If not, create one in "Production mode" and accept the default security rules.
+- Go to [Resend.com](https://resend.com), sign up for a free account, and create an API Key.
+- Add your domain to Resend and follow their instructions to verify it. This is crucial for email delivery.
+- Open your `.env` file and add the following variables:
+  - `RESEND_API_KEY`: Your API key from Resend.
+  - `NEXT_PUBLIC_LEAD_RECIPIENT_EMAIL`: The email address where you want to receive lead notifications.
+  - `NEXT_PUBLIC_LEAD_SENDER_EMAIL`: The "from" email address (e.g., `leads@yourdomain.com`). This must be on the domain you verified with Resend.
 
 ### 4. Run the Application
 
