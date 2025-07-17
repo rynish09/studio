@@ -6,8 +6,8 @@ import { Resend } from 'resend';
 
 // IMPORTANT: You must configure these environment variables in your .env file.
 const resend = new Resend(process.env.RESEND_API_KEY);
-const "TO_EMAIL" = process.env.NEXT_PUBLIC_LEAD_RECIPIENT_EMAIL; 
-const "FROM_EMAIL" = process.env.NEXT_PUBLIC_LEAD_SENDER_EMAIL;
+const TO_EMAIL = process.env.NEXT_PUBLIC_LEAD_RECIPIENT_EMAIL; 
+const FROM_EMAIL = process.env.NEXT_PUBLIC_LEAD_SENDER_EMAIL;
 
 const leadSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters.'),
