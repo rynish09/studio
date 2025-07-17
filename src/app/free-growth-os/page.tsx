@@ -8,6 +8,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { GrowthFlowchart } from '@/components/growth-flowchart';
+import { PersonalBrandingFlowchart } from '@/components/personal-branding-flowchart';
 
 export const metadata: Metadata = {
     title: 'The Free Growth OS | The ConteX',
@@ -95,8 +96,8 @@ export default function GrowthOsPage() {
                             <li><strong>Create and Share Content:</strong> Become a thought leader by consistently producing and sharing valuable content. This could include articles, blog posts, social media updates, videos, or presentations. Don't just curate; add your unique perspective and insights to every piece of content you share.</li>
                             <li><strong>Seek Opportunities:</strong> As your personal brand gains traction, new opportunities will emerge. Be proactive in seeking speaking engagements, collaborations, mentorship roles, or leadership positions that allow you to further showcase your expertise and expand your influence.</li>
                         </ul>
-                        <div className="py-4">
-                            <Image src="https://placehold.co/800x450.png" alt="Personal Branding Process Diagram" width={800} height={450} className="rounded-lg border border-border" data-ai-hint="personal branding diagram" />
+                        <div className="py-8 my-8">
+                           <PersonalBrandingFlowchart />
                         </div>
                     </div>
                 </section>
