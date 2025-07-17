@@ -7,6 +7,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import { GrowthFlowchart } from '@/components/growth-flowchart';
 
 export const metadata: Metadata = {
     title: 'The Free Growth OS | The ConteX',
@@ -58,8 +59,8 @@ export default function GrowthOsPage() {
                         <p>
                             Finally, strategic financial management is key. This includes portfolio reallocation, a concept often referred to as 'shrinking to grow.' This involves divesting underperforming assets and reinvesting those resources into high-growth opportunities. Similarly, periodically pruning your portfolio ensures that your business remains lean, focused, and poised for healthy growth from a continually optimized base.
                         </p>
-                         <div className="py-4">
-                            <Image src="https://placehold.co/800x450.png" alt="Business Growth Strategies Diagram" width={800} height={450} className="rounded-lg border border-border" data-ai-hint="business strategy chart"/>
+                         <div className="py-8 my-8">
+                            <GrowthFlowchart />
                          </div>
                     </div>
                 </section>
@@ -130,5 +131,4 @@ export default function GrowthOsPage() {
     </div>
   );
 }
-
     
