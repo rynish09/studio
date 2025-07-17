@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -10,6 +9,7 @@ import { Logo } from '@/components/logo';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { Separator } from '../ui/separator';
 
 const navLinks = [
   { href: '/services', label: 'Services' },
@@ -94,10 +94,21 @@ export default function Header() {
                   >
                     Free Growth OS
                   </Link>
+                  <Separator className="my-4" />
+                   <Link
+                    href="/contact"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={cn(
+                      'font-medium transition-colors hover:text-accent block py-2 text-lg',
+                       pathname.startsWith('/contact') ? 'text-accent' : 'text-white'
+                    )}
+                  >
+                    Book a Call
+                  </Link>
                 </nav>
                 <div className="p-6 border-t border-border">
                   <Button asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold">
-                    <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>Book a Call</Link>
+                    <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>Book a Strategy Call</Link>
                   </Button>
                 </div>
               </div>

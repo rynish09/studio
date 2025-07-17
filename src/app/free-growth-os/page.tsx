@@ -1,21 +1,20 @@
+'use client';
 
+import { useState } from 'react';
 import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import { PageHeader } from '@/components/ui/page-header';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import { ArrowRight } from 'lucide-react';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { GrowthFlowchart } from '@/components/growth-flowchart';
 import { PersonalBrandingFlowchart } from '@/components/personal-branding-flowchart';
-
-export const metadata: Metadata = {
-    title: 'The Free Growth OS | The ConteX',
-    description: 'The operating system for organic growth. Learn our four-phase framework for building a content engine that drives results.',
-};
+import { GrowthOsForm } from './growth-os-form';
 
 export default function GrowthOsPage() {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSuccess = () => {
+    setIsSubmitted(true);
+  };
+
   return (
     <div className="container mx-auto py-24 sm:py-32">
         <PageHeader
@@ -105,31 +104,34 @@ export default function GrowthOsPage() {
         </div>
 
         <AnimatedWrapper delay={600}>
-            <section className="mt-24 text-center bg-card border border-accent/20 rounded-lg p-8 md:p-12 max-w-4xl mx-auto">
-                <h2 className="text-4xl font-bold font-headline text-white">Your Journey to Unstoppable Growth Starts Now</h2>
-                <div className="mt-6 space-y-4 text-lg text-white/80" style={{ lineHeight: 1.7 }}>
-                    <p>
-                       You've just received a blueprint for unparalleled growth—a comprehensive guide to mastering both business expansion and personal brand elevation. We've laid bare the strategies, the techniques, and the mindset required to transform your aspirations into tangible realities. This isn't just theory; it's a roadmap forged from experience, designed to empower you with the knowledge to navigate the complexities of today's competitive landscape.
-                    </p>
-                    <p>
-                        But knowledge, while powerful, is only the first step. The true magic happens in execution. Implementing these strategies, adapting them to your unique context, and scaling your efforts requires not just dedication, but often, a partner who understands the nuances of growth at every level.
-                    </p>
-                    <p className="font-bold text-white">
-                        This is where The ConteX steps in. We are not just consultants; we are architects of growth, master copywriters who craft narratives that resonate, and strategists who build empires. Our expertise isn't just theoretical; it's proven, delivering unparalleled results for businesses and individuals alike.
-                    </p>
-                    <h3 className="text-3xl font-bold font-headline text-accent pt-6">Ready to stop wishing for growth and start experiencing it?</h3>
-                    <p>
-                        This document is just a glimpse into our expertise. Imagine what we can achieve together when our insights are tailored specifically to your vision. We are the missing piece in your growth puzzle.
-                    </p>
-                </div>
-                 <Button asChild size="lg" className="mt-10 bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-10 py-7 rounded-md">
-                    <Link href="https://calendly.com/thecontexagency09/30min" target="_blank">
-                        Book Your Free Growth Strategy Call <ArrowRight className="ml-2 w-5 h-5" />
-                    </Link>
-                </Button>
-            </section>
+             <div className="mt-20 max-w-4xl mx-auto">
+                <Card className="bg-card border-border">
+                    <CardHeader>
+                        <CardTitle className="text-3xl font-headline text-accent">Your Journey to Unstoppable Growth Starts Now</CardTitle>
+                        <CardDescription className="text-lg text-white/70 pt-2">
+                            {isSubmitted
+                                ? "Thank you! Please select a time that works for you below."
+                                : "This blueprint is just the beginning. To get your free Growth OS and unlock the next step, please provide your details. This isn't just a download; it's the first step towards building your legacy."}
+                        </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        {!isSubmitted ? (
+                            <GrowthOsForm onSuccess={handleSuccess} />
+                        ) : (
+                            <div className="aspect-[3/4] sm:aspect-video rounded-lg overflow-hidden border border-border bg-background mt-4">
+                                <iframe
+                                src="https://calendly.com/thecontexagency09/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=101116&text_color=ffffff&primary_color=ff0000"
+                                width="100%"
+                                height="100%"
+                                frameBorder="0"
+                                title="Calendly Booking"
+                                ></iframe>
+                            </div>
+                        )}
+                    </CardContent>
+                </Card>
+            </div>
       </AnimatedWrapper>
     </div>
   );
 }
-    

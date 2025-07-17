@@ -1,4 +1,3 @@
-
 'use server';
 
 import { z } from 'zod';
@@ -12,7 +11,8 @@ const FROM_EMAIL = process.env.NEXT_PUBLIC_LEAD_SENDER_EMAIL;
 const leadSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters.'),
   email: z.string().email('Please enter a valid email address.'),
-  phone: z.string().min(10, 'Please enter a valid phone number.'),
+  phone: z.string().min(10, 'Please enter a valid phone number.').optional(),
+  source: z.enum(['Strategy Call', 'Growth OS']),
 });
 
 export async function submitLead(values: z.infer<typeof leadSchema>) {
@@ -30,18 +30,20 @@ export async function submitLead(values: z.infer<typeof leadSchema>) {
     throw new Error('Recipient or Sender email is not configured. Please check your .env file.');
   }
 
+  const { name, email, phone, source } = parsed.data;
+
   try {
     await resend.emails.send({
       from: `ConteX Leads <${FROM_EMAIL}>`,
       to: TO_EMAIL,
-      subject: 'New Strategy Call Lead!',
+      subject: source === 'Strategy Call' ? 'New Strategy Call Lead!' : 'New Growth OS Download Lead!',
       html: `
         <h1>New Lead Submission</h1>
-        <p>You have a new lead from the website.</p>
+        <p>Source: ${source}</p>
         <ul>
-          <li><strong>Name:</strong> ${parsed.data.name}</li>
-          <li><strong>Email:</strong> ${parsed.data.email}</li>
-          <li><strong>Phone:</strong> ${parsed.data.phone}</li>
+          <li><strong>Name:</strong> ${name}</li>
+          <li><strong>Email:</strong> ${email}</li>
+          ${phone ? `<li><strong>Phone:</strong> ${phone}</li>` : ''}
         </ul>
       `,
     });

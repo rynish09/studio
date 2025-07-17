@@ -3,7 +3,7 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { submitLead } from './actions';
+import { submitLead } from '../contact/actions';
 import { useToast } from '@/hooks/use-toast';
 
 import { Button } from '@/components/ui/button';
@@ -24,29 +24,25 @@ const formSchema = z.object({
   email: z.string().email({
     message: 'Please enter a valid email address.',
   }),
-  phone: z.string().min(10, {
-    message: 'Please enter a valid phone number.',
-  }),
 });
 
-interface ContactFormProps {
+interface GrowthOsFormProps {
   onSuccess: () => void;
 }
 
-export function ContactForm({ onSuccess }: ContactFormProps) {
+export function GrowthOsForm({ onSuccess }: GrowthOsFormProps) {
   const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: '',
       email: '',
-      phone: '',
     },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      await submitLead({ ...values, source: 'Strategy Call' });
+      await submitLead({ ...values, source: 'Growth OS' });
       onSuccess();
     } catch (error: any) {
       toast({
@@ -87,23 +83,6 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
                 <Input
                   placeholder="e.g. alex@acquisition.com"
                   type="email"
-                  {...field}
-                  className="bg-background text-white"
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="phone"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-white">Phone Number</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder="e.g. +1 555-123-4567"
                   {...field}
                   className="bg-background text-white"
                 />
