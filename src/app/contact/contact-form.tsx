@@ -60,16 +60,16 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 p-2 sm:p-4">
         <FormField
           control={form.control}
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-white">Name</FormLabel>
+              <FormLabel className="text-white">Full Name</FormLabel>
               <FormControl>
                 <Input
-                  placeholder="Alex Hormozi"
+                  placeholder="e.g. Alex Hormozi"
                   {...field}
                   className="bg-background text-white"
                 />
@@ -83,10 +83,10 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-white">Email</FormLabel>
+              <FormLabel className="text-white">Work Email</FormLabel>
               <FormControl>
                 <Input
-                  placeholder="alex@acquisition.com"
+                  placeholder="e.g. alex@acquisition.com"
                   type="email"
                   {...field}
                   className="bg-background text-white"
@@ -101,10 +101,10 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
           name="phone"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-white">Phone</FormLabel>
+              <FormLabel className="text-white">Phone Number</FormLabel>
               <FormControl>
                 <Input
-                  placeholder="+1 555-123-4567"
+                  placeholder="e.g. +1 555-123-4567"
                   {...field}
                   className="bg-background text-white"
                 />
@@ -118,7 +118,7 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
           className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg py-6"
           disabled={form.formState.isSubmitting}
         >
-          {form.formState.isSubmitting ? 'Processing...' : 'Access The OS Now'}
+          {form.formState.isSubmitting ? 'Processing...' : 'Proceed to Booking'}
         </Button>
       </form>
     </Form>

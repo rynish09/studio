@@ -1,3 +1,4 @@
+
 'use server';
 
 import { z } from 'zod';
@@ -27,11 +28,11 @@ export async function submitLead(values: z.infer<typeof leadSchema>) {
     console.error('Error writing document to Firebase: ', error);
     
     // Check for a specific Firebase error related to configuration
-    if (error.code === 'invalid-argument') {
+    if (error.code === 'invalid-argument' || error.message.includes('firestore')) {
       throw new Error("Firebase credentials are not set up correctly. Please check your .env file and ensure Firestore is enabled in your Firebase project.");
     }
 
     // Generic error for other issues
-    throw new Error('Could not save lead. Please try again.');
+    throw new Error('Could not save your information. Please try again.');
   }
 }
