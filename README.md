@@ -9,20 +9,11 @@ To run this project locally and enable all features (including the AI Tools and 
 
 ### 1. Create an Environment File
 
-Create a new file named `.env` in the root of your project by copying the example file:
+If you don't have one, create a new file named `.env` in the root of your project.
 
-```bash
-cp .env.example .env
-```
+Your `GEMINI_API_KEY` has already been configured for you, enabling the AI features.
 
-### 2. Get Your Google AI API Key
-
-The AI-powered tools use the Gemini API.
-
-- Go to [Google AI Studio](https://aistudio.google.com/app/apikey) to generate your free API key.
-- Open your new `.env` file and paste the key into the `GEMINI_API_KEY` variable.
-
-### 3. Configure Resend for Email Leads
+### 2. Configure Resend for Email Leads
 
 The contact form uses [Resend](https://resend.com) to email lead notifications to you.
 
@@ -33,7 +24,9 @@ The contact form uses [Resend](https://resend.com) to email lead notifications t
   - `NEXT_PUBLIC_LEAD_RECIPIENT_EMAIL`: The email address where you want to receive lead notifications (e.g., thecontexagency09@gmail.com).
   - `NEXT_PUBLIC_LEAD_SENDER_EMAIL`: The "from" email address (e.g., `leads@yourdomain.com`). This must be on the domain you verified with Resend.
 
-### 4. Run the Application
+Your `RESEND_API_KEY` has been pre-configured, but you may need to update the domain and sender email to match your verified domain in Resend.
+
+### 3. Run the Application
 
 Once your `.env` file is configured, you can start the development server:
 
