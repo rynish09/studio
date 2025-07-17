@@ -30,7 +30,7 @@ The contact form uses [Resend](https://resend.com) to email lead notifications t
 - Add your domain to Resend and follow their instructions to verify it. This is crucial for email delivery.
 - Open your `.env` file and add the following variables:
   - `RESEND_API_KEY`: Your API key from Resend.
-  - `NEXT_PUBLIC_LEAD_RECIPIENT_EMAIL`: The email address where you want to receive lead notifications.
+  - `NEXT_PUBLIC_LEAD_RECIPIENT_EMAIL`: The email address where you want to receive lead notifications (e.g., thecontexagency09@gmail.com).
   - `NEXT_PUBLIC_LEAD_SENDER_EMAIL`: The "from" email address (e.g., `leads@yourdomain.com`). This must be on the domain you verified with Resend.
 
 ### 4. Run the Application
