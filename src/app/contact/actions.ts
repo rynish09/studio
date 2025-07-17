@@ -2,8 +2,12 @@
 'use server';
 
 import { z } from 'zod';
-import { db } from '@/lib/firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { Resend } from 'resend';
+
+// IMPORTANT: You must configure these environment variables in your .env file.
+const resend = new Resend(process.env.RESEND_API_KEY);
+const "TO_EMAIL" = process.env.NEXT_PUBLIC_LEAD_RECIPIENT_EMAIL; 
+const "FROM_EMAIL" = process.env.NEXT_PUBLIC_LEAD_SENDER_EMAIL;
 
 const leadSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters.'),
@@ -15,24 +19,34 @@ export async function submitLead(values: z.infer<typeof leadSchema>) {
   const parsed = leadSchema.safeParse(values);
 
   if (!parsed.success) {
-    // This should ideally not happen if client-side validation is working
     throw new Error('Invalid form data.');
   }
 
+  if (!process.env.RESEND_API_KEY) {
+    throw new Error('Resend API key is not configured. Please check your .env file.');
+  }
+
+  if (!TO_EMAIL || !FROM_EMAIL) {
+    throw new Error('Recipient or Sender email is not configured. Please check your .env file.');
+  }
+
   try {
-    await addDoc(collection(db, 'leads'), {
-      ...parsed.data,
-      submittedAt: serverTimestamp(),
+    await resend.emails.send({
+      from: `ConteX Leads <${FROM_EMAIL}>`,
+      to: TO_EMAIL,
+      subject: 'New Strategy Call Lead!',
+      html: `
+        <h1>New Lead Submission</h1>
+        <p>You have a new lead from the website.</p>
+        <ul>
+          <li><strong>Name:</strong> ${parsed.data.name}</li>
+          <li><strong>Email:</strong> ${parsed.data.email}</li>
+          <li><strong>Phone:</strong> ${parsed.data.phone}</li>
+        </ul>
+      `,
     });
   } catch (error: any) {
-    console.error('Error writing document to Firebase: ', error);
-    
-    // Check for a specific Firebase error related to configuration
-    if (error.code === 'invalid-argument' || error.message.includes('firestore')) {
-      throw new Error("Firebase credentials are not set up correctly. Please check your .env file and ensure Firestore is enabled in your Firebase project.");
-    }
-
-    // Generic error for other issues
-    throw new Error('Could not save your information. Please try again.');
+    console.error('Error sending email with Resend: ', error);
+    throw new Error('Could not submit your information. Please try again later.');
   }
 }
