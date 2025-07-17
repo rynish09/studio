@@ -7,124 +7,31 @@ import AnimatedWrapper from "./ui/animated-wrapper";
 const FlowNode = ({ children, className, isDecision = false, delay = 0 }: { children: React.ReactNode, className?: string, isDecision?: boolean, delay?: number }) => (
     <AnimatedWrapper delay={delay} className="flex justify-center items-center">
         <div className={cn(
-            "bg-card border border-border text-center text-white/90 shadow-lg",
-            "p-3 min-h-[60px] flex items-center justify-center text-sm",
-            isDecision ? "transform rotate-45 w-32 h-32" : "rounded-md w-48",
+            "bg-card border-2 border-border text-center text-white/90 shadow-lg",
+            "p-4 min-h-[70px] flex items-center justify-center text-sm md:text-base w-full max-w-xs mx-auto",
+            isDecision ? "transform -skew-x-12" : "rounded-lg",
             className
         )}>
-            <div className={cn(isDecision && "transform -rotate-45")}>
+            <div className={cn(isDecision && "transform skew-x-12")}>
                 {children}
             </div>
         </div>
     </AnimatedWrapper>
 );
 
-const Line = ({ className, delay = 0, label, labelClassName }: { className?: string, delay?: number, label?: string, labelClassName?: string }) => (
-    <AnimatedWrapper delay={delay} className="relative">
-        <svg className={cn("absolute", className)} fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1 L1 100" stroke="hsl(var(--border))" strokeWidth="2" className="animate-draw" />
-        </svg>
-        {label && <div className={cn("absolute text-accent text-xs font-semibold p-1 bg-background rounded", labelClassName)}>{label}</div>}
+const Line = ({ delay = 0, label, hasArrow = true }: { delay?: number, label?: string, hasArrow?: boolean }) => (
+    <AnimatedWrapper delay={delay} className="relative h-16 flex justify-center items-center">
+        <div className="w-1 h-full bg-accent/30"></div>
+        {hasArrow && (
+            <div className="absolute bottom-0 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-accent/50"></div>
+        )}
+        {label && <div className="absolute text-accent font-semibold px-2 py-1 bg-background rounded-md text-sm -top-4 right-1/2 translate-x-[calc(100%)]">{label}</div>}
     </AnimatedWrapper>
 );
 
-
 export function GrowthFlowchart() {
     return (
-        <div className="flex flex-col items-center space-y-8 font-sans">
-            <FlowNode delay={100}>Start</FlowNode>
-            <Line delay={200} className="h-12 w-full top-0 left-1/2" />
-            <FlowNode delay={300} isDecision={true}>Business Growth?</FlowNode>
-            
-            <div className="w-full flex justify-center relative h-32">
-                <AnimatedWrapper delay={400} className="absolute top-0 left-1/2 -translate-x-1/2">
-                    <svg width="2" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 0 V48" stroke="hsl(var(--border))" strokeWidth="2" className="animate-draw"/>
-                    </svg>
-                    <div className="absolute left-2 top-2 text-accent text-xs font-semibold p-1 bg-background rounded">Yes</div>
-                </AnimatedWrapper>
-                <AnimatedWrapper delay={400} className="absolute top-0 left-1/2">
-                     <svg width="400" height="300" className="opacity-50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                         <path d="M1 0 C 1 150, 400 150, 400 300" stroke="hsl(var(--border))" strokeWidth="2" className="animate-draw"/>
-                     </svg>
-                     <div className="absolute right-2 -bottom-28 text-muted-foreground text-xs font-semibold p-1 bg-background rounded">No</div>
-                </AnimatedWrapper>
-            </div>
-
-            <FlowNode delay={500}>Innovate in Core</FlowNode>
-            <Line delay={600} className="h-12 w-full top-0 left-1/2" />
-            <FlowNode delay={700} isDecision={true}>Need More Growth?</FlowNode>
-            
-            <div className="w-full flex justify-center relative h-32">
-                 <AnimatedWrapper delay={800} className="absolute top-0 left-1/2 -translate-x-1/2">
-                    <svg width="2" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 0 V48" stroke="hsl(var(--border))" strokeWidth="2" className="animate-draw"/>
-                    </svg>
-                    <div className="absolute left-2 top-2 text-accent text-xs font-semibold p-1 bg-background rounded">Yes</div>
-                </AnimatedWrapper>
-            </div>
-
-            <FlowNode delay={900}>Move into Adjacencies</FlowNode>
-            <Line delay={1000} className="h-12 w-full top-0 left-1/2" />
-            <FlowNode delay={1100} isDecision={true}>Adjacency Rationale?</FlowNode>
-
-            <div className="w-full relative flex justify-center h-80">
-                <AnimatedWrapper delay={1200} className="absolute top-0">
-                    <svg width="800" height="80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M400 0 C 400 80, 0 80, 0 80" stroke="hsl(var(--border))" strokeWidth="2" className="animate-draw"/>
-                        <path d="M400 0 C 400 80, 266 80, 266 80" stroke="hsl(var(--border))" strokeWidth="2" className="animate-draw"/>
-                        <path d="M400 0 C 400 80, 532 80, 532 80" stroke="hsl(var(--border))" strokeWidth="2" className="animate-draw"/>
-                        <path d="M400 0 C 400 80, 800 80, 800 80" stroke="hsl(var(--border))" strokeWidth="2" className="animate-draw"/>
-                    </svg>
-                </AnimatedWrapper>
-                <div className="absolute top-20 w-full grid grid-cols-4 gap-4 px-4">
-                     <div className="flex flex-col items-center space-y-4">
-                        <div className="text-accent text-xs font-semibold">Customer Relationships</div>
-                        <FlowNode delay={1300}>Understand Pain Points</FlowNode>
-                    </div>
-                    <div className="flex flex-col items-center space-y-4">
-                        <div className="text-accent text-xs font-semibold">Capabilities</div>
-                        <FlowNode delay={1400}>Use Existing Assets in New Markets</FlowNode>
-                    </div>
-                    <div className="flex flex-col items-center space-y-4">
-                         <div className="text-accent text-xs font-semibold">Value Chain Expansion</div>
-                        <FlowNode delay={1500}>Go Upstream/Downstream</FlowNode>
-                    </div>
-                    <div className="flex flex-col items-center space-y-4">
-                        <div className="text-accent text-xs font-semibold">Disruption/Innovation</div>
-                        <FlowNode delay={1600}>Find New Business Models</FlowNode>
-                         <Line delay={1700} className="h-12 w-full top-0 left-1/2" />
-                        <FlowNode delay={1800}>Build Innovation Culture</FlowNode>
-                         <div className="relative w-full h-12">
-                            <svg className="absolute left-full top-0 -translate-x-1/2" width="200" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 24 C 100 24, 100 24, 200 24" stroke="hsl(var(--border))" strokeWidth="2" className="animate-draw"/>
-                            </svg>
-                             <div className="absolute left-full top-3 text-muted-foreground text-xs font-semibold p-1 bg-background rounded">No</div>
-                         </div>
-                        <Line delay={1900} className="h-12 w-full top-0 left-1/2" />
-                        <FlowNode delay={2000}>Use Sustainability as Accelerant</FlowNode>
-                        <Line delay={2100} className="h-12 w-full top-0 left-1/2" />
-                        <FlowNode delay={2200}>Portfolio Reallocation</FlowNode>
-                        <Line delay={2300} className="h-12 w-full top-0 left-1/2" />
-                        <FlowNode delay={2400}>Periodically Prune Portfolio</FlowNode>
-                    </div>
-                </div>
-            </div>
-
-            <div className="w-full h-40" />
-            <div className="w-full h-40" />
-            <div className="w-full h-40" />
-
-            <div className="w-full flex justify-center relative h-12">
-                <AnimatedWrapper delay={2500} className="absolute -top-16 right-0 lg:right-48">
-                     <svg width="2" height="64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                         <path d="M1 0 V64" stroke="hsl(var(--border))" strokeWidth="2" className="animate-draw"/>
-                     </svg>
-                </AnimatedWrapper>
-            </div>
-            
-            <FlowNode delay={2600}>End</FlowNode>
-
+        <div className="flex flex-col items-center space-y-4 font-sans max-w-md mx-auto">
             <style jsx>{`
                 .animate-draw {
                     stroke-dasharray: 1000;
@@ -137,6 +44,45 @@ export function GrowthFlowchart() {
                     }
                 }
             `}</style>
+            
+            <FlowNode delay={100}>Start</FlowNode>
+            <Line delay={200} />
+            <FlowNode delay={300} isDecision={true}>Focus on Business Growth?</FlowNode>
+            <Line delay={400} label="Yes"/>
+
+            <div className="w-full pl-8 border-l-4 border-accent/20 space-y-4 pb-4">
+                <FlowNode delay={500}>Innovate in Core Business</FlowNode>
+                <Line delay={600} />
+                <FlowNode delay={700} isDecision={true}>Need Further Growth?</FlowNode>
+                <Line delay={800} label="Yes"/>
+                <FlowNode delay={900}>Move into Adjacencies</FlowNode>
+                <Line delay={1000} />
+                <FlowNode delay={1100} isDecision={true}>Choose Adjacency Rationale</FlowNode>
+                <Line delay={1200} />
+
+                <div className="w-full pl-8 border-l-4 border-accent/20 space-y-4 pb-4">
+                    <FlowNode delay={1300}>Leverage Customer Relationships</FlowNode>
+                    <FlowNode delay={1400}>Use Existing Capabilities</FlowNode>
+                    <FlowNode delay={1500}>Expand in Value Chain</FlowNode>
+                    <FlowNode delay={1600}>Disrupt & Innovate Business Model</FlowNode>
+                </div>
+                
+                <Line delay={1700} />
+                <FlowNode delay={1800}>Build Strong Innovation Culture</FlowNode>
+                <Line delay={1900} />
+                <FlowNode delay={2000}>Use Sustainability as an Accelerant</FlowNode>
+                <Line delay={2100} />
+                <FlowNode delay={2200}>Strategic Portfolio Reallocation</FlowNode>
+                <Line delay={2300} />
+                 <FlowNode delay={2400}>Periodically Prune Portfolio</FlowNode>
+            </div>
+            
+            <Line delay={2500} hasArrow={false}/>
+             <div className="relative w-full text-center py-2">
+                 <hr className="border-accent/30" />
+                 <span className="absolute left-1/2 -translate-x-1/2 -top-3 bg-background px-2 text-muted-foreground text-sm">No</span>
+             </div>
+            <FlowNode delay={2600}>End</FlowNode>
         </div>
     );
 }

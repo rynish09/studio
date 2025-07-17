@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -18,7 +19,7 @@ export default function GrowthOsPage() {
   return (
     <div className="container mx-auto py-24 sm:py-32">
         <PageHeader
-            title="The Growth OS"
+            title="THE FREE GROWTH OS"
             subtitle="Your Blueprint for Unstoppable Business and Personal Growth"
         />
 
@@ -111,7 +112,7 @@ export default function GrowthOsPage() {
                         <CardDescription className="text-lg text-white/70 pt-2">
                             {isSubmitted
                                 ? "Thank you! Please select a time that works for you below."
-                                : "This blueprint is just the beginning. To get your free Growth OS and unlock the next step, please provide your details. This isn't just a download; it's the first step towards building your legacy."}
+                                : "This blueprint is just the beginning. To unlock the next step, please provide your details. This isn't just a download; it's the first step towards building your legacy."}
                         </CardDescription>
                     </CardHeader>
                     <CardContent>

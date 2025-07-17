@@ -7,31 +7,31 @@ import AnimatedWrapper from "./ui/animated-wrapper";
 const FlowNode = ({ children, className, isDecision = false, delay = 0 }: { children: React.ReactNode, className?: string, isDecision?: boolean, delay?: number }) => (
     <AnimatedWrapper delay={delay} className="flex justify-center items-center">
         <div className={cn(
-            "bg-card border border-border text-center text-white/90 shadow-lg",
-            "p-3 min-h-[60px] flex items-center justify-center text-sm",
-            isDecision ? "transform rotate-45 w-32 h-32" : "rounded-md w-48",
+            "bg-card border-2 border-border text-center text-white/90 shadow-lg",
+            "p-4 min-h-[70px] flex items-center justify-center text-sm md:text-base w-full max-w-xs mx-auto",
+            isDecision ? "transform -skew-x-12" : "rounded-lg",
             className
         )}>
-            <div className={cn(isDecision && "transform -rotate-45")}>
+            <div className={cn(isDecision && "transform skew-x-12")}>
                 {children}
             </div>
         </div>
     </AnimatedWrapper>
 );
 
-const Line = ({ d, delay = 0, label, labelPos }: { d: string, delay?: number, label?: string, labelPos?: { top?: string; left?: string; right?: string; bottom?: string; } }) => (
-    <AnimatedWrapper delay={delay} className="absolute w-full h-full top-0 left-0 -z-10">
-        <svg className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d={d} stroke="hsl(var(--border))" strokeWidth="2" className="animate-draw" />
-        </svg>
-        {label && <div className="absolute text-accent text-xs font-semibold p-1 bg-background rounded" style={labelPos}>{label}</div>}
+const Line = ({ delay = 0, label, hasArrow = true }: { delay?: number, label?: string, hasArrow?: boolean }) => (
+    <AnimatedWrapper delay={delay} className="relative h-16 flex justify-center items-center">
+        <div className="w-1 h-full bg-accent/30"></div>
+        {hasArrow && (
+            <div className="absolute bottom-0 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-accent/50"></div>
+        )}
+        {label && <div className="absolute text-accent font-semibold px-2 py-1 bg-background rounded-md text-sm -top-4 right-1/2 translate-x-[calc(100%)]">{label}</div>}
     </AnimatedWrapper>
 );
 
-
 export function PersonalBrandingFlowchart() {
     return (
-        <div className="relative flex flex-col items-center space-y-6 font-sans py-4" style={{ height: '1100px' }}>
+        <div className="flex flex-col items-center space-y-4 font-sans max-w-md mx-auto">
              <style jsx>{`
                 .animate-draw {
                     stroke-dasharray: 1000;
@@ -45,76 +45,35 @@ export function PersonalBrandingFlowchart() {
                 }
             `}</style>
 
-            <div className="absolute top-0 w-full text-center">
-                <FlowNode delay={100}>Start</FlowNode>
-            </div>
+            <FlowNode delay={100}>Start</FlowNode>
+            <Line delay={200} />
+            <FlowNode delay={300} isDecision={true}>Build Personal Brand?</FlowNode>
+            <Line delay={400} label="Yes"/>
             
-            <Line d="M 50% 60 V 110" delay={200} />
-
-            <div className="absolute top-[110px] w-full text-center">
-                <FlowNode delay={300} isDecision={true}>Build Personal Brand?</FlowNode>
-            </div>
-
-            <Line d="M 50% 178 V 230" delay={400} label="Yes" labelPos={{ top: '190px', left: 'calc(50% + 10px)' }}/>
-            
-            <div className="absolute top-[230px] w-full text-center">
-                 <FlowNode delay={500}>Define Unique Perspective</FlowNode>
-            </div>
-
-            <Line d="M 50% 290 V 320" delay={600} />
-
-             <div className="absolute top-[320px] w-full text-center">
-                <FlowNode delay={700}>Identify Values</FlowNode>
-            </div>
-
-             <Line d="M 50% 380 V 410" delay={800} />
-
-            <div className="absolute top-[410px] w-full text-center">
-                <FlowNode delay={900}>Determine Expertise</FlowNode>
-            </div>
-
-            <Line d="M 50% 470 V 500" delay={1000} />
-
-             <div className="absolute top-[500px] w-full text-center">
-                <FlowNode delay={1100}>Combine to Form Brand Focus</FlowNode>
-            </div>
-
-             <Line d="M 50% 560 V 590" delay={1200} />
-
-            <div className="absolute top-[590px] w-full text-center">
+            <div className="w-full pl-8 border-l-4 border-accent/20 space-y-4 pb-4">
+                <FlowNode delay={500}>Define Unique Perspective</FlowNode>
+                <Line delay={600} />
+                <FlowNode delay={700}>Identify Values & Purpose</FlowNode>
+                <Line delay={800} />
+                <FlowNode delay={900}>Determine Core Expertise</FlowNode>
+                <Line delay={1000} />
+                <FlowNode delay={1100} className="bg-accent/10 border-accent">Combine to Form Brand Focus</FlowNode>
+                <Line delay={1200} />
                 <FlowNode delay={1300}>Exercise Your Brand</FlowNode>
-            </div>
-
-             <Line d="M 50% 650 V 680" delay={1400} />
-            
-             <div className="absolute top-[680px] w-full text-center">
+                <Line delay={1400} />
                 <FlowNode delay={1500}>Connect with Colleagues</FlowNode>
-            </div>
-
-            <Line d="M 50% 740 V 770" delay={1600} />
-
-            <div className="absolute top-[770px] w-full text-center">
+                <Line delay={1600} />
                 <FlowNode delay={1700}>Create & Share Content</FlowNode>
+                <Line delay={1800} />
+                <FlowNode delay={1900}>Seek Growth Opportunities</FlowNode>
             </div>
 
-            <Line d="M 50% 830 V 860" delay={1800} />
-
-            <div className="absolute top-[860px] w-full text-center">
-                <FlowNode delay={1900}>Seek Opportunities</FlowNode>
-            </div>
-
-            <Line d="M 50% 920 V 970 H 50%" delay={2000} />
-
-            <div className="absolute top-[970px] w-full text-center">
-                <FlowNode delay={2100}>End</FlowNode>
-            </div>
-
-            <Line 
-                d="M calc(50% + 64px) 144 C calc(50% + 200px) 144, calc(50% + 200px) 970, 50% 970" 
-                delay={400}
-                label="No"
-                labelPos={{ top: '500px', right: 'calc(50% - 220px)' }}
-            />
+            <Line delay={2000} hasArrow={false}/>
+             <div className="relative w-full text-center py-2">
+                 <hr className="border-accent/30" />
+                 <span className="absolute left-1/2 -translate-x-1/2 -top-3 bg-background px-2 text-muted-foreground text-sm">No</span>
+             </div>
+            <FlowNode delay={2100}>End</FlowNode>
         </div>
     );
 }
