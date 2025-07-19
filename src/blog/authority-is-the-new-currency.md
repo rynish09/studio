@@ -4,7 +4,6 @@ publishDate: '2024-07-21'
 excerpt: 'Chasing trends is a losing game. The algorithms will change, but authority is an asset that appreciates over time. We break down the four pillars of building true, defensible authority in any market.'
 author:
   name: 'StrawHats'
-  avatarUrl: 'https://placehold.co/100x100.png'
 ---
 
 In the digital economy, many mistake attention for authority. They are not the same. Attention can be bought or hacked through fleeting trends. It's loud, but temporary. Authority is earned through consistency, expertise, and generosity. It's quiet, but permanent.

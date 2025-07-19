@@ -4,7 +4,6 @@ publishDate: '2024-07-28'
 excerpt: 'Stop the content treadmill. Learn the system we use to turn a single long-form video into an entire month of high-impact content across all platforms. This is how you achieve omnipresence without burnout.'
 author:
   name: 'StrawHats'
-  avatarUrl: 'https://placehold.co/100x100.png'
 ---
 
 The biggest lie in content marketing is that you need to be constantly creating something new. The truth is, you probably have a goldmine of content you're not using. The secret to scaling your brand's message isn't more content—it's more from your content.

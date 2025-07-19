@@ -4,7 +4,6 @@ publishDate: '2024-07-15'
 excerpt: 'You think YouTube is for gamers and vloggers? Think again. It''s the most powerful B2B trust-building engine on the planet. Here''s the playbook for founders to dominate their niche with video.'
 author:
   name: 'StrawHats'
-  avatarUrl: 'https://placehold.co/100x100.png'
 ---
 
 Most B2B founders dismiss YouTube as a platform for consumers. They focus on LinkedIn, write white papers, and attend networking events. These are all valuable, but they are playing in a crowded sandbox. The blue ocean for B2B influence and lead generation is YouTube.

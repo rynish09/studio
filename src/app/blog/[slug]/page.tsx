@@ -5,9 +5,8 @@ import AnimatedWrapper from '@/components/ui/animated-wrapper';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import type { Metadata } from 'next';
-import { ArrowLeft, Calendar, User, Youtube, Phone } from 'lucide-react';
+import { ArrowLeft, Calendar, Youtube, Phone } from 'lucide-react';
 import { format } from 'date-fns';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Separator } from '@/components/ui/separator';
 
 interface BlogPostPageProps {
@@ -38,6 +37,19 @@ export async function generateStaticParams() {
     return getAllPostSlugs();
 }
 
+const StrawHatLogo = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className="w-8 h-8 text-accent"
+  >
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="none" />
+    <path d="M19.5,12.5c0,1.6-1.3,2.9-2.9,2.9H7.4c-1.6,0-2.9-1.3-2.9-2.9v-1c0-1.6,1.3-2.9,2.9-2.9h9.2c1.6,0,2.9,1.3,2.9,2.9V12.5z M12,6.5C9.5,6.5,7.5,8.5,7.5,11h9C16.5,8.5,14.5,6.5,12,6.5z" />
+  </svg>
+);
+
+
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   let post;
   try {
@@ -62,11 +74,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </h1>
               <div className="mt-6 flex items-center gap-6 text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">
-                    <Avatar className="h-8 w-8">
-                        <AvatarImage src={post.author.avatarUrl} alt={post.author.name} />
-                        <AvatarFallback>{post.author.name.charAt(0)}</AvatarFallback>
-                    </Avatar>
-                    <span>{post.author.name}</span>
+                    <StrawHatLogo />
+                    <span className="font-semibold text-white">{post.author.name}</span>
                 </div>
                 <Separator orientation="vertical" className="h-5"/>
                 <div className="flex items-center gap-2">

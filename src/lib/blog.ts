@@ -14,7 +14,6 @@ export interface BlogPostData {
   excerpt: string;
   author: {
     name: string;
-    avatarUrl: string;
   };
   contentHtml: string;
 }
@@ -40,7 +39,7 @@ export function getSortedPostsData(): Omit<BlogPostData, 'contentHtml'>[] {
         title: string; 
         publishDate: string; 
         excerpt: string; 
-        author: { name: string; avatarUrl: string; } 
+        author: { name: string; } 
     }),
     };
   });
@@ -86,7 +85,7 @@ export async function getPostData(slug: string): Promise<BlogPostData> {
         title: string; 
         publishDate: string; 
         excerpt: string; 
-        author: { name: string; avatarUrl: string; } 
+        author: { name: string; } 
     }),
   };
 }
