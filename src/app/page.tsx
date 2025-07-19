@@ -56,22 +56,25 @@ export default function Home() {
             >
               As a premier content agency, we turn your expertise into enterprise value. We don't just create content; we build authority. Our mission is to make you the undeniable leader in your space.
             </p>
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <Button
-                asChild
-                size="lg"
-                className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-10 py-7 rounded-md shadow-lg shadow-accent/20 transition-all duration-300 hover:shadow-accent/40 hover:scale-105"
-              >
-                <Link href="/contact">Book a Call to 2X Your Revenue</Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="font-bold text-lg px-10 py-7 rounded-md border-2 border-border"
-              >
-                <Link href="/free-growth-os">Get The Free Growth OS</Link>
-              </Button>
+            <div className="mt-10 flex flex-col items-center gap-2">
+                <div className="flex flex-wrap justify-center gap-4">
+                    <Button
+                        asChild
+                        size="lg"
+                        className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-10 py-7 rounded-md shadow-lg shadow-accent/20 transition-all duration-300 hover:shadow-accent/40 hover:scale-105"
+                    >
+                        <Link href="/contact">Book a Call to 2X Your Revenue</Link>
+                    </Button>
+                    <Button
+                        asChild
+                        variant="outline"
+                        size="lg"
+                        className="font-bold text-lg px-10 py-7 rounded-md border-2 border-border"
+                    >
+                        <Link href="/free-growth-os">Get The Free Growth OS</Link>
+                    </Button>
+                </div>
+                <p className="text-xs text-muted-foreground">*T&amp;C Apply</p>
             </div>
           </AnimatedWrapper>
         </section>
@@ -148,7 +151,7 @@ export default function Home() {
                           </li>
                           <li className="flex items-start gap-3">
                               <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
-                              <span><span className="font-bold text-white">Transparent Pricing & Scope:</span> No surprises. We'll define the exact scope of our engagement and what you can expect.</span>
+                              <span><span className="font-bold text-white">Transparent Pricing &amp; Scope:</span> No surprises. We'll define the exact scope of our engagement and what you can expect.</span>
                           </li>
                       </ul>
                       <Button asChild size="lg" className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground font-bold">
