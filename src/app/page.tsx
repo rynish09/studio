@@ -62,7 +62,7 @@ export default function Home() {
                 size="lg"
                 className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-10 py-7 rounded-md shadow-lg shadow-accent/20 transition-all duration-300 hover:shadow-accent/40 hover:scale-105"
               >
-                <Link href="/contact">Book A Consultation</Link>
+                <Link href="/contact">Book a Call to 2X Your Revenue</Link>
               </Button>
               <Button
                 asChild
