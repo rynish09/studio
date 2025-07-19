@@ -56,14 +56,14 @@ export default function Home() {
             >
               As a premier content agency, we turn your expertise into enterprise value. We don't just create content; we build authority. Our mission is to make you the undeniable leader in your space.
             </p>
-            <div className="mt-10 flex flex-col items-center gap-2">
+            <div className="mt-10 flex flex-col items-center gap-4">
                 <div className="flex flex-wrap justify-center gap-4">
                     <Button
                         asChild
                         size="lg"
                         className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-10 py-7 rounded-md shadow-lg shadow-accent/20 transition-all duration-300 hover:shadow-accent/40 hover:scale-105"
                     >
-                        <Link href="/contact">Book a Call to 2X Your Revenue</Link>
+                        <Link href="/contact">Book Your Strategic Call</Link>
                     </Button>
                     <Button
                         asChild
@@ -74,7 +74,13 @@ export default function Home() {
                         <Link href="/free-growth-os">Get The Free Growth OS</Link>
                     </Button>
                 </div>
-                <p className="text-xs text-muted-foreground">*T&amp;C Apply</p>
+                 <div className="mt-6 text-center text-sm text-muted-foreground max-w-2xl">
+                    <p className="font-bold text-accent">Our 2X Organic Revenue Guarantee</p>
+                    <p className="text-xs mt-1">
+                        We guarantee to double your monthly revenue from organic channels in 90 days.
+                        <br/>*This applies exclusively to our 90-day custom packages for qualifying partners.
+                    </p>
+                </div>
             </div>
           </AnimatedWrapper>
         </section>
