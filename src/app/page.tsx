@@ -78,8 +78,52 @@ export default function Home() {
           </AnimatedWrapper>
         </section>
       </div>
-      
+
       <section className="py-24 sm:py-32 bg-card border-y border-border">
+          <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <AnimatedWrapper className="[&.is-visible]:animate-slide-in-left">
+                  <div className="max-w-xl">
+                      <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">Our 2X Revenue Guarantee</h2>
+                      <p className="mt-4 text-lg text-white/80" style={{lineHeight: 1.7}}>
+                          We don't just promise results; we guarantee them. For qualifying partners, we commit to doubling your monthly revenue from organic channels within 90 days of our partnership. This is our commitment to your growth.
+                      </p>
+                      <ul className="mt-6 space-y-3 text-white/80">
+                          <li className="flex items-start gap-3">
+                              <ShieldCheck className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
+                              <span><span className="font-bold text-white">A Bold Promise:</span> Double your organic revenue, guaranteed.</span>
+                          </li>
+                          <li className="flex items-start gap-3">
+                              <ShieldCheck className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
+                              <span><span className="font-bold text-white">Our Commitment:</span> If we don't hit the goal, we work for free until we do.</span>
+                          </li>
+                          <li className="flex items-start gap-3">
+                              <ShieldCheck className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
+                              <span><span className="font-bold text-white">True Partnership:</span> Your success is the only metric that matters to us.</span>
+                          </li>
+                      </ul>
+                  </div>
+              </AnimatedWrapper>
+              <AnimatedWrapper delay={200} className="[&.is-visible]:animate-slide-in-right">
+                  <Card className="bg-background border-accent/30 shadow-lg shadow-accent/10">
+                      <CardHeader>
+                          <CardTitle className="text-2xl text-accent">Who is a Qualifying Partner?</CardTitle>
+                          <CardDescription className="text-white/70">This guarantee applies to our 90-day custom packages.</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                          <p className="text-white/80">Our guarantee is designed for established businesses and experts who are ready for aggressive growth. A qualifying partner typically has:</p>
+                          <ul className="mt-4 list-disc list-inside text-sm text-white/70 space-y-1">
+                              <li>A proven business model and clear offer.</li>
+                              <li>An existing customer base or audience.</li>
+                              <li>Commitment to a collaborative 90-day strategic sprint.</li>
+                          </ul>
+                           <p className="mt-4 text-xs text-muted-foreground">The specific terms and revenue targets will be mutually agreed upon during our strategic discovery phase.</p>
+                      </CardContent>
+                  </Card>
+              </AnimatedWrapper>
+          </div>
+      </section>
+      
+      <section className="py-24 sm:py-32 bg-background border-y border-border">
         <div className="container mx-auto">
           <AnimatedWrapper className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">The ConteX Method: A System for Authority</h2>
@@ -129,50 +173,6 @@ export default function Home() {
               </Button>
           </AnimatedWrapper>
         </div>
-      </section>
-
-      <section className="py-24 sm:py-32 bg-card border-y border-border">
-          <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <AnimatedWrapper className="[&.is-visible]:animate-slide-in-left">
-                  <div className="max-w-xl">
-                      <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">Our 2X Revenue Guarantee</h2>
-                      <p className="mt-4 text-lg text-white/80" style={{lineHeight: 1.7}}>
-                          We don't just promise results; we guarantee them. For qualifying partners, we commit to doubling your monthly revenue from organic channels within 90 days of our partnership. This is our commitment to your growth.
-                      </p>
-                      <ul className="mt-6 space-y-3 text-white/80">
-                          <li className="flex items-start gap-3">
-                              <ShieldCheck className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
-                              <span><span className="font-bold text-white">A Bold Promise:</span> Double your organic revenue, guaranteed.</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                              <ShieldCheck className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
-                              <span><span className="font-bold text-white">Our Commitment:</span> If we don't hit the goal, we work for free until we do.</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                              <ShieldCheck className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
-                              <span><span className="font-bold text-white">True Partnership:</span> Your success is the only metric that matters to us.</span>
-                          </li>
-                      </ul>
-                  </div>
-              </AnimatedWrapper>
-              <AnimatedWrapper delay={200} className="[&.is-visible]:animate-slide-in-right">
-                  <Card className="bg-background border-accent/30 shadow-lg shadow-accent/10">
-                      <CardHeader>
-                          <CardTitle className="text-2xl text-accent">Who is a Qualifying Partner?</CardTitle>
-                          <CardDescription className="text-white/70">This guarantee applies to our 90-day custom packages.</CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                          <p className="text-white/80">Our guarantee is designed for established businesses and experts who are ready for aggressive growth. A qualifying partner typically has:</p>
-                          <ul className="mt-4 list-disc list-inside text-sm text-white/70 space-y-1">
-                              <li>A proven business model and clear offer.</li>
-                              <li>An existing customer base or audience.</li>
-                              <li>Commitment to a collaborative 90-day strategic sprint.</li>
-                          </ul>
-                           <p className="mt-4 text-xs text-muted-foreground">The specific terms and revenue targets will be mutually agreed upon during our strategic discovery phase.</p>
-                      </CardContent>
-                  </Card>
-              </AnimatedWrapper>
-          </div>
       </section>
 
        <section className="py-24 sm:py-32">
