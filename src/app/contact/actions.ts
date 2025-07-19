@@ -1,3 +1,4 @@
+
 'use server';
 
 import { z } from 'zod';
@@ -12,6 +13,7 @@ const leadSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters.'),
   email: z.string().email('Please enter a valid email address.'),
   phone: z.string().min(10, 'Please enter a valid phone number.').optional(),
+  services: z.array(z.string()).optional(),
   source: z.enum(['Strategy Call', 'Growth OS']),
 });
 
@@ -30,7 +32,11 @@ export async function submitLead(values: z.infer<typeof leadSchema>) {
     throw new Error('Recipient or Sender email is not configured. Please check your .env file.');
   }
 
-  const { name, email, phone, source } = parsed.data;
+  const { name, email, phone, services, source } = parsed.data;
+
+  const servicesHtml = services && services.length > 0 
+    ? `<h3>Services of Interest:</h3><ul>${services.map(s => `<li>${s}</li>`).join('')}</ul>`
+    : '';
 
   try {
     await resend.emails.send({
@@ -39,12 +45,14 @@ export async function submitLead(values: z.infer<typeof leadSchema>) {
       subject: source === 'Strategy Call' ? 'New Strategy Call Lead!' : 'New Growth OS Download Lead!',
       html: `
         <h1>New Lead Submission</h1>
-        <p>Source: ${source}</p>
+        <p><strong>Source:</strong> ${source}</p>
+        <h2>Contact Details</h2>
         <ul>
           <li><strong>Name:</strong> ${name}</li>
           <li><strong>Email:</strong> ${email}</li>
           ${phone ? `<li><strong>Phone:</strong> ${phone}</li>` : ''}
         </ul>
+        ${servicesHtml}
       `,
     });
   } catch (error: any) {
