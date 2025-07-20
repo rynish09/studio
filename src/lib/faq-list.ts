@@ -30,6 +30,10 @@ export const faqList: FAQ[] = [
     answer: "We are a strategic partner, not a content mill. We don't just 'make content'; we build enterprise value. Our focus is on long-term authority and creating 'class content'—assets so valuable, they become a moat for your business. We are operators who have studied and applied the playbooks of the world's best.",
   },
   {
+    question: "Will I have to shoot the video content myself?",
+    answer: "Yes, and we've optimized this to be incredibly efficient for you. While you could hire a professional videographer, self-shooting is far more cost-effective and authentic. We provide you with an extensive, structured tutorial that covers everything—from camera settings and lighting to achieving perfect sound quality. We make it easy for you to record high-quality footage without the high cost and scheduling headaches of a film crew.",
+  },
+  {
     question: "Do I need to be on every social media platform?",
     answer: "No. We focus on dominating the one or two platforms where your target audience lives. We believe in depth over width. We help you choose the right channels and then execute with excellence, rather than spreading your brand thin across every platform.",
   },
