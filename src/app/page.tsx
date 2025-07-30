@@ -101,6 +101,9 @@ export default function Home() {
                               <span><span className="font-bold text-white">True Partnership:</span> Your success is the only metric that matters to us.</span>
                           </li>
                       </ul>
+                      <Button asChild size="lg" className="mt-8" variant="outline">
+                        <Link href="/guarantee">Learn More</Link>
+                      </Button>
                   </div>
               </AnimatedWrapper>
               <AnimatedWrapper delay={200} className="[&.is-visible]:animate-slide-in-right">

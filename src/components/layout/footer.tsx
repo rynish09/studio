@@ -7,6 +7,7 @@ import { Github, Twitter, Linkedin, Youtube, Instagram } from 'lucide-react';
 const footerNav = [
   { href: '/services', label: 'Services' },
   { href: '/process', label: 'Process' },
+  { href: '/guarantee', label: 'Guarantee' },
   { href: '/results', label: 'Case Studies' },
   { href: '/blog', label: 'Blog' },
   { href: '/community', label: 'Community' },
